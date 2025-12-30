@@ -4,6 +4,7 @@
 	Fractal by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
 */
 
 html, body, div, span, applet, object,
@@ -4147,3 +4148,132 @@ input, select, textarea {
 		}
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer {
+  margin-top: 6rem;
+  color: #fff;
+}
+
+.footer-gradient {
+  background: linear-gradient(135deg, #4a98e5 0%, #2f6fb6 50%, #1e3f66 100%);
+  padding: 3rem 1.5rem 2rem;
+}
+
+.footer-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-name {
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-icons a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.footer-icons a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.footer-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+
+.footer-bottom {
+  max-width: 900px;
+  margin: 2rem auto 0;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .footer-wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.footer-icons a {
+  pointer-events: auto;
+}
+.footer-icons svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* GitHub stays filled */
+.footer-icons a:not(.icon-mail) svg {
+  fill: #fff;
+}
+
+/* Mail icon outline only */
+.icon-mail svg {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+}
