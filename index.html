@@ -121,200 +121,173 @@
 
 
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<!-- Slideshow Section -->
+<section id="slideshow-section" class="wrapper style2">
+    <div class="inner" style="text-align: center;">
+        <h2>Graphic Design Experience:</h2>
+        
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="https://pipchell.com/kartik.png" alt="Kartik Design">
+            </div>
 
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #ffffff;
-      padding: 2em 0;
-    }
+            <div class="slide">
+                <img src="https://pipchell.com/amazon.png" alt="Amazon Design">
+            </div>
 
-    h1 {
-      color: #828282;
-      font-size: 1.75em;
-      line-height: 1.5em;
-      font-weight: normal;
-      margin: 0 0 1.5em 0;
-      letter-spacing: -0.0125em;
-    }
+            <div class="slide">
+                <img src="https://pipchell.com/eco washing.png" alt="Eco Washing Design">
+            </div>
 
+            <div class="slide">
+                <img src="https://pipchell.com/redbubble.png" alt="Redbubble Design">
+            </div>
+
+            <div class="controls">
+                <button class="btn" onclick="changeSlide(-1)">‹</button>
+                <div class="indicators">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                </div>
+                <button class="btn" onclick="changeSlide(1)">›</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
     .slideshow-container {
-      position: relative;
-      max-width: 500px;
-      width: 90%;
-      background: #ffffff;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px #e6e6e6;
+        position: relative;
+        max-width: 500px;
+        width: 90%;
+        background: #ffffff;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px #e6e6e6;
+        margin: 0 auto;
     }
 
     .slide {
-      display: none;
-      position: relative;
+        display: none;
+        position: relative;
     }
 
     .slide.active {
-      display: block;
-      animation: fadeIn 0.5s;
+        display: block;
+        animation: fadeIn 0.5s;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
     .slide img {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      border-radius: 6px 6px 0 0;
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 6px 6px 0 0;
     }
 
     .controls {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 0;
-      background: #ffffff;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+        background: #ffffff;
     }
 
     .btn {
-      background: rgba(255, 255, 255, 0.9);
-      border: solid 2px #e6e6e6;
-      color: #828282;
-      font-size: 20px;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        border: solid 2px #e6e6e6;
+        color: #828282;
+        font-size: 20px;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .btn:hover {
-      background: #ffffff;
-      border-color: #4696e5;
-      color: #4696e5;
+        background: #ffffff;
+        border-color: #4696e5;
+        color: #4696e5;
     }
 
     .indicators {
-      display: flex;
-      gap: 8px;
-      align-items: center;
+        display: flex;
+        gap: 8px;
+        align-items: center;
     }
 
     .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #e6e6e6;
-      border: solid 2px #d6d6d6;
-      cursor: pointer;
-      transition: all 0.2s ease;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #e6e6e6;
+        border: solid 2px #d6d6d6;
+        cursor: pointer;
+        transition: all 0.2s ease;
     }
 
     .dot:hover {
-      background: #d6d6d6;
-      border-color: #4696e5;
+        background: #d6d6d6;
+        border-color: #4696e5;
     }
 
     .dot.active {
-      background: #4696e5;
-      border-color: #4696e5;
-      transform: scale(1.3);
+        background: #4696e5;
+        border-color: #4696e5;
+        transform: scale(1.3);
     }
-  </style>
-</head>
+</style>
 
-<body>
-  <h1>Graphic Design Experience:</h1>
-  <div class="slideshow-container">
-    <div class="slide active">
-      <img src="https://pipchell.com/kartik.png">
-    </div>
-
-    <div class="slide">
-      <img src="https://pipchell.com/amazon.png">
-    </div>
-
-    <div class="slide">
-      <img src="https://pipchell.com/eco washing.png">
-    </div>
-
-    <div class="slide">
-      <img src="https://pipchell.com/redbubble.png">
-    </div>
-
-    <div class="controls">
-      <button class="btn" onclick="changeSlide(-1)">‹</button>
-      <div class="indicators">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-        <span class="dot" onclick="goToSlide(3)"></span>
-      </div>
-      <button class="btn" onclick="changeSlide(1)">›</button>
-    </div>
-  </div>
-  </div>
-
-  <script>
+<script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     let autoPlayInterval;
 
     function showSlide(n) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
-      if (n >= slides.length) currentSlide = 0;
-      if (n < 0) currentSlide = slides.length - 1;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
     }
 
     function changeSlide(direction) {
-      currentSlide += direction;
-      showSlide(currentSlide);
-      resetAutoPlay();
+        currentSlide += direction;
+        showSlide(currentSlide);
+        resetAutoPlay();
     }
 
     function goToSlide(n) {
-      currentSlide = n;
-      showSlide(currentSlide);
-      resetAutoPlay();
+        currentSlide = n;
+        showSlide(currentSlide);
+        resetAutoPlay();
     }
 
     function autoPlay() {
-      currentSlide++;
-      showSlide(currentSlide);
+        currentSlide++;
+        showSlide(currentSlide);
     }
 
     function resetAutoPlay() {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = setInterval(autoPlay, 4000);
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(autoPlay, 4000);
     }
-    // Start autoplay
+
     autoPlayInterval = setInterval(autoPlay, 4000);
-  </script>
+</script>
 
 
 
@@ -646,6 +619,7 @@
 	</body>
 
 </html>
+
 
 
 
