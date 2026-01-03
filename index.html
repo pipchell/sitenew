@@ -121,180 +121,258 @@
 
 
 
-<!-- Slideshow Section -->
-<section id="slideshow-section" class="wrapper style2">
-    <div class="inner" style="text-align: center;">
-        <h2>Graphic Design Experience:</h2>
-        
-        <div class="slideshow-container">
-            <div class="slide active">
-                <img src="https://pipchell.com/kartik2.png" alt="Kartik Design">
-            </div>
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            <div class="slide">
-                <img src="https://pipchell.com/amazon2.png" alt="Amazon Design">
-            </div>
+        body {
+            background: #fbfbfb;
+            padding: 2em 0;
+        }
 
-            <div class="slide">
-                <img src="https://pipchell.com/eco washing2.png" alt="Eco Washing Design">
-            </div>
+        .slideshow-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5em;
+        }
 
-            <div class="slide">
-                <img src="https://pipchell.com/redbubble2.png" alt="Redbubble Design">
-            </div>
+        .slideshow-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3em;
+            align-items: start;
+        }
 
-            <div class="controls">
-                <button class="btn" onclick="changeSlide(-1)">‹</button>
-                <div class="indicators">
-                    <span class="dot active" onclick="goToSlide(0)"></span>
-                    <span class="dot" onclick="goToSlide(1)"></span>
-                    <span class="dot" onclick="goToSlide(2)"></span>
-                    <span class="dot" onclick="goToSlide(3)"></span>
+        @media (max-width: 980px) {
+            .slideshow-grid {
+                grid-template-columns: 1fr;
+                gap: 4em;
+            }
+        }
+
+        .slideshow-item {
+            text-align: center;
+        }
+
+        h2 {
+            color: #828282;
+            font-size: 1.75em;
+            line-height: 1.5em;
+            font-weight: normal;
+            margin: 0 0 1.5em 0;
+            letter-spacing: -0.0125em;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px #e6e6e6;
+            margin: 0 auto;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            border-radius: 6px 6px 0 0;
+            background: #ffffff;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            background: #ffffff;
+        }
+
+        .btn {
+            background-color: transparent;
+            color: #828282;
+            box-shadow: inset 0 0 0 2px #e6e6e6;
+            border: 0;
+            border-radius: 6px;
+            font-size: 20px;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: rgba(144, 144, 144, 0.075);
+        }
+
+        .btn:active {
+            background-color: rgba(144, 144, 144, 0.15);
+        }
+
+        .indicators {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e6e6e6;
+            border: solid 2px #d6d6d6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dot:hover {
+            background: #d6d6d6;
+            border-color: #4696e5;
+        }
+
+        .dot.active {
+            background: #4696e5;
+            border-color: #4696e5;
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-wrapper">
+        <div class="slideshow-grid">
+            <!-- Left Slideshow - Graphic Design -->
+            <div class="slideshow-item">
+                <h2>Graphic Design Experience:</h2>
+                <div class="slideshow-container" data-slideshow="1">
+                    <div class="slide active">
+                        <img src="https://pipchell.com/kartik2.png" alt="Kartik Design">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pipchell.com/amazon2.png" alt="Amazon Design">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pipchell.com/eco washing2.png" alt="Eco Washing Design">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pipchell.com/redbubble2.png" alt="Redbubble Design">
+                    </div>
+                    <div class="controls">
+                        <button class="btn" onclick="changeSlide(-1, 1)">‹</button>
+                        <div class="indicators">
+                            <span class="dot active" onclick="goToSlide(0, 1)"></span>
+                            <span class="dot" onclick="goToSlide(1, 1)"></span>
+                            <span class="dot" onclick="goToSlide(2, 1)"></span>
+                            <span class="dot" onclick="goToSlide(3, 1)"></span>
+                        </div>
+                        <button class="btn" onclick="changeSlide(1, 1)">›</button>
+                    </div>
                 </div>
-                <button class="btn" onclick="changeSlide(1)">›</button>
+            </div>
+
+            <!-- Right Slideshow - RPCgroup -->
+            <div class="slideshow-item">
+                <h2>RPCgroup:</h2>
+                <div class="slideshow-container" data-slideshow="2">
+                    <div class="slide active">
+                        <img src="https://pipchell.com/5.png" alt="RPC Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pipchell.com/6.png" alt="RPC Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pipchell.com/7.png" alt="RPC Image 3">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pipchell.com/8.png" alt="RPC Image 4">
+                    </div>
+                    <div class="controls">
+                        <button class="btn" onclick="changeSlide(-1, 2)">‹</button>
+                        <div class="indicators">
+                            <span class="dot active" onclick="goToSlide(0, 2)"></span>
+                            <span class="dot" onclick="goToSlide(1, 2)"></span>
+                            <span class="dot" onclick="goToSlide(2, 2)"></span>
+                            <span class="dot" onclick="goToSlide(3, 2)"></span>
+                        </div>
+                        <button class="btn" onclick="changeSlide(1, 2)">›</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
-<style>
-    .slideshow-container {
-        position: relative;
-        max-width: 500px;
-        width: 90%;
-        background: #ffffff;
-        border-radius: 6px;
-        overflow: hidden;
-        box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px #e6e6e6;
-        margin: 0 auto;
-    }
+    <script>
+        const slideshows = {
+            1: { currentSlide: 0, autoPlayInterval: null },
+            2: { currentSlide: 0, autoPlayInterval: null }
+        };
 
-    .slide {
-        display: none;
-        position: relative;
-    }
+        function showSlide(n, slideshowId) {
+            const container = document.querySelector(`[data-slideshow="${slideshowId}"]`);
+            const slides = container.querySelectorAll('.slide');
+            const dots = container.querySelectorAll('.dot');
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (n >= slides.length) slideshows[slideshowId].currentSlide = 0;
+            if (n < 0) slideshows[slideshowId].currentSlide = slides.length - 1;
+            
+            slides[slideshows[slideshowId].currentSlide].classList.add('active');
+            dots[slideshows[slideshowId].currentSlide].classList.add('active');
+        }
 
-    .slide.active {
-        display: block;
-        animation: fadeIn 0.5s;
-    }
+        function changeSlide(direction, slideshowId) {
+            slideshows[slideshowId].currentSlide += direction;
+            showSlide(slideshows[slideshowId].currentSlide, slideshowId);
+            resetAutoPlay(slideshowId);
+        }
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+        function goToSlide(n, slideshowId) {
+            slideshows[slideshowId].currentSlide = n;
+            showSlide(slideshows[slideshowId].currentSlide, slideshowId);
+            resetAutoPlay(slideshowId);
+        }
 
-    .slide img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        border-radius: 6px 6px 0 0;
-    }
+        function autoPlay(slideshowId) {
+            slideshows[slideshowId].currentSlide++;
+            showSlide(slideshows[slideshowId].currentSlide, slideshowId);
+        }
 
-    .controls {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-        justify-content: center;
-        padding: 20px 0;
-        background: #ffffff;
-    }
+        function resetAutoPlay(slideshowId) {
+            clearInterval(slideshows[slideshowId].autoPlayInterval);
+            slideshows[slideshowId].autoPlayInterval = setInterval(() => autoPlay(slideshowId), 4000);
+        }
 
-    .btn {
-        background-color: transparent;
-        color: #828282;
-        box-shadow: inset 0 0 0 2px #e6e6e6;
-        border: 0;
-        border-radius: 6px;
-        font-size: 20px;
-        width: 44px;
-        height: 44px;
-        cursor: pointer;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-    }
-
-    .btn:hover {
-        background-color: rgba(144, 144, 144, 0.075);
-    }
-
-    .btn:active {
-        background-color: rgba(144, 144, 144, 0.15);
-    }
-
-    .indicators {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-    }
-
-    .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #e6e6e6;
-        border: solid 2px #d6d6d6;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .dot:hover {
-        background: #d6d6d6;
-        border-color: #4696e5;
-    }
-
-    .dot.active {
-        background: #4696e5;
-        border-color: #4696e5;
-        transform: scale(1.3);
-    }
-</style>
-
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    let autoPlayInterval;
-
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        if (n >= slides.length) currentSlide = 0;
-        if (n < 0) currentSlide = slides.length - 1;
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-
-    function changeSlide(direction) {
-        currentSlide += direction;
-        showSlide(currentSlide);
-        resetAutoPlay();
-    }
-
-    function goToSlide(n) {
-        currentSlide = n;
-        showSlide(currentSlide);
-        resetAutoPlay();
-    }
-
-    function autoPlay() {
-        currentSlide++;
-        showSlide(currentSlide);
-    }
-
-    function resetAutoPlay() {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = setInterval(autoPlay, 4000);
-    }
-
-    autoPlayInterval = setInterval(autoPlay, 4000);
-</script>
-
-
-
+        // Start autoplay for both slideshows
+        slideshows[1].autoPlayInterval = setInterval(() => autoPlay(1), 4000);
+        slideshows[2].autoPlayInterval = setInterval(() => autoPlay(2), 4000);
+    </script>
 
 
 
@@ -623,6 +701,7 @@
 	</body>
 
 </html>
+
 
 
 
