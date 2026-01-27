@@ -116,13 +116,6 @@
 				</div>
 			</section>
 
-
-
-
-
-
-
-
  <style>
         * {
             margin: 0;
@@ -384,9 +377,6 @@
         slideshows[2].autoPlayInterval = setInterval(() => autoPlay(2), 4000);
     </script>
 
-
-
-
 		
 		<!-- Three -->
 			<section id="three" class="wrapper style2 special">
@@ -395,66 +385,55 @@
 					<p>All of my project files are avalible on my GitHub page. You can see them here.</p>
 				</header>
 				<ul class="actions special">
-					<li><a href="https://github.com/pipchell/" target=”_blank” class="button primary">GitHub</a></li>
+					<li><a href="https://github.com/pipchell/" target="_blank" class="button primary">GitHub</a></li>
 				</ul>
 			</section>
 
-			<section id="three" class="wrapper style2 special">
-				<header class="major">
-					<h2>Contact</h2>
-					<p>You can reach me via email.</p>
-				</header>
-				<ul class="actions special">
-					<li><a href="mailto:pip@pipchell.com" target=”_blank” class="button primary">Personal</a></li>
-					<li><a href="mailto:hi@pipchell.com" target=”_blank” class="button primary">Site</a></li>
-	                <li><a href="mailto:support@pipchell.com" target=”_blank” class="button primary">Support</a></li>
-				</ul>
+			<!-- Contact Form -->
+			<section id="contact" class="wrapper style1">
+				<div class="inner" style="max-width: 50em;">
+					<header class="major">
+						<h2>Contact</h2>
+						<p>Feel free to reach out! I'd love to hear from you.</p>
+					</header>
+					
+					<form id="contactForm" action="contact-handler.php" method="POST">
+						<div class="row gtr-uniform">
+							<div class="col-6 col-12-xsmall">
+								<label for="name">Name</label>
+								<input type="text" id="name" name="name" placeholder="Your name" required>
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<label for="email">Email</label>
+								<input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+							</div>
+							<div class="col-12">
+								<label for="message">Message</label>
+								<textarea id="message" name="message" placeholder="Your message..." rows="6" required></textarea>
+							</div>
+							<div class="col-12">
+								<ul class="actions special">
+									<li><button type="submit" class="button primary">Send Message</button></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+
+					<div id="successMessage" style="display: none; background-color: rgba(255, 255, 255, 0.15); border: solid 2px rgba(255, 255, 255, 0.25); border-radius: 6px; padding: 1.5em; margin-top: 2em; color: #ffffff; text-align: center;">
+						<strong>Thanks for reaching out!</strong>
+						<p style="margin: 0.5em 0 0 0;">Your message has been sent successfully.</p>
+					</div>
+
+					<p style="margin-top: 2em; text-align: center;">Or email me directly:</p>
+					<ul class="actions special">
+						<li><a href="mailto:pip@pipchell.com" target="_blank" class="button">Personal</a></li>
+						<li><a href="mailto:hi@pipchell.com" target="_blank" class="button">Site</a></li>
+						<li><a href="mailto:support@pipchell.com" target="_blank" class="button">Support</a></li>
+					</ul>
+				</div>
 			</section>
-
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
-		
-
-
-
-
-
-
-	
 
 		<!-- Footer -->
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		<style>
         :root {
             --cta-bg: #FBFBFB;
@@ -477,36 +456,34 @@
             background-color: #ffffff;
         }
 
-			/* Make the header section full viewport height */
-#header {
-    min-height: 100vh; /* Makes it at least the height of the viewport */
-    display: flex;
-    align-items: center; /* Vertically center content */
-}
+		/* Make the header section full viewport height */
+		#header {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+		}
 
-/* If the header has existing flex properties, you might need: */
-#header .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-}
+		#header .content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
 
-/* Or if you want everything in the header centered: */
-#header {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+		#header {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
 
-	        p {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 10vh;
-        }
+		p {
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			min-height: 10vh;
+		}
         
         main {
             flex-grow: 1;
@@ -603,42 +580,42 @@
         }
 
 		.footer-agency__copyright {
-    text-align: center;
-    color: var(--footer-text);
-    font-size: 0.875rem;
-    margin-top: 1rem;
-	font-family: Arial, Helvetica, sans-serif !important;
-	font-weight: normal;		
-}
+			text-align: center;
+			color: var(--footer-text);
+			font-size: 0.875rem;
+			margin-top: 1rem;
+			font-family: Arial, Helvetica, sans-serif !important;
+			font-weight: normal;		
+		}
 
-			/* Add this to your existing CSS */
-.footer-agency__nav ul {
-    justify-content: center !important;
-    width: 100%;
-}
+		/* Add this to your existing CSS */
+		.footer-agency__nav ul {
+			justify-content: center !important;
+			width: 100%;
+		}
 
-.footer-agency__nav {
-    width: 100%;
-}
+		.footer-agency__nav {
+			width: 100%;
+		}
 
-.footer-agency__nav li {
-    display: inline-block;
-}
+		.footer-agency__nav li {
+			display: inline-block;
+		}
 
-.footer-agency__nav a.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
+		.footer-agency__nav a.button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			padding: 10px 20px;
+			background-color: rgba(255, 255, 255, 0.1);
+			border-radius: 4px;
+			transition: background-color 0.2s;
+		}
 
-.footer-agency__nav a.button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+		.footer-agency__nav a.button:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
         
         /* Media query for larger screens */
         @media (min-width: 768px) {
@@ -650,8 +627,7 @@
             }
         }
     </style>
-</head>
-<body>
+
     <footer class="footer-agency" role="contentinfo">
         <section class="footer-agency__cta" aria-labelledby="cta-heading">
             <div class="container">
@@ -671,144 +647,65 @@
                 </nav>
             </div>
 
-		
-<p class="footer-agency__copyright" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; line-height: 5em; letter-spacing: -0.015em; text-align: center;">&copy; 2026 Pip Chell</p>
-
+			<p class="footer-agency__copyright" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; line-height: 5em; letter-spacing: -0.015em; text-align: center;">&copy; 2026 Pip Chell</p>
         </section>
     </footer>
 
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<!-- Contact Form Script -->
+	<script>
+	document.getElementById('contactForm').addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		const form = this;
+		const successMessage = document.getElementById('successMessage');
+		const button = form.querySelector('button[type="submit"]');
+		const formData = new FormData(form);
+		
+		button.textContent = 'Sending...';
+		button.disabled = true;
+		
+		fetch('contact-handler.php', {
+			method: 'POST',
+			body: formData
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.success) {
+				form.style.display = 'none';
+				successMessage.style.display = 'block';
+				
+				setTimeout(() => {
+					form.reset();
+					form.style.display = 'block';
+					button.textContent = 'Send Message';
+					button.disabled = false;
+					
+					setTimeout(() => {
+						successMessage.style.display = 'none';
+					}, 3000);
+				}, 2000);
+			} else {
+				alert('Error: ' + data.message);
+				button.textContent = 'Send Message';
+				button.disabled = false;
+			}
+		})
+		.catch(error => {
+			alert('There was an error sending your message. Please try again.');
+			console.error('Error:', error);
+			button.textContent = 'Send Message';
+			button.disabled = false;
+		});
+	});
+	</script>
 
 	</body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
