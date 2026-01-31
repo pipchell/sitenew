@@ -59,6 +59,54 @@ html, body {
 }
 </style>
 
+
+<style>
+/* Modal container */
+.contact-modal {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 250px;
+  background: #111; /* dark background matching site */
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 15px;
+  display: none; /* hidden by default */
+  z-index: 9999;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Modal content */
+.contact-modal p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.contact-modal a {
+  color: #17D860; /* your site’s green accent */
+  text-decoration: none;
+}
+
+.contact-modal a:hover {
+  text-decoration: underline;
+}
+
+/* Close button */
+.contact-modal .close {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+</head>
+
+
+		
 	</head>
 	<body class="is-preload">
 
@@ -617,32 +665,43 @@ html, body {
 }
 </style>
 
-<!-- Modal JS -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.getElementById("contactModal");
-  const closeBtn = modal.querySelector(".close");
+  const modal = document.getElementById('contactModal');
+  const closeBtn = modal.querySelector('.close');
 
-  // Check if modal was already closed
-  if (!localStorage.getItem("contactModalClosed")) {
-    // Show modal after scrolling past header
-    window.addEventListener("scroll", function() {
-      const header = document.getElementById("header");
-      if (header && window.scrollY > header.offsetHeight) {
-        modal.style.display = "block";
+  // Check if modal was dismissed
+  const dismissed = localStorage.getItem('contactModalDismissed');
+
+  if (!dismissed) {
+    // Show modal when user scrolls past header
+    window.addEventListener('scroll', function showModal() {
+      const header = document.getElementById('header');
+      if (window.scrollY > header.offsetHeight) {
+        modal.style.display = 'block';
+        window.removeEventListener('scroll', showModal); // only trigger once
       }
     });
   }
 
-  // Close button click
-  closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-    localStorage.setItem("contactModalClosed", "true");
+  // Close button
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    localStorage.setItem('contactModalDismissed', 'true'); // won't show again on reload
   });
 });
 </script>
 
 
+<!-- Contact Modal -->
+<div id="contactModal" class="contact-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Hey! Want to get in touch? Email me at <a href="mailto:hi@pipchell.com">hi@pipchell.com</a></p>
+  </div>
+</div>
+
+	
 
 
 	<!-- Scripts -->
@@ -655,6 +714,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
+
 
 
 
