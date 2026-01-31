@@ -4356,6 +4356,13 @@ body {
     }
 }
 
+/* Target iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    #header {
+        min-height: 120vh; /* 120% of viewport height */
+    }
+}
+
 
 
 
