@@ -4324,14 +4324,15 @@ body {
 }
 
 
-/* Center IoT, KDP, SEO sections */
+/* Center IoT, KDP, SEO sections and add padding on mobile */
 #iot .inner,
 #kdp .inner,
 #seo .inner {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centers horizontally */
-    text-align: center;  /* centers text inside elements */
+    align-items: center; /* center horizontally */
+    text-align: center;  /* center text inside elements */
+    padding: 0 1em; /* small horizontal padding for all screens */
 }
 
 #iot .inner h2,
@@ -4343,6 +4344,18 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Extra padding for small screens */
+@media (max-width: 736px) {
+    #iot .inner p,
+    #kdp .inner p,
+    #seo .inner p,
+    .footer-agency__nav ul li a.button {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+
 
 
 
