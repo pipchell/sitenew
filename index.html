@@ -439,82 +439,96 @@
 
 		<!-- Footer -->
 	<!-- Footer -->
+<!-- Footer -->
 <style>
 :root {
     --footer-bg: #FBFBFB;
     --footer-text: #828282;
-    --footer-link-hover: #4A98E5;
+    --footer-link: #828282;
+    --footer-link-hover: #4696e5;
 }
 
+/* Footer container */
 .footer-agency__bottom {
     background-color: var(--footer-bg);
-    color: var(--footer-text);
     padding: 3rem 0 2rem 0;
 }
 
-.footer-agency__nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+/* Layout */
+.footer-agency__bottom-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
 }
 
-.footer-agency__nav a {
-    color: var(--footer-text) !important;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.footer-agency__nav a.button {
-    display: inline-flex;
-    align-items: center;
+/* Navigation */
+.footer-agency__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
     justify-content: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
-    transition: background-color 0.2s;
+    flex-wrap: wrap;
 }
 
-.footer-agency__nav a.button:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+.footer-agency__nav a {
+    color: var(--footer-link) !important;
+    border-bottom: none;
 }
 
+.footer-agency__nav a:hover {
+    color: var(--footer-link-hover) !important;
+}
+
+/* Pronouns */
 .footer-pronouns {
-    text-align: center;
     font-size: 0.9rem;
     color: var(--footer-text);
-    margin-top: 2rem;
+    text-align: center;
+    margin-top: 1rem;
 }
 
+/* Copyright */
 .footer-agency__copyright {
-    text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     color: var(--footer-text);
-    margin-top: 0.5rem;
+    text-align: center;
+    margin-top: 0.25rem;
+    letter-spacing: -0.015em;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .footer-agency__bottom-container {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 </style>
 
 <section class="footer-agency__bottom">
-    <div class="container">
+    <div class="container footer-agency__bottom-container">
         <nav class="footer-agency__nav" aria-label="Footer Navigation">
             <ul>
-                <li><a href="#header" class="button icon solid fa-chevron-up scrolly">Home</a></li>
-                <li><a href="#one" class="button icon solid fa-chevron-up scrolly">About</a></li>
-                <li><a href="#two" class="button icon solid fa-chevron-up scrolly">Interests</a></li>
+                <li>
+                    <a href="#header" class="button icon solid fa-chevron-up scrolly">Home</a>
+                </li>
+                <li>
+                    <a href="#one" class="button icon solid fa-chevron-up scrolly">About</a>
+                </li>
+                <li>
+                    <a href="#two" class="button icon solid fa-chevron-up scrolly">Interests</a>
+                </li>
             </ul>
         </nav>
-
-        <div class="footer-pronouns">
-            He / Him
-        </div>
-
-        <div class="footer-agency__copyright">
-            &copy; 2026 Pip Chell
-        </div>
     </div>
+
+    <p class="footer-pronouns">He / Him</p>
+    <p class="footer-agency__copyright">
+        &copy; 2026 Pip Chell
+    </p>
 </section>
 
 
@@ -529,6 +543,7 @@
 
 	</body>
 </html>
+
 
 
 
