@@ -677,23 +677,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<script>
-  function setHeaderHeight() {
-    const header = document.getElementById('header');
-    if (!header) return;
-
-    // Use window.innerHeight plus some extra to cover Safari address bar
-    let extra = 80; // tweak this if needed
-    header.style.minHeight = (window.innerHeight + extra) + 'px';
-  }
-
-  // Set on load
-  setHeaderHeight();
-
-  // Update on resize/orientation change
-  window.addEventListener('resize', setHeaderHeight);
-  window.addEventListener('orientationchange', setHeaderHeight);
-</script>
 
 
 
@@ -712,6 +695,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
+
 
 
 
