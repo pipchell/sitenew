@@ -4324,28 +4324,25 @@ body {
 }
 
 
-/* Center text in IoT, KDP, SEO sections */
-#wrapper iot,
-#wrapper kdp,
-#wrapper seo {
-    text-align: center;
-}
-
-section#wrapper iot .inner,
-section#wrapper kdp .inner,
-section#wrapper seo .inner {
+/* Center IoT, KDP, SEO sections */
+#iot .inner,
+#kdp .inner,
+#seo .inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* centers horizontally */
+    text-align: center;  /* centers text inside elements */
 }
 
-section#wrapper iot .inner h2,
-section#wrapper kdp .inner h2,
-section#wrapper seo .inner h2,
-section#wrapper iot .inner p,
-section#wrapper kdp .inner p,
-section#wrapper seo .inner p {
-    text-align: center;
+#iot .inner h2,
+#kdp .inner h2,
+#seo .inner h2,
+#iot .inner p,
+#kdp .inner p,
+#seo .inner p {
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 
