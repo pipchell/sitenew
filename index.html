@@ -569,7 +569,7 @@ html, body {
 
 
 
-   <!-- Contact Modal -->
+<!-- Contact Modal -->
 <div id="contactModal" class="contact-modal">
     <div class="contact-modal-content">
         <span id="closeModal" class="contact-modal-close">&times;</span>
@@ -578,7 +578,6 @@ html, body {
 </div>
 
 <style>
-    /* Modal styling to match your theme */
     .contact-modal {
         position: fixed;
         bottom: 20px;
@@ -624,26 +623,31 @@ html, body {
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const modal = document.getElementById("contactModal");
-        const closeBtn = document.getElementById("closeModal");
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("contactModal");
+    const closeBtn = document.getElementById("closeModal");
+    const header = document.getElementById("header");
 
-        if (!localStorage.getItem("contactModalClosed")) {
-            window.addEventListener("scroll", function() {
-                const header = document.getElementById("header");
-                if (window.scrollY > header.offsetHeight) {
-                    modal.style.display = "block";
-                } else {
-                    modal.style.display = "none";
-                }
-            });
-        }
+    // If modal was previously closed, do nothing
+    let permanentlyClosed = localStorage.getItem("contactModalClosed");
 
-        closeBtn.addEventListener("click", function() {
+    // Show/hide modal on scroll
+    window.addEventListener("scroll", function() {
+        if (permanentlyClosed) return;
+        if (window.scrollY > header.offsetHeight) {
+            modal.style.display = "block";
+        } else {
             modal.style.display = "none";
-            localStorage.setItem("contactModalClosed", "true");
-        });
+        }
     });
+
+    // Close permanently on X click
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+        permanentlyClosed = true;
+        localStorage.setItem("contactModalClosed", "true");
+    });
+});
 </script>
 
 
@@ -662,6 +666,7 @@ html, body {
 
 	</body>
 </html>
+
 
 
 
