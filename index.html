@@ -677,12 +677,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-	<script>
+<script>
   function setHeaderHeight() {
-    // Get the actual viewport height
-    let vh = window.innerHeight * 0.01;
-    // Set it as a CSS variable
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    // Use window.innerHeight plus some extra to cover Safari address bar
+    let extra = 80; // tweak this if needed
+    header.style.minHeight = (window.innerHeight + extra) + 'px';
   }
 
   // Set on load
@@ -693,13 +695,6 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener('orientationchange', setHeaderHeight);
 </script>
 
-<style>
-  /* Apply dynamic height to your header */
-  #header {
-    height: calc(var(--vh, 1vh) * 100);
-    min-height: calc(var(--vh, 1vh) * 100);
-  }
-</style>
 
 
 
@@ -717,6 +712,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
+
 
 
 
