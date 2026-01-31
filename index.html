@@ -59,54 +59,6 @@ html, body {
 }
 </style>
 
-
-<style>
-/* Modal container */
-.contact-modal {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 250px;
-  background: #111; /* dark background matching site */
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  padding: 15px;
-  display: none; /* hidden by default */
-  z-index: 9999;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-/* Modal content */
-.contact-modal p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.contact-modal a {
-  color: #17D860; /* your site’s green accent */
-  text-decoration: none;
-}
-
-.contact-modal a:hover {
-  text-decoration: underline;
-}
-
-/* Close button */
-.contact-modal .close {
-  position: absolute;
-  top: 5px;
-  right: 8px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-</head>
-
-
-		
 	</head>
 	<body class="is-preload">
 
@@ -125,7 +77,7 @@ html, body {
 		<!-- One -->
 			<section id="one" class="wrapper style2 special">
 				<header class="major">
-					<h2>I have experience with graphic design and computer shenanigans.</h2>
+					<h2>Experience with graphic design and computer shenanigans.</h2>
 				</header>
 				<ul class="icons major">
 					<li><span class="icon solid fa-computer"><span class="label">Computer Stuff</span></span></li>
@@ -616,94 +568,6 @@ html, body {
 
 
 
-	
-	<!-- Modal HTML -->
-<div id="contactModal" style="display:none;">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Want to get in touch? Email me at <a href="mailto:hi@pipchell.com">hi@pipchell.com</a></p>
-  </div>
-</div>
-
-<!-- Modal CSS -->
-<style>
-#contactModal {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 9999;
-  background: #17D860; /* match site theme */
-  color: #fff;
-  padding: 1em 1.2em;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  max-width: 260px;
-  font-family: Arial, sans-serif;
-  font-size: 0.95em;
-  line-height: 1.4em;
-}
-
-#contactModal .close {
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1.2em;
-}
-
-#contactModal a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-#contactModal a:hover {
-  color: #fff;
-  opacity: 0.9;
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.getElementById('contactModal');
-  const closeBtn = modal.querySelector('.close');
-
-  // Check if modal was dismissed
-  const dismissed = localStorage.getItem('contactModalDismissed');
-
-  if (!dismissed) {
-    // Show modal when user scrolls past header
-    window.addEventListener('scroll', function showModal() {
-      const header = document.getElementById('header');
-      if (window.scrollY > header.offsetHeight) {
-        modal.style.display = 'block';
-        window.removeEventListener('scroll', showModal); // only trigger once
-      }
-    });
-  }
-
-  // Close button
-  closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none';
-    localStorage.setItem('contactModalDismissed', 'true'); // won't show again on reload
-  });
-});
-</script>
-
-
-<!-- Contact Modal -->
-<div id="contactModal" class="contact-modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Hey! Want to get in touch? Email me at <a href="mailto:hi@pipchell.com">hi@pipchell.com</a></p>
-  </div>
-</div>
-
-	
-
-
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -714,9 +578,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
-
-
-
 
 
 
