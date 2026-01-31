@@ -29,6 +29,14 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+#header {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
 body {
 	line-height: 1;
 }
@@ -4289,4 +4297,5 @@ body {
 #footer {
   margin-top: auto;
 }
+
 
