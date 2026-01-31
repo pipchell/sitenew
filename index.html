@@ -574,4 +574,142 @@ html, body {
                 <li>
                     <a href="#one" class="button icon solid fa-chevron-up scrolly">About</a>
                 </li>
-  
+                <li>
+                    <a href="#two" class="button icon solid fa-chevron-up scrolly">Interests</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <p class="footer-pronouns">He / Him</p>
+    <p class="footer-agency__copyright">
+        &copy; 2026 Pip Chell
+    </p>
+	<p class="footer-pronouns">Site custom made by Pip</p>
+</section>
+
+
+
+
+<!-- Contact Modal -->
+<div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+        <span id="closeModal" class="contact-modal-close">&times;</span>
+        <p>Contact me at <a href="mailto:hi@pipchell.com">hi@pipchell.com</a></p>
+    </div>
+</div>
+
+<style>
+    .contact-modal {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #FBFBFB;
+        border: 1px solid #e6e6e6;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        z-index: 1000;
+        display: none;
+        font-family: Arial, Helvetica, sans-serif;
+        min-width: 220px;
+    }
+
+    .contact-modal-content p {
+        margin: 0;
+        color: #828282;
+        font-size: 0.95rem;
+    }
+
+    .contact-modal a {
+        color: #4696e5;
+        text-decoration: none;
+    }
+
+    .contact-modal a:hover {
+        text-decoration: underline;
+    }
+
+    .contact-modal-close {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #828282;
+    }
+
+    .contact-modal-close:hover {
+        color: #4696e5;
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("contactModal");
+    const closeBtn = document.getElementById("closeModal");
+    const header = document.getElementById("header");
+
+    // If modal was previously closed, do nothing
+    let permanentlyClosed = localStorage.getItem("contactModalClosed");
+
+    // Show/hide modal on scroll
+    window.addEventListener("scroll", function() {
+        if (permanentlyClosed) return;
+        if (window.scrollY > header.offsetHeight) {
+            modal.style.display = "block";
+        } else {
+            modal.style.display = "none";
+        }
+    });
+
+    // Close permanently on X click
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+        permanentlyClosed = true;
+        localStorage.setItem("contactModalClosed", "true");
+    });
+});
+</script>
+
+
+
+
+
+	
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
