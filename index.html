@@ -61,25 +61,7 @@ html, body {
 
 
 
-		<script>
-function adjustHeaderHeight() {
-    const header = document.getElementById('header');
-    if (!header) return;
-
-    // On iOS Safari, window.innerHeight is the visible height excluding the address bar
-    // Multiply by 1.05–1.1 to extend slightly beyond to prevent cutoff
-    let newHeight = window.innerHeight * 1.1; 
-    header.style.minHeight = newHeight + 'px';
-}
-
-// Set header height on load
-window.addEventListener('load', adjustHeaderHeight);
-
-// Update header height on resize or orientation change
-window.addEventListener('resize', adjustHeaderHeight);
-window.addEventListener('orientationchange', adjustHeaderHeight);
-</script>
-
+		
 	</head>
 	<body class="is-preload">
 
@@ -694,6 +676,32 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
+<script>
+function setHeaderHeight() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Detect iOS Safari
+    const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+
+    if (isIOS) {
+        // Use innerHeight for iOS Safari to fill viewport including address bar
+        header.style.minHeight = window.innerHeight + 'px';
+    } else {
+        // Use normal 100vh for other browsers
+        header.style.minHeight = '100vh';
+    }
+}
+
+// Run on load
+window.addEventListener('load', setHeaderHeight);
+
+// Update on resize / orientation change
+window.addEventListener('resize', setHeaderHeight);
+window.addEventListener('orientationchange', setHeaderHeight);
+</script>
 
 
 
@@ -709,6 +717,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
+
 
 
 
