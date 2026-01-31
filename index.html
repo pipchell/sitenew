@@ -438,216 +438,86 @@
 			</section>
 
 		<!-- Footer -->
-		<style>
-        :root {
-            --cta-bg: #FBFBFB;
-            --cta-heading-color: #828282;
-            --cta-link-color: #4A98e5;
-            --cta-link-hover-color: #5CA3E8;
+	<!-- Footer -->
+<style>
+:root {
+    --footer-bg: #FBFBFB;
+    --footer-text: #828282;
+    --footer-link-hover: #4A98E5;
+}
 
-            --footer-bg: #4A98E5;
-            --footer-text: #ffffff;
-            --footer-link-hover: #ffffff;
-        }
+.footer-agency__bottom {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 3rem 0 2rem 0;
+}
 
-        /* Basic body styles */
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #ffffff;
-        }
+.footer-agency__nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
 
-		/* Make the header section full viewport height */
-		#header {
-			min-height: 100vh;
-			display: flex;
-			align-items: center;
-		}
+.footer-agency__nav a {
+    color: var(--footer-text) !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
 
-		#header .content {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
+.footer-agency__nav a.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
 
-		#header {
-			min-height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-		}
+.footer-agency__nav a.button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
-		p {
-			font-family: Arial, Helvetica, sans-serif;
-			margin: 0;
-			display: flex;
-			flex-direction: column;
-			min-height: 10vh;
-        }
-        
-        main {
-            flex-grow: 1;
-        }
+.footer-pronouns {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    margin-top: 2rem;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.footer-agency__copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--footer-text);
+    margin-top: 0.5rem;
+}
+</style>
 
-        .main-content {
-            padding: 2rem 0;
-        }
+<section class="footer-agency__bottom">
+    <div class="container">
+        <nav class="footer-agency__nav" aria-label="Footer Navigation">
+            <ul>
+                <li><a href="#header" class="button icon solid fa-chevron-up scrolly">Home</a></li>
+                <li><a href="#one" class="button icon solid fa-chevron-up scrolly">About</a></li>
+                <li><a href="#two" class="button icon solid fa-chevron-up scrolly">Interests</a></li>
+            </ul>
+        </nav>
 
-        /* FOOTER STYLES START HERE */
-        
-        .footer-agency {
-            text-align: center;
-        }
+        <div class="footer-pronouns">
+            He / Him
+        </div>
 
-        /* CTA Section */
-        .footer-agency__cta {
-            background-color: var(--cta-bg);
-            padding: 4rem 1.5rem;
-        }
-
-        .footer-agency__cta-heading {
-            font-size: 2.5rem;
-            font-weight: normal;
-            color: var(--cta-heading-color);
-            margin: 0 0 1rem 0;
-        }
-
-        .footer-agency__cta-link {
-            font-size: 1.5rem;
-            font-weight: normal;
-            color: var(--cta-link-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-agency__cta-link:hover {
-            color: var(--cta-link-hover-color);
-            text-decoration: underline;
-        }
-
-        /* Bottom Bar Section */
-        .footer-agency__bottom {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            padding: 2rem 0;
-        }
-
-        .footer-agency__bottom-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .footer-agency__nav ul,
-        .footer-agency__social ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .footer-agency__nav a,
-        .footer-agency__social a {
-            color: var(--footer-text) !important;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .footer-agency__nav a:hover,
-        .footer-agency__social a:hover {
-            color: var(--footer-link-hover);
-        }
-
-        .footer-agency__social svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
-
-        .footer-agency__copyright {
-            font-size: 0.875rem;
-        }
-
-		.footer-agency__copyright {
-			text-align: center;
-			color: var(--footer-text);
-			font-size: 0.875rem;
-			margin-top: 1rem;
-			font-family: Arial, Helvetica, sans-serif !important;
-			font-weight: normal;		
-		}
-
-		/* Add this to your existing CSS */
-		.footer-agency__nav ul {
-			justify-content: center !important;
-			width: 100%;
-		}
-
-		.footer-agency__nav {
-			width: 100%;
-		}
-
-		.footer-agency__nav li {
-			display: inline-block;
-		}
-
-		.footer-agency__nav a.button {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			text-decoration: none;
-			padding: 10px 20px;
-			background-color: rgba(255, 255, 255, 0.1);
-			border-radius: 4px;
-			transition: background-color 0.2s;
-		}
-
-		.footer-agency__nav a.button:hover {
-			background-color: rgba(255, 255, 255, 0.2);
-		}
-        
-        /* Media query for larger screens */
-        @media (min-width: 768px) {
-            .footer-agency__cta-heading { font-size: 3rem; }
-            .footer-agency__cta-link { font-size: 1.75rem; }
-            .footer-agency__bottom-container {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
-    </style>
+        <div class="footer-agency__copyright">
+            &copy; 2026 Pip Chell
+        </div>
+    </div>
+</section>
 
 
-
-        <section class="footer-agency__bottom">
-            <div class="container footer-agency__bottom-container">
-                <nav class="footer-agency__nav" aria-label="Footer Navigation">
-                    <ul>
-                        <li><a href="#header" class = "button icon solid fa-chevron-up scrolly">Home</a></li>
-                        <li><a href="#one" class = "button icon solid fa-chevron-up scrolly">About</a></li>
-                        <li><a href="#two" class = "button icon solid fa-chevron-up scrolly">Interests</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-			<p class="footer-agency__copyright" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; line-height: 5em; letter-spacing: -0.015em; text-align: center;">&copy; 2026 Pip Chell</p>
-        </section>
-    </footer>
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -659,5 +529,6 @@
 
 	</body>
 </html>
+
 
 
