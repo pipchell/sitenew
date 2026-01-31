@@ -4309,18 +4309,19 @@ body {
 /* Footer buttons responsive */
 @media (max-width: 736px) {
     .footer-agency__nav ul {
-        flex-wrap: wrap;       /* allow buttons to go to next row */
-        justify-content: center; /* center buttons */
-        gap: 0.75rem;          /* add a small gap between buttons */
+        flex-wrap: wrap !important;       /* allow buttons to go to next row */
+        justify-content: center !important; /* center buttons */
+        gap: 0.75rem !important;          /* add a small gap between buttons */
     }
 
     .footer-agency__nav a.button {
-        padding: 0.5em 1em;    /* increase padding so text isn’t too close to edges */
-        font-size: 0.875rem;   /* adjust size if needed */
-        min-width: 120px;      /* optional: prevent buttons from being too narrow */
-        box-sizing: border-box;
-        text-align: center;
+        padding: 0.5em 1em !important;    /* increase padding so text isn’t too close to edges */
+        font-size: 0.875rem !important;   /* adjust size if needed */
+        min-width: 120px !important;      /* optional: prevent buttons from being too narrow */
+        box-sizing: border-box !important;
+        text-align: center !important;
     }
 }
+
 
 
