@@ -675,33 +675,25 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-
 <script>
-function setHeaderHeight() {
+function updateHeaderHeight() {
     const header = document.getElementById('header');
     if (!header) return;
 
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-    // Detect iOS Safari
-    const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-
-    if (isIOS) {
-        // Use innerHeight for iOS Safari to fill viewport including address bar
-        header.style.minHeight = window.innerHeight + 'px';
-    } else {
-        // Use normal 100vh for other browsers
-        header.style.minHeight = '100vh';
-    }
+    // Always use innerHeight for all devices to fix iOS Safari issues
+    header.style.height = window.innerHeight + 'px';
+    header.style.minHeight = window.innerHeight + 'px';
 }
 
 // Run on load
-window.addEventListener('load', setHeaderHeight);
+window.addEventListener('load', updateHeaderHeight);
 
-// Update on resize / orientation change
-window.addEventListener('resize', setHeaderHeight);
-window.addEventListener('orientationchange', setHeaderHeight);
+// Update on resize / orientation change / scroll (iOS Safari dynamic)
+window.addEventListener('resize', updateHeaderHeight);
+window.addEventListener('orientationchange', updateHeaderHeight);
+window.addEventListener('scroll', updateHeaderHeight);
 </script>
+
 
 
 
@@ -717,6 +709,7 @@ window.addEventListener('orientationchange', setHeaderHeight);
 
 	</body>
 </html>
+
 
 
 
