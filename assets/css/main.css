@@ -4324,4 +4324,28 @@ body {
 }
 
 
+/* Center text in IoT, KDP, SEO sections */
+#wrapper iot,
+#wrapper kdp,
+#wrapper seo {
+    text-align: center;
+}
+
+section#wrapper iot .inner,
+section#wrapper kdp .inner,
+section#wrapper seo .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section#wrapper iot .inner h2,
+section#wrapper kdp .inner h2,
+section#wrapper seo .inner h2,
+section#wrapper iot .inner p,
+section#wrapper kdp .inner p,
+section#wrapper seo .inner p {
+    text-align: center;
+}
+
 
