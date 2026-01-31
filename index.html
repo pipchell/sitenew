@@ -59,6 +59,27 @@ html, body {
 }
 </style>
 
+
+
+		<script>
+function adjustHeaderHeight() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    // On iOS Safari, window.innerHeight is the visible height excluding the address bar
+    // Multiply by 1.05–1.1 to extend slightly beyond to prevent cutoff
+    let newHeight = window.innerHeight * 1.1; 
+    header.style.minHeight = newHeight + 'px';
+}
+
+// Set header height on load
+window.addEventListener('load', adjustHeaderHeight);
+
+// Update header height on resize or orientation change
+window.addEventListener('resize', adjustHeaderHeight);
+window.addEventListener('orientationchange', adjustHeaderHeight);
+</script>
+
 	</head>
 	<body class="is-preload">
 
@@ -688,6 +709,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
+
 
 
 
