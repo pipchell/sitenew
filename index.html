@@ -486,17 +486,20 @@ html, body {
 /* Footer buttons responsive */
 @media (max-width: 736px) {
     .footer-agency__nav ul {
-        flex-wrap: wrap;       /* allow buttons to go to next row */
-        justify-content: center; /* center buttons */
-        gap: 0.75rem;          /* add a small gap between buttons */
+        flex-wrap: wrap;           /* allow buttons to go to next row */
+        justify-content: center;   /* center buttons */
+        gap: 0.75rem;              /* space between buttons */
     }
 
     .footer-agency__nav a.button {
-        padding: 0.5em 1em;    /* increase padding so text isn’t too close to edges */
-        font-size: 0.875rem;   /* adjust size if needed */
-        min-width: 120px;      /* optional: prevent buttons from being too narrow */
+        display: flex;             /* make button a flex container */
+        align-items: center;       /* center vertically */
+        justify-content: center;   /* center horizontally */
+        padding: 0.5em 1em;        /* breathing room */
+        font-size: 0.875rem;       
+        min-width: 120px;          
         box-sizing: border-box;
-        text-align: center;
+        text-align: center;        
     }
 }
 
@@ -684,6 +687,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
+
 
 
 
