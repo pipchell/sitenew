@@ -1,5 +1,14 @@
 @import url(fontawesome-all.min.css);
 
+#header {
+    min-height: 100vh !important;              /* fallback for most browsers */
+    min-height: 100dvh !important;             /* dynamic viewport height for Safari */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;        /* vertically centers content */
+}
+
+
 /*
 	Fractal by HTML5 UP
 	html5up.net | @ajlkn
@@ -4362,6 +4371,7 @@ body {
         min-height: 120vh; /* 120% of viewport height */
     }
 }
+
 
 
 
