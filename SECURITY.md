@@ -15,4 +15,4 @@ Here are a list of supported versions:
 
 ## Contact me by email:
 
-# hi@pipchell.com
+hi@pipchell.com
