@@ -15,4 +15,4 @@ Here are a list of supported versions:
 
 ## Contact me by email:
 
-mailto:hi@pipchell.com?cc=pip@pipchell.com&subject=Vulnerability%20Report
+# hi@pipchell.com
