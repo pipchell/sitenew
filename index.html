@@ -290,7 +290,6 @@ html, body {
             overflow: hidden;
             box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px #e6e6e6;
             margin: 0 auto;
-            padding: 4px 4px 0 4px;
         }
 
         @media (max-width: 736px) {
@@ -315,10 +314,11 @@ html, body {
         }
 
         .slide img {
-            width: 100%;
+            width: calc(100% - 8px);
             height: 500px;
             object-fit: contain;
             background: #ffffff;
+            margin: 4px 4px 0 4px;
         }
 
         @media (max-width: 736px) {
