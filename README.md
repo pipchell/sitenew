@@ -1,5 +1,5 @@
 # **pipchell.com:**
-<ins>My personal portfolio website</ins> Focusing on my interests and skills.<br>
+<ins>My personal portfolio website</ins>, focusing on my interests and skills.<br>
 
 [![Pages Live](https://img.shields.io/badge/Pages-Live-brightgreen?logo=github)](https://github.com/pipchell/sitenew/deployments/github-pages)
 [![Latest Release](https://img.shields.io/badge/Release-red?logo=github)](https://github.com/pipchell/sitenew/releases)
