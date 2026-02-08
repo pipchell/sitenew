@@ -63,37 +63,44 @@ html, body {
 		
 		<style>
 /* Match form submit button to theme buttons */
-#contact button[type="submit"] {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    border-radius: 6px;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-    height: 2.85em;
-    line-height: 2.95em;
-    padding: 0 1.75em;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: none;
-    background-color: #4696e5;
+#contact button[type="submit"],
+#contact button[type="submit"].button,
+#contact button[type="submit"].primary {
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    -ms-appearance: none !important;
+    appearance: none !important;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out !important;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out !important;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out !important;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out !important;
+    border-radius: 6px !important;
+    border: 0 !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    font-weight: bold !important;
+    height: 2.85em !important;
+    line-height: 2.95em !important;
+    padding: 0 1.75em !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    box-shadow: none !important;
+    background-color: #4696e5 !important;
     color: #ffffff !important;
+    font-size: 1em !important;
 }
 
-#contact button[type="submit"]:hover {
-    background-color: #5ca3e8;
+#contact button[type="submit"]:hover,
+#contact button[type="submit"].button:hover,
+#contact button[type="submit"].primary:hover {
+    background-color: #5ca3e8 !important;
 }
 
-#contact button[type="submit"]:active {
-    background-color: #3089e2;
+#contact button[type="submit"]:active,
+#contact button[type="submit"].button:active,
+#contact button[type="submit"].primary:active {
+    background-color: #3089e2 !important;
 }
 
 /* Align IoT / KDP / SEO sections padding with other sections */
