@@ -61,17 +61,46 @@ html, body {
 
 
 		
-		
 		<style>
-	/* Match form submit button to theme buttons */
-#contact .button,
-#contact button.button {
-    height: auto;
-    line-height: normal;
-    padding: 0.75em 2em;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+/* Match form submit button to theme buttons */
+#contact button[type="submit"] {
+    background-color: #4696e5;
+    box-shadow: inset 0 0 0 1px #4696e5;
+    color: #ffffff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 600;
+    height: 3.5em;
+    letter-spacing: 0.075em;
+    line-height: 3.5em;
+    padding: 0 2.25em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-radius: 3.5em;
+    border: 0;
+}
+
+#contact button[type="submit"]:hover {
+    background-color: #5ba4e5;
+    box-shadow: inset 0 0 0 1px #5ba4e5;
+}
+
+/* Align IoT / KDP / SEO sections padding with other sections */
+#iot,
+#kdp,
+#seo {
+    padding: 4em 0 2em 0;
+}
+
+@media screen and (max-width: 736px) {
+    #iot,
+    #kdp,
+    #seo {
+        padding: 3em 0 1em 0;
+    }
 }
 
 /* Align IoT / KDP / SEO content width with other text sections */
@@ -82,8 +111,6 @@ html, body {
     margin-left: auto !important;
     margin-right: auto !important;
 }
-
-			
 </style>
 
 	</head>
@@ -192,7 +219,7 @@ html, body {
             <p>Search Engine Optimisation Skills</p>
         </header>
         <p>
-          I’ve spent a lot of time making pipchell.com easier to find on Google. From tweaking keywords and meta tags to organizing content and speeding up pages, I’ve done a bit of everything to help the site rank better. I also keep an eye on analytics to see what’s working and what needs a tweak.
+          I've spent a lot of time making pipchell.com easier to find on Google. From tweaking keywords and meta tags to organizing content and speeding up pages, I've done a bit of everything to help the site rank better. I also keep an eye on analytics to see what's working and what needs a tweak.
     </div>
 </section>
 
@@ -715,31 +742,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
