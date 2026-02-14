@@ -1,29 +1,96 @@
-<style>
-	/* Base background color */
-	#bg {
-		background: #4493E0;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -2;
-	}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pip Chell - Contact</title>
+        <meta property="og:image" content="https://pipchell.com/favicon.png">
+        <meta property="og:image:width" content="500">
+        <meta property="og:image:height" content="500">
 
-	/* Stripes overlay */
-	#overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		background-image: repeating-linear-gradient(
-			45deg,
-			rgba(255,255,255,0.15),
-			rgba(255,255,255,0.15) 10px,
-			transparent 10px,
-			transparent 20px
-		);
-	}
-</style>
+		<meta name="description" content="My basic contact details.">
+		<meta property="og:title" content="Pip Chell - Contact">
+		<meta property="og:description" content="My basic contact details.">
+		<meta property="og:url" content="https://pipchell.com/me">
+		<meta property="og:type" content="website">
+		<link rel="canonical" href="https://pipchell.com/me">
+        <link rel="icon" href="/logopppp.png" type="image/png" sizes="48x48">
+
+		<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Pip Chell - Contact",
+  "url": "https://pipchell.com/me"
+}
+</script>
+		
+		<link rel="icon" href="/favicon.ico" sizes="any">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets2/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets2/css/noscript.css" /></noscript>
+
+		<!-- Background + Stripes -->
+		<style>
+			#bg {
+				background: #4493E0;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -2;
+			}
+
+			#overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				background-image: repeating-linear-gradient(
+					45deg,
+					rgba(255,255,255,0.15),
+					rgba(255,255,255,0.15) 10px,
+					transparent 10px,
+					transparent 20px
+				);
+			}
+		</style>
+	</head>
+
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<header id="header">
+					<h1>Pip Chell</h1>
+					<p>Graphic Design &nbsp;&bull;&nbsp; Tech &nbsp;&bull;&nbsp; Programming</p>
+					<nav>
+						<ul>
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</nav>
+				</header>
+
+				<footer id="footer">
+					<span class="copyright">&copy; 2026 Pip Chell.</span>
+					<span>Visit pipchell.com For More Info</span>
+				</footer>
+
+			</div>
+		</div>
+
+		<script>
+			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
+</html>
