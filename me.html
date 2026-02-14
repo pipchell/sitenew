@@ -29,32 +29,13 @@
 		<link rel="stylesheet" href="assets2/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets2/css/noscript.css" /></noscript>
 
-		<!-- Background + Stripes -->
+		<!-- Override background only -->
 		<style>
 			#bg {
-				background: #4493E0;
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: -2;
-			}
-
-			#overlay {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: -1;
-				background-image: repeating-linear-gradient(
-					45deg,
-					rgba(255,255,255,0.15),
-					rgba(255,255,255,0.15) 10px,
-					transparent 10px,
-					transparent 20px
-				);
+				background-color: #4493E0 !important;
+				background-image: none !important;
+				animation: none !important;
+				transform: none !important;
 			}
 		</style>
 	</head>
@@ -71,10 +52,10 @@
 					<nav>
 						<ul>
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+								<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 					</nav>
 				</header>
