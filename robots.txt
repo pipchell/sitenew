@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /tv
 
 Sitemap: https://pipchell.com/sitemap.xml
