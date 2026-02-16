@@ -628,59 +628,72 @@
 
 
 
-<!-- Contact Modal --> <div id="contactModal" class="contact-modal" role="dialog" aria-modal="true"> <div class="contact-modal-content"> <span id="closeModal" class="contact-modal-close">&times;</span> <p>Contact me at <a href="/cdn-cgi/l/email-protection#513938112138213239343d3d7f323e3c"><span class="__cf_email__" data-cfemail="ee8687ae9e879e8d868b8282c08d8183">[email&#160;protected]</span></a></p> </div> </div>
-	
-    .contact-modal {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background-color: #FBFBFB;
-        border: 1px solid #e6e6e6;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        border-radius: 8px;
-        padding: 1rem 1.5rem;
-        z-index: 1000;
-        display: none;
-        font-family: Arial, Helvetica, sans-serif;
-        min-width: 220px;
-    }
+<!-- Contact Modal -->
+<div id="contactModal" class="contact-modal" role="dialog" aria-modal="true">
+    <div class="contact-modal-content">
+        <span id="closeModal" class="contact-modal-close">&times;</span>
+        <p>
+            Contact me at
+            <a href="/cdn-cgi/l/email-protection#513938112138213239343d3d7f323e3c">
+                <span class="__cf_email__" data-cfemail="ee8687ae9e879e8d868b8282c08d8183">[email&#160;protected]</span>
+            </a>
+        </p>
+    </div>
+</div>
 
-    .contact-modal-content p {
-        margin: 0;
-        color: #828282;
-        font-size: 0.95rem;
-    }
+<style>
+.contact-modal {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #FBFBFB;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 220px;
+}
 
-    .contact-modal a {
-        color: #4696e5;
-        text-decoration: none;
-    }
+.contact-modal-content p {
+    margin: 0;
+    color: #828282;
+    font-size: 0.95rem;
+}
 
-    .contact-modal a:hover {
-        text-decoration: underline;
-    }
+.contact-modal a {
+    color: #4696e5;
+    text-decoration: none;
+}
 
-    .contact-modal-close {
-        position: absolute;
-        top: 6px;
-        right: 10px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        color: #828282;
-    }
+.contact-modal a:hover {
+    text-decoration: underline;
+}
 
-    .contact-modal-close:hover {
-        color: #4696e5;
-    }
+.contact-modal-close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #828282;
+}
+
+.contact-modal-close:hover {
+    color: #4696e5;
+}
 </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
 document.addEventListener("DOMContentLoaded", function() {
     const modal = document.getElementById("contactModal");
     const closeBtn = document.getElementById("closeModal");
     const header = document.getElementById("header");
 
-    // If modal was previously closed, do nothing
+    // Check if modal was previously closed
     let permanentlyClosed = localStorage.getItem("contactModalClosed");
 
     // Show/hide modal on scroll
@@ -698,7 +711,8 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = "none";
         permanentlyClosed = true;
         localStorage.setItem("contactModalClosed", "true");
-    });});
+    });
+});
 </script>
 
 	<!-- Scripts -->
@@ -711,6 +725,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	</body>
 </html>
+
 
 
 
