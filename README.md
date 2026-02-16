@@ -8,7 +8,7 @@
 [![Stars](https://img.shields.io/github/stars/pipchell/AutoBins-Royston?style=flat&logo=github)](https://github.com/pipchell/sitenew/stargazers)
 
 ## Current version:
-### 1.7.7 - Bug Fixes
+### 1.8.3 - General tidy up
 
 # Contributing:
 
