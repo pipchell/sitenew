@@ -5,66 +5,88 @@
   <title>Pip Chell Support</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico">
 
   <style>
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #f4f8fb;
-      color: #1b1b1b;
+      background: #eef3f7;
+      color: #2d3e50;
+    }
+
+    /* Top bar (FreeScout style) */
+    .topbar {
+      background: #0078D7;
+      color: white;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: 600;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      gap: 10px;
+    }
+
+    .topbar img {
+      height: 22px;
+    }
+
+    /* Center container */
+    .wrapper {
+      display: flex;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      height: calc(100vh - 60px);
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 30px;
       text-align: center;
     }
 
-    .container {
-      background: #ffffff;
-      padding: 40px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      max-width: 400px;
-      width: 90%;
-    }
-
-    .logo {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 15px;
-    }
-
     h1 {
-      margin: 10px 0 25px;
-      font-size: 22px;
+      margin: 0 0 25px;
+      font-size: 20px;
       font-weight: 600;
     }
 
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
     .btn {
-      display: block;
       width: 100%;
-      padding: 14px;
-      margin: 10px 0;
-      border-radius: 6px;
+      max-width: 280px;
+      padding: 13px;
+      background: #0078D7;
+      color: #fff;
       text-decoration: none;
-      font-size: 15px;
+      border-radius: 4px;
+      font-size: 14px;
       font-weight: 500;
-      background-color: #0078D7;
-      color: #ffffff;
+      text-align: center;
       transition: background 0.2s ease;
     }
 
     .btn:hover {
-      background-color: #005fa3;
+      background: #0063b1;
     }
 
+    /* Footer text */
     .footer {
       margin-top: 20px;
       font-size: 13px;
-      color: #555;
+      color: #6b7c93;
     }
 
     .footer a {
@@ -75,30 +97,50 @@
     .footer a:hover {
       text-decoration: underline;
     }
+
+    /* Bottom copyright */
+    .copyright {
+      text-align: center;
+      font-size: 12px;
+      color: #9aa7b5;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <img src="favicon.png" alt="Logo" class="logo">
-    <h1>Pip Chell Support</h1>
+  <div class="topbar">
+    <img src="favicon.png" alt="">
+    Pip Chell Support
+  </div>
 
-    <a class="btn" href="https://support.pipchell.com/help/4238109764">
-      Web Support Tier One
-    </a>
+  <div class="wrapper">
+    <div class="card">
+      <h1>Select Support Tier</h1>
 
-    <a class="btn" href="https://support.pipchell.com/help/1704279550">
-      Web Support Tier Two
-    </a>
+      <div class="btn-group">
+        <a class="btn" href="https://support.pipchell.com/help/4238109764">
+          Web Support Tier One
+        </a>
 
-    <a class="btn" href="https://support.pipchell.com/help/311561576">
-      Web Support Tier Three
-    </a>
+        <a class="btn" href="https://support.pipchell.com/help/1704279550">
+          Web Support Tier Two
+        </a>
 
-    <div class="footer">
-      If email support is needed, email 
-      <a href="mailto:need@support.pipchell.com">need@support.pipchell.com</a>
+        <a class="btn" href="https://support.pipchell.com/help/311561576">
+          Web Support Tier Three
+        </a>
+      </div>
+
+      <div class="footer">
+        If email support is needed, email 
+        <a href="mailto:need@support.pipchell.com">need@support.pipchell.com</a>
+      </div>
     </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 Pip Chell Support
   </div>
 
 </body>
