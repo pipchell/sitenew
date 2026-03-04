@@ -8,14 +8,15 @@
   <link rel="icon" href="favicon.ico">
 
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       background: #eef3f7;
       color: #2d3e50;
     }
 
-    /* Top bar (FreeScout style) */
+    /* Top bar */
     .topbar {
       background: #0078D7;
       color: white;
@@ -31,13 +32,12 @@
       height: 22px;
     }
 
-    /* Center container */
+    /* Fullscreen center layout */
     .wrapper {
+      height: calc(100% - 50px);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 60px);
-      padding: 20px;
     }
 
     .card {
@@ -81,30 +81,6 @@
     .btn:hover {
       background: #0063b1;
     }
-
-    /* Footer text */
-    .footer {
-      margin-top: 20px;
-      font-size: 13px;
-      color: #6b7c93;
-    }
-
-    .footer a {
-      color: #0078D7;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Bottom copyright */
-    .copyright {
-      text-align: center;
-      font-size: 12px;
-      color: #9aa7b5;
-      margin-top: 15px;
-    }
   </style>
 </head>
 <body>
@@ -132,12 +108,8 @@
         </a>
       </div>
 
-      <div class="footer">
-        If email support is needed, email 
-        <a href="mailto:need@support.pipchell.com">need@support.pipchell.com</a>
-      </div>
     </div>
   </div>
-  
+
 </body>
 </html>
