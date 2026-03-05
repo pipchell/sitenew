@@ -15,7 +15,7 @@
       color: #2d3e50;
     }
 
-    /* Top bar (FreeScout style) */
+    /* Top bar */
     .topbar {
       background: #0078D7;
       color: white;
@@ -23,11 +23,21 @@
       font-size: 16px;
       font-weight: 600;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
+      position: relative;
+    }
+
+    .topbar h2 {
+      margin: 0;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
     }
 
     .topbar img {
+      position: absolute;
+      right: 20px;
       height: 22px;
     }
 
@@ -56,7 +66,6 @@
       font-weight: 600;
     }
 
-    /* Buttons */
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -82,7 +91,6 @@
       background: #0063b1;
     }
 
-    /* Footer text */
     .footer {
       margin-top: 20px;
       font-size: 13px;
@@ -102,8 +110,8 @@
 <body>
 
   <div class="topbar">
-    <p style="text-align:center;"><img src="favicon.png" alt="">
-    Pip Chell Support</p>
+    <h2>Pip Chell Support</h2>
+    <img src="favicon.png" alt="Logo">
   </div>
 
   <div class="wrapper">
