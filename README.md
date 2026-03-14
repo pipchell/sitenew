@@ -8,7 +8,7 @@
 [![Stars](https://img.shields.io/github/stars/pipchell/AutoBins-Royston?style=flat&logo=github)](https://github.com/pipchell/sitenew/stargazers)
 
 ## Current version:
-### 1.9.1 - General tidy up / Updates to pipchell.com/me and pipchell.com/tv, created support site.
+### 1.9.4 - Directory added
 
 # Contributing:
 
