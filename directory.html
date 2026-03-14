@@ -7,6 +7,254 @@
 
 <style>
 
+body{
+  margin:0;
+  background:#ffffff;
+  color:#111111;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  transition:0.25s;
+}
+
+.dark{
+  background:#111111;
+  color:#ffffff;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:70px 25px;
+}
+
+header{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+header h1{
+  font-size:48px;
+  margin:0;
+}
+
+header p{
+  color:#666666;
+}
+
+.dark header p{
+  color:#bbbbbb;
+}
+
+.toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:8px 14px;
+  border-radius:8px;
+  border:none;
+  background:#f0f0f0;
+  cursor:pointer;
+}
+
+.dark .toggle{
+  background:#333;
+  color:white;
+}
+
+.section{
+  margin-bottom:45px;
+}
+
+.section h2{
+  font-size:20px;
+  margin-bottom:15px;
+}
+
+.card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#f6f6f6;
+  padding:16px 20px;
+  border-radius:10px;
+  margin-bottom:12px;
+  text-decoration:none;
+  color:#111111;
+  transition:0.2s;
+}
+
+.dark .card{
+  background:#1f1f1f;
+  color:white;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+}
+
+.left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.left img{
+  width:22px;
+  height:22px;
+}
+
+.info strong{
+  display:block;
+  font-size:16px;
+}
+
+.info span{
+  font-size:13px;
+  color:#666666;
+}
+
+.dark .info span{
+  color:#bbbbbb;
+}
+
+.copy{
+  font-size:12px;
+  padding:5px 8px;
+  border-radius:6px;
+  border:none;
+  background:#e5e5e5;
+  cursor:pointer;
+}
+
+.dark .copy{
+  background:#333;
+  color:white;
+}
+
+footer{
+  text-align:center;
+  margin-top:60px;
+  font-size:13px;
+  color:#666666;
+}
+
+.dark footer{
+  color:#bbbbbb;
+}
+
+</style>
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggleMode()">Dark</button>
+
+<div class="container">
+
+<header>
+<h1>Pip Chell</h1>
+<p>Websites · Email · Services</p>
+</header>
+
+<div class="section">
+<h2>Websites</h2>
+
+<a class="card" href="https://pipchell.com">
+<div class="left">
+<img src="https://www.google.com/s2/favicons?domain=pipchell.com&sz=64">
+<div class="info">
+<strong>pipchell.com</strong>
+<span>Personal website</span>
+</div>
+</div>
+</a>
+
+<a class="card" href="https://support.pipchell.com">
+<div class="left">
+<img src="https://www.google.com/s2/favicons?domain=support.pipchell.com&sz=64">
+<div class="info">
+<strong>support.pipchell.com</strong>
+<span>Support portal</span>
+</div>
+</div>
+</a>
+
+<a class="card" href="https://christmas.rpcgroup.xyz">
+<div class="left">
+<img src="https://www.google.com/s2/favicons?domain=rpcgroup.xyz&sz=64">
+<div class="info">
+<strong>christmas.rpcgroup.xyz</strong>
+<span>Christmas countdown</span>
+</div>
+</div>
+</a>
+
+<a class="card" href="https://dvd.rpcgroup.xyz">
+<div class="left">
+<img src="https://www.google.com/s2/favicons?domain=rpcgroup.xyz&sz=64">
+<div class="info">
+<strong>dvd.rpcgroup.xyz</strong>
+<span>DVD logo project</span>
+</div>
+</div>
+</a>
+
+</div>
+
+<div class="section">
+<h2>Email</h2>
+
+<div class="card">
+<div class="left">
+<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+<div class="info">
+<strong>pip@pipchell.com</strong>
+<span>Primary email</span>
+</div>
+</div>
+<button class="copy" onclick="copyEmail('pip@pipchell.com')">Copy</button>
+</div>
+
+<div class="card">
+<div class="left">
+<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+<div class="info">
+<strong>pip@chell.email</strong>
+<span>Secondary email</span>
+</div>
+</div>
+<button class="copy" onclick="copyEmail('pip@chell.email')">Copy</button>
+</div>
+
+</div>
+
+<footer>
+© Pip Chell
+</footer>
+
+</div>
+
+<script>
+
+function copyEmail(email){
+navigator.clipboard.writeText(email);
+}
+
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pip Chell Directory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
 :root{
   --bg:#FFFFFF;
   --text:#111111;
