@@ -4,5 +4,6 @@ Allow: /me
 Disallow: /tv
 Disallow: /help
 Disallow: /support
+Disallow: /direcotry
 
 Sitemap: https://pipchell.com/sitemap.xml
