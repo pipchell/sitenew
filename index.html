@@ -101,7 +101,7 @@
 					<h1>Pip Chell</h1>
 					<p>I like graphic design, tech and fire safety stuff. This is my website in case you didn't realise. Did I mention I like computers? :)</p>
 					<ul class="actions">
-						<li><a href="#one" class="button icon solid fa-chevron-down scrolly">About Me</a></li>
+						<li><a href="#one" class="button icon solid fa-chevron-down scrolly" aria-label="Go to About Me section">About Me</a></li>
 					</ul>
 				</div>
 				<div class="image phone"><div class="inner"><img src="images/screen4.jpg" alt="Logo With Text - Pip Chell" /></div></div>
@@ -385,7 +385,7 @@
                         <img src="https://pipchell.com/images/5-22.png" alt="The Hub - Pip Chell" loading="lazy" decoding="async">
                     </div>
                     <div class="controls">
-                        <button class="btn" onclick="changeSlide(-1, 1)">‹</button>
+                        <button class="btn" onclick="changeSlide(-1, 1)" aria-label="Previous slide">‹</button>
                         <div class="indicators">
                             <span class="dot active" onclick="goToSlide(0, 1)"></span>
                             <span class="dot" onclick="goToSlide(1, 1)"></span>
@@ -393,7 +393,7 @@
                             <span class="dot" onclick="goToSlide(3, 1)"></span>
                             <span class="dot" onclick="goToSlide(4, 1)"></span>
                         </div>
-                        <button class="btn" onclick="changeSlide(1, 1)">›</button>
+                        <button class="btn" onclick="changeSlide(1, 1)" aria-label="Next slide">›</button>
                     </div>
                 </div>
             </div>
@@ -418,7 +418,7 @@
                         <img src="https://pipchell.com/images/10-2.png" alt="BNM25 - Pip Chell" loading="lazy" decoding="async">
                     </div>
                     <div class="controls">
-                        <button class="btn" onclick="changeSlide(-1, 2)">‹</button>
+                        <button class="btn" onclick="changeSlide(-1, 2)" aria-label="Previous slide">‹</button>
                         <div class="indicators">
                             <span class="dot active" onclick="goToSlide(0, 2)"></span>
                             <span class="dot" onclick="goToSlide(1, 2)"></span>
@@ -426,7 +426,7 @@
                             <span class="dot" onclick="goToSlide(3, 2)"></span>
                             <span class="dot" onclick="goToSlide(4, 2)"></span>
                         </div>
-                        <button class="btn" onclick="changeSlide(1, 2)">›</button>
+                        <button class="btn" onclick="changeSlide(1, 2)" aria-label="Next slide">›</button>
                     </div>
                 </div>
             </div>
@@ -489,7 +489,7 @@
 					<p>All of my project files are available on my GitHub page. You can see them here.</p>
 				</header>
 				<ul class="actions special">
-					<li><a href="https://github.com/pipchell/" target="_blank" rel="noopener" class="button primary" rel="me">GitHub</a></li>
+					<li><a href="https://github.com/pipchell/" target="_blank" rel="noopener" class="button primary" rel="me" aria-label="My GitHub Page">GitHub</a></li>
 				</ul>
 			</section>
 
@@ -500,7 +500,7 @@
 					<p>You can view all my webpages / web projects I am working on by visiting my directory.</p>
 				</header>
 				<ul class="actions special">
-					<li><a href="https://pipchell.com/directory" target="_blank" rel="noopener" class="button primary" rel="me">Directory</a></li>
+					<li><a href="https://pipchell.com/directory" target="_blank" rel="noopener" class="button primary" rel="me" aria-label="Go To The Pip Chell Directory">Directory</a></li>
 				</ul>
 			</section>
 
@@ -517,19 +517,19 @@
 						<div class="row gtr-uniform">
 							<div class="col-6 col-12-xsmall">
 								<label for="name">Name</label>
-								<input type="text" id="name" name="name" placeholder="Your name" required>
+								<input type="text" id="name" name="name" placeholder="Your name" required aria-label="Your Name">
 							</div>
 							<div class="col-6 col-12-xsmall">
 								<label for="email">Email</label>
-								<input type="email" id="email" name="_replyto" placeholder="your.email@example.com" required>
+								<input type="email" id="email" name="_replyto" placeholder="your.email@example.com" required aria-label="Your Email Address">
 							</div>
 							<div class="col-12">
 								<label for="message">Message</label>
-								<textarea id="message" name="message" placeholder="Your message..." rows="6" required style="resize: none;"></textarea>
+								<textarea id="message" name="message" placeholder="Your message..." rows="6" required style="resize: none;" aria-label="Leave A Message"></textarea>
 							</div>
 							<div class="col-12">
 								<ul class="actions special">
-									<li><button type="submit" class="button primary">Send Message</button></li>
+									<li><button type="submit" class="button primary" aria-label="Send Message">Send Message</button></li>
 								</ul>
 							</div>
 						</div>
@@ -537,9 +537,9 @@
 
 					<h2 style="margin-top: 2em; text-align: center;">Or email me directly:</h2>
 					<ul class="actions special">
-						<li><a href="/cdn-cgi/l/email-protection#4e3e273e0e3e273e2d262b2222602d2123" target="_blank" rel="noopener" class="button" rel="me">Personal</a></li>
-						<li><a href="/cdn-cgi/l/email-protection#f49c9db4849d84979c919898da979b99" target="_blank" rel="noopener" class="button" rel="me">Site</a></li>
-						<li><a href="/cdn-cgi/l/email-protection#acdfd9dcdcc3ded8ecdcc5dccfc4c9c0c082cfc3c1" target="_blank" rel="noopener" class="button" rel="me">Support</a></li>
+						<li><a href="/cdn-cgi/l/email-protection#4e3e273e0e3e273e2d262b2222602d2123" target="_blank" rel="noopener" class="button" rel="me" aria-label="Send a email to my personal email address">Personal</a></li>
+						<li><a href="/cdn-cgi/l/email-protection#f49c9db4849d84979c919898da979b99" target="_blank" rel="noopener" class="button" rel="me" aria-label="Send a email to my personal email address">Site</a></li>
+						<li><a href="/cdn-cgi/l/email-protection#acdfd9dcdcc3ded8ecdcc5dccfc4c9c0c082cfc3c1" target="_blank" rel="noopener" class="button" rel="me" aria-label="Send a email to my personal email address">Support</a></li>
 					</ul>
 				</div>
 			</section>
@@ -644,13 +644,13 @@ button.button {
         <nav class="footer-agency__nav" aria-label="Footer Navigation">
             <ul>
                 <li>
-                    <a href="#header" class="button icon solid fa-chevron-up scrolly">Home</a>
+                    <a href="#header" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the home section">Home</a>
                 </li>
                 <li>
-                    <a href="#one" class="button icon solid fa-chevron-up scrolly">About</a>
+                    <a href="#one" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the about section">About</a>
                 </li>
                 <li>
-                    <a href="#two" class="button icon solid fa-chevron-up scrolly">Interests</a>
+                    <a href="#two" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the interests section">Interests</a>
                 </li>
             </ul>
         </nav>
