@@ -4,15 +4,15 @@
 
 Here are a list of supported versions:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.7.3   | :white_check_mark: |
-| 1.7.2   | :white_check_mark: |
-| 1.7.0   | :x:                |
-| < 1.7.0 | :x:                |
+| Version            | Supported          |
+| -------            | ------------------ |
+| 1.7.3 (Or Higher)  | :white_check_mark: |
+| 1.7.2              | :x: |
+| 1.7.0              | :x:                |
+| < 1.7.0            | :x:                |
 
 ## Reporting a Vulnerability
 
 ## Contact me by email:
 
-hi@pipchell.com
+site@pipchell.com
