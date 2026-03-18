@@ -3,5 +3,6 @@ Allow: /
 Allow: /me
 Disallow: /tv
 Disallow: /help
+Disallow: /welcome
 
 Sitemap: https://pipchell.com/sitemap.xml
