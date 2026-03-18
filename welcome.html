@@ -5,119 +5,176 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pip Chell Support</title>
 
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="48x48">
+    
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
-        font-family: Verdana, Geneva, sans-serif;
-        background-color: #e0e5eb;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: #e0e5eb;
+    }
+
+    .wrapper {
+        padding: 15px;
     }
 
     .container {
-        max-width: 550px;
-        margin: 0 auto;
+        max-width: 500px;
+        margin: auto;
         background: white;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
     .header {
         text-align: center;
-        padding: 15px;
-        font-size: 22px;
+        padding: 18px;
+        font-size: 20px;
+        font-weight: 600;
+        background: white;
     }
 
     .hero {
-        background: #4696e5;
+        background: linear-gradient(135deg, #4696e5, #2f7edb);
         color: white;
         text-align: center;
-        padding: 30px 15px;
+        padding: 35px 20px;
     }
 
     .hero h1 {
         margin: 0;
-        font-size: 32px;
+        font-size: 26px;
     }
 
-    .hero h3 {
-        font-weight: normal;
-        font-size: 16px;
+    .hero p {
+        margin-top: 10px;
+        font-size: 15px;
+        opacity: 0.95;
     }
 
     .content {
-        background: #4696e5;
-        color: white;
+        padding: 25px 20px;
         text-align: center;
-        padding: 20px;
+        color: #333;
+    }
+
+    .content p {
+        margin: 0 0 15px;
+        font-size: 15px;
+        line-height: 1.5;
     }
 
     .button {
-        display: inline-block;
-        margin: 20px 0;
-        padding: 12px 30px;
-        background: white;
-        color: black;
+        display: block;
+        width: 100%;
+        max-width: 260px;
+        margin: 20px auto;
+        padding: 14px;
+        background: #4696e5;
+        color: white;
         text-decoration: none;
-        border: 3px solid #4696e5;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .button:hover {
+        background: #357ec7;
     }
 
     .email {
-        font-size: 28px;
-        margin-top: 10px;
+        margin-top: 15px;
+        font-size: 18px;
+        word-break: break-word;
+    }
+
+    .email a {
+        color: #4696e5;
+        text-decoration: none;
+        font-weight: 500;
     }
 
     .footer {
         text-align: center;
-        padding: 15px;
-        font-size: 14px;
-        color: #7e8c8d;
+        padding: 20px 15px;
+        font-size: 13px;
+        color: #777;
+        border-top: 1px solid #eee;
+    }
+
+    .links {
+        margin-bottom: 10px;
     }
 
     .links a {
-        margin: 0 10px;
-        color: #0068a5;
+        display: inline-block;
+        margin: 5px 8px;
+        color: #4696e5;
         text-decoration: none;
+        font-size: 14px;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 400px) {
+        .hero h1 {
+            font-size: 22px;
+        }
+
+        .button {
+            width: 100%;
+        }
     }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrapper">
+    <div class="container">
 
-    <div class="header">
-        Pip Chell Support
-    </div>
+        <div class="header">
+            Pip Chell Support
+        </div>
 
-    <div class="hero">
-        <h1>Welcome, Simon Chell!</h1>
-        <h3>Your account is ready. On first login you will be asked to create a password.</h3>
-    </div>
+        <div class="hero">
+            <h1>Welcome, Simon Chell</h1>
+            <p>Your account is ready. You’ll create your password on first login.</p>
+        </div>
 
-    <div class="content">
-        <p>
-            Thank you for purchasing our Lifetime Tier 3 (Web) Support package and our Email Support package.
-        </p>
+        <div class="content">
+            <p>
+                Thank you for purchasing the Lifetime Tier 3 (Web) Support package and Email Support.
+            </p>
 
-        <a class="button" href="https://pipchell.com/support">
-            Access Your Web Account
-        </a>
-
-        <p>Email support can be reached at:</p>
-
-        <div class="email">
-            <a href="mailto:need@support.pipchell.com" style="color:white;">
-                need@support.pipchell.com
+            <a class="button" href="https://pipchell.com/support">
+                Access Your Account
             </a>
-        </div>
-    </div>
 
-    <div class="footer">
-        <div class="links">
-            <a href="https://pipchell.com/support">Web Portal</a> |
-            <a href="mailto:need@support.pipchell.com">Email Us</a> |
-            <a href="tel:07759016564">Call Us</a>
-        </div>
-        <p>© 2026 Pip Chell Support. All Rights Reserved.</p>
-    </div>
+            <p>Email support:</p>
 
+            <div class="email">
+                <a href="mailto:need@support.pipchell.com">
+                    need@support.pipchell.com
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="links">
+                <a href="https://pipchell.com/support">Web Portal</a>
+                <a href="mailto:need@support.pipchell.com">Email</a>
+                <a href="tel:07759016564">Call</a>
+            </div>
+            © 2026 Pip Chell Support
+        </div>
+
+    </div>
 </div>
 
 </body>
