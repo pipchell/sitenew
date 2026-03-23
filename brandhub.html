@@ -3,57 +3,45 @@
 <head>
 <title>Brand Hub – Pip Chell</title>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <meta name="robots" content="noindex">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="assets/css/main.css" />
+<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 :root {
     --blue:       #4696e5;
     --blue-dark:  #0B4881;
-    --blue-light: #a8cdf3;
 
-    --text-grey:  #828282;
+    --text-grey:  #828282; /* original */
     --text-black: #2d2d2d;
 
     --grey-light: #fbfbfb;
     --grey-border:#ebebeb;
 }
 
-/* Hero */
-.brand-hero {
-    background: var(--blue);
-    padding: 5em 2em 4em;
-    text-align: center;
-}
-.brand-hero h1 { color:#fff; margin:0; }
-.brand-hero p { color:rgba(255,255,255,0.8); }
-
-/* Layout */
-.brand-inner {
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
-}
-
-/* Logos */
+/* Logo grid */
 .logo-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:1.5em;
+    max-width:860px;
+    margin:auto;
 }
 @media(max-width:736px){
     .logo-grid{grid-template-columns:1fr;}
 }
 .logo-card {
-    background:var(--grey-light);
-    border:1px solid var(--grey-border);
     border-radius:8px;
     padding:2em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
+.logo-card.light { background:var(--grey-light); border:1px solid var(--grey-border); }
 .logo-card.dark { background:var(--text-black); }
 .logo-card.blue { background:var(--blue); }
 
@@ -61,21 +49,23 @@
 .colour-grid {
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:1em;
+    gap:1.25em;
+    max-width:860px;
+    margin:auto;
 }
 @media(max-width:736px){
     .colour-grid{grid-template-columns:1fr 1fr;}
 }
 .colour-card {
-    border:1px solid var(--grey-border);
     border-radius:8px;
     overflow:hidden;
+    border:1px solid var(--grey-border);
 }
 .colour-swatch { height:80px; }
 .colour-info {
-    padding:0.7em;
     background:var(--grey-light);
-    font-size:0.85em;
+    padding:0.8em;
+    font-size:0.8em;
 }
 
 /* Usage */
@@ -83,13 +73,15 @@
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:1.5em;
+    max-width:860px;
+    margin:auto;
 }
 @media(max-width:736px){
     .usage-grid{grid-template-columns:1fr;}
 }
 .usage-card {
-    padding:1.5em;
     border-radius:8px;
+    padding:1.5em;
     border:1px solid var(--grey-border);
 }
 .usage-card.do { background:#eef8ee; }
@@ -99,51 +91,51 @@
 .download-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1.2em;
+    gap:1.25em;
+    max-width:860px;
+    margin:auto;
 }
 @media(max-width:736px){
     .download-grid{grid-template-columns:1fr;}
 }
 .download-card {
+    background:var(--grey-light);
     border:1px solid var(--grey-border);
     border-radius:8px;
     padding:1.5em;
-    background:var(--grey-light);
 }
 .download-card i {
     font-size:1.4em;
     color:var(--blue);
 }
-
-/* Footer */
-.footer {
-    text-align:center;
-    padding:2em;
-}
 </style>
 </head>
 
-<body>
+<body class="is-preload">
 
-<div class="brand-hero">
-    <h1>Brand Hub</h1>
-    <p>Logos, colours and usage</p>
-</div>
+<!-- Header (original structure) -->
+<section id="header">
+    <div class="inner">
+        <span class="icon solid major fa-cube"></span>
+        <h1>Brand Hub</h1>
+        <p>Logos, colours, typography &amp; usage guidelines</p>
+    </div>
+</section>
 
-<section class="wrapper">
-<div class="brand-inner">
-
-<h2>Logos</h2>
+<!-- Logos -->
+<section class="wrapper style2 special">
+<div class="inner">
+<header class="major">
+    <h2>Logos</h2>
+</header>
 
 <div class="logo-grid">
-    <div class="logo-card">
+    <div class="logo-card light">
         <img src="/favicon.png" style="width:80px;">
     </div>
-
     <div class="logo-card dark">
         <img src="icons/whitelogo.png" style="width:80px;">
     </div>
-
     <div class="logo-card blue">
         <img src="icons/whitelogo.png" style="width:80px;">
     </div>
@@ -152,10 +144,12 @@
 </div>
 </section>
 
-<section class="wrapper">
-<div class="brand-inner">
-
-<h2>Colours</h2>
+<!-- Colours -->
+<section class="wrapper style1 special">
+<div class="inner">
+<header class="major">
+    <h2>Colours</h2>
+</header>
 
 <div class="colour-grid">
     <div class="colour-card">
@@ -169,8 +163,8 @@
     </div>
 
     <div class="colour-card">
-        <div class="colour-swatch" style="background:#a8cdf3;"></div>
-        <div class="colour-info">Blue Light<br>#a8cdf3</div>
+        <div class="colour-swatch" style="background:#828282;"></div>
+        <div class="colour-info">Text Grey<br>#828282</div>
     </div>
 
     <div class="colour-card">
@@ -182,10 +176,12 @@
 </div>
 </section>
 
-<section class="wrapper">
-<div class="brand-inner">
-
-<h2>Usage</h2>
+<!-- Usage -->
+<section class="wrapper style2 special">
+<div class="inner">
+<header class="major">
+    <h2>Usage</h2>
+</header>
 
 <div class="usage-grid">
 
@@ -193,14 +189,14 @@
 <strong>Do</strong>
 <ul>
 <li>Use blue logo on light backgrounds</li>
-<li>Use white logo on dark backgrounds</li>
+<li>Use white logo on dark or blue backgrounds</li>
 <li>Keep strong contrast</li>
 <li>Maintain spacing</li>
 </ul>
 </div>
 
 <div class="usage-card dont">
-<strong>Don’t</strong>
+<strong>Don't</strong>
 <ul>
 <li>Do not recolour</li>
 <li>Do not distort</li>
@@ -214,10 +210,12 @@
 </div>
 </section>
 
-<section class="wrapper">
-<div class="brand-inner">
-
-<h2>Downloads</h2>
+<!-- Downloads -->
+<section class="wrapper style1 special">
+<div class="inner">
+<header class="major">
+    <h2>Downloads</h2>
+</header>
 
 <div class="download-grid">
 
@@ -244,10 +242,20 @@
 </div>
 </section>
 
-<div class="footer">
-<a href="https://pipchell.com" class="button">Back to site</a>
-<p style="opacity:0.6;">&copy; 2026 Pip Chell</p>
-</div>
+<!-- Footer (original structure) -->
+<section id="footer">
+    <ul class="actions special">
+        <li><a href="https://pipchell.com" class="button icon solid fa-chevron-left">Back to pipchell.com</a></li>
+    </ul>
+    <p class="copyright">&copy; 2026 Pip Chell</p>
+</section>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
