@@ -546,7 +546,6 @@
 
 		<!-- Footer -->
 <style>
-
 button.button {
     -webkit-appearance: none;
     appearance: none;
@@ -558,225 +557,53 @@ button.button {
     border: none;
 }
 
-:root {
-    --footer-bg: #fbfbfb;
-    --footer-border: #ebebeb;
-    --footer-text: #aaaaaa;
-    --footer-text-strong: #828282;
-    --footer-link-hover: #4696e5;
-    --footer-accent: #4696e5;
-}
-
-.footer-agency__bottom {
-    background-color: var(--footer-bg);
-    border-top: 1px solid var(--footer-border);
-    padding: 3rem 2rem 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.footer-inner {
-    max-width: 860px;
-    margin: 0 auto;
-}
-
-/* Top row: nav + links */
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-}
-
-/* Brand block */
-.footer-brand h3 {
-    margin: 0 0 0.3rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--footer-text-strong);
-    letter-spacing: -0.01em;
-}
-
-.footer-brand p {
-    margin: 0;
-    font-size: 0.8rem;
-    color: var(--footer-text);
-    line-height: 1.5;
-}
-
-.footer-brand .footer-pronouns-badge {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-size: 0.7rem;
-    color: var(--footer-accent);
-    border: 1px solid var(--footer-accent);
-    border-radius: 20px;
-    padding: 0.15em 0.6em;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-/* Nav columns */
-.footer-links {
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-}
-
-.footer-links-col h4 {
-    margin: 0 0 0.75rem;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--footer-text);
-}
-
-.footer-links-col ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.footer-links-col ul li a {
-    font-size: 0.85rem;
-    color: var(--footer-text-strong) !important;
-    text-decoration: none;
-    border-bottom: none !important;
-    transition: color 0.2s;
-}
-
-.footer-links-col ul li a:hover {
-    color: var(--footer-accent) !important;
-}
-
-/* Divider */
-.footer-divider {
-    border: none;
-    border-top: 1px solid var(--footer-border);
-    margin: 0 0 1.5rem;
-}
-
-/* Bottom row */
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.footer-copyright {
-    font-size: 0.8rem;
-    color: var(--footer-text);
-    margin: 0;
-}
-
-.footer-copyright a {
-    color: var(--footer-text) !important;
-    border-bottom: none !important;
-    transition: color 0.2s;
-}
-
-.footer-copyright a:hover {
-    color: var(--footer-accent) !important;
-}
-
-/* Back to top */
-.footer-back-top {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.8rem;
-    color: var(--footer-text) !important;
-    text-decoration: none;
-    border-bottom: none !important;
-    transition: color 0.2s;
-}
-
-.footer-back-top:hover {
-    color: var(--footer-accent) !important;
-}
-
-.footer-back-top svg {
-    width: 14px;
-    height: 14px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-@media (max-width: 600px) {
-    .footer-top {
-        flex-direction: column;
-        gap: 2rem;
+/* Footer responsive buttons */
+@media (max-width: 736px) {
+    #footer-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
     }
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .footer-links {
-        gap: 2rem;
-    }
+}
+
+.footer-pronouns {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0.4em 0 0;
+    opacity: 0.6;
+}
+
+.footer-agency__copyright {
+    font-size: 0.875rem;
+    text-align: center;
+    margin: 0.4em 0 0;
+    opacity: 0.6;
+    letter-spacing: -0.015em;
 }
 </style>
 
-<footer class="footer-agency__bottom">
-    <div class="footer-inner">
-
-        <!-- Top: Brand + Nav columns -->
-        <div class="footer-top">
-            <div class="footer-brand">
-                <h3>Pip Chell</h3>
-                <p>Graphic designer, developer<br>& tech enthusiast.</p>
-                <span class="footer-pronouns-badge">He / Him</span>
-            </div>
-
-            <div class="footer-links">
-                <div class="footer-links-col">
-                    <h4>On This Page</h4>
-                    <ul>
-                        <li><a href="#header" class="scrolly">Home</a></li>
-                        <li><a href="#one" class="scrolly">About</a></li>
-                        <li><a href="#two" class="scrolly">Interests</a></li>
-                        <li><a href="#three" class="scrolly">Projects</a></li>
-                        <li><a href="#contact" class="scrolly">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links-col">
-                    <h4>Links</h4>
-                    <ul>
-                        <li><a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer">Directory</a></li>
-                        <li><a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer">Contact Card</a></li>
-                        <li><a href="https://github.com/pipchell" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                        <li><a href="https://g.dev/pipc" target="_blank" rel="noopener noreferrer">Google Dev</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <hr class="footer-divider">
-
-        <!-- Bottom: copyright + back to top -->
-        <div class="footer-bottom">
-            <p class="footer-copyright">
-                &copy; 2026 <a href="https://pipchell.com">Pip Chell</a>. All rights reserved.
-            </p>
-            <a href="#header" class="footer-back-top scrolly" aria-label="Back to top">
-                <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                Back to top
-            </a>
-        </div>
-
+<section class="wrapper style1 special">
+    <div class="inner">
+        <header class="major">
+            <h2>Pip Chell</h2>
+            <p>Graphic designer, developer &amp; tech enthusiast.</p>
+        </header>
+        <ul class="actions special" id="footer-nav">
+            <li><a href="#header" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the home section">Home</a></li>
+            <li><a href="#one" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the about section">About</a></li>
+            <li><a href="#two" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the interests section">Interests</a></li>
+            <li><a href="#three" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the projects section">Projects</a></li>
+            <li><a href="#contact" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the contact section">Contact</a></li>
+        </ul>
+        <ul class="actions special">
+            <li><a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer" class="button" aria-label="Directory site">Directory</a></li>
+            <li><a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer" class="button" aria-label="Contact card site">Contact Card</a></li>
+            <li><a href="https://github.com/pipchell" target="_blank" rel="noopener noreferrer" class="button" aria-label="GitHub">GitHub</a></li>
+        </ul>
+        <p class="footer-pronouns">He / Him</p>
+        <p class="footer-agency__copyright">&copy; 2026 Pip Chell</p>
     </div>
-</footer>
+</section>
 
 
 <!-- Contact Modal -->
