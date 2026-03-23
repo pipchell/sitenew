@@ -207,6 +207,55 @@
 </section>
 
  <style>
+
+
+/* Divider */
+.footer-divider {
+    width: 60px;
+    height: 2px;
+    background: #e6e6e6;
+    margin: 1.5rem auto;
+    border-radius: 2px;
+}
+
+/* Meta block */
+.footer-meta {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Links row */
+.footer-links {
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    margin: 0;
+}
+
+.footer-links a {
+    color: var(--footer-link);
+    text-decoration: none;
+    margin: 0 0.4rem;
+}
+
+.footer-links a:hover {
+    color: var(--footer-link-hover);
+}
+
+/* Separator dot */
+.footer-sep {
+    color: #d0d0d0;
+    margin: 0 0.25rem;
+}
+
+/* Icons spacing */
+.footer-links i {
+    margin-right: 0.35rem;
+}
+
+
+	 
         .slideshow-wrapper,
         .slideshow-wrapper *,
         .slideshow-grid,
@@ -639,35 +688,46 @@ button.button {
 }
 </style>
 
+<!-- Footer -->
 <section class="footer-agency__bottom">
     <div class="container footer-agency__bottom-container">
         <nav class="footer-agency__nav" aria-label="Footer Navigation">
             <ul>
                 <li>
-                    <a href="#header" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the home section">Home</a>
+                    <a href="#header" class="button icon solid fa-chevron-up scrolly">Home</a>
                 </li>
                 <li>
-                    <a href="#one" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the about section">About</a>
+                    <a href="#one" class="button icon solid fa-chevron-up scrolly">About</a>
                 </li>
                 <li>
-                    <a href="#two" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the interests section">Interests</a>
+                    <a href="#two" class="button icon solid fa-chevron-up scrolly">Interests</a>
                 </li>
             </ul>
         </nav>
     </div>
 
-<p class="footer-pronouns">He / Him</p>
-<p class="footer-agency__copyright">
-    &copy; 2026 Pip Chell
-</p>
-<p class="footer-pronouns">
-    Directory site: <a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer">pipchell.com/directory</a>
-</p>
-<p class="footer-pronouns">
-    Contact site: <a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer">pipchell.com/me</a>
-</p>
-</section>
+    <!-- Divider -->
+    <div class="footer-divider"></div>
 
+    <!-- Info block -->
+    <div class="footer-meta">
+        <p class="footer-pronouns">He / Him</p>
+
+        <p class="footer-links">
+            <a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-folder-open"></i> Directory
+            </a>
+            <span class="footer-sep">•</span>
+            <a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i> Contact
+            </a>
+        </p>
+
+        <p class="footer-agency__copyright">
+            &copy; 2026 Pip Chell
+        </p>
+    </div>
+</section>
 
 <!-- Contact Modal -->
 <div id="contactModal" class="contact-modal" role="dialog" aria-modal="true">
