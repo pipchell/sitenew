@@ -546,6 +546,7 @@
 
 		<!-- Footer -->
 <style>
+
 button.button {
     -webkit-appearance: none;
     appearance: none;
@@ -555,18 +556,116 @@ button.button {
     vertical-align: middle;
     line-height: 1;
     border: none;
+}	
+	
+	
+	/* Footer buttons responsive */
+@media (max-width: 736px) {
+    .footer-agency__nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .footer-agency__nav a.button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5em 1em;
+        font-size: 0.875rem;       
+        min-width: 120px;          
+        box-sizing: border-box;
+        text-align: center;        
+    }
+}
+
+	
+	:root {
+    --footer-bg: #fbfbfb;
+    --footer-text: #828282;
+    --footer-link: #828282;
+    --footer-link-hover: #4696e5;
+}
+
+/* Footer base */
+.footer-agency__bottom {
+    background-color: var(--footer-bg);
+    padding: 3.5rem 0 2rem 0;
+}
+
+/* Layout */
+.footer-agency__bottom-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+/* Navigation */
+.footer-agency__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-agency__nav a {
+    color: var(--footer-link) !important;
+    border-bottom: none;
+}
+
+.footer-agency__nav a:hover {
+    color: var(--footer-link-hover) !important;
+}
+
+/* Pronouns */
+.footer-pronouns {
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Copyright */
+.footer-agency__copyright {
+    font-size: 0.875rem;
+    color: var(--footer-text);
+    text-align: center;
+    margin: 0;
+    letter-spacing: -0.015em;
 }
 </style>
 
-<section class="wrapper style2 special">
-    <div class="inner">
-        <ul class="actions special">
-            <li><a href="#header" class="button icon solid fa-chevron-up scrolly" aria-label="Back to top">Back to Top</a></li>
-            <li><a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer" class="button" aria-label="Directory">Directory</a></li>
-            <li><a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer" class="button" aria-label="Contact card">Contact Card</a></li>
-        </ul>
-        <p>He / Him &nbsp;&middot;&nbsp; &copy; 2026 Pip Chell</p>
+<section class="footer-agency__bottom">
+    <div class="container footer-agency__bottom-container">
+        <nav class="footer-agency__nav" aria-label="Footer Navigation">
+            <ul>
+                <li>
+                    <a href="#header" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the home section">Home</a>
+                </li>
+                <li>
+                    <a href="#one" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the about section">About</a>
+                </li>
+                <li>
+                    <a href="#two" class="button icon solid fa-chevron-up scrolly" aria-label="Go to the interests section">Interests</a>
+                </li>
+            </ul>
+        </nav>
     </div>
+
+<p class="footer-pronouns">He / Him</p>
+<p class="footer-agency__copyright">
+    &copy; 2026 Pip Chell
+</p>
+<p class="footer-pronouns">
+    Directory site: <a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer">pipchell.com/directory</a>
+</p>
+<p class="footer-pronouns">
+    Contact site: <a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer">pipchell.com/me</a>
+</p>
 </section>
 
 
