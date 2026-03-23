@@ -16,11 +16,16 @@
     --blue:       #4696e5;
     --blue-dark:  #0B4881;
 
-    --text-grey:  #828282; /* original */
+    --text-grey:  #828282;
     --text-black: #2d2d2d;
 
     --grey-light: #fbfbfb;
     --grey-border:#ebebeb;
+}
+
+/* FORCE TEXT FIX */
+body, h1, h2, h3, h4, p, li {
+    color: var(--text-black);
 }
 
 /* Logo grid */
@@ -67,6 +72,14 @@
     padding:0.8em;
     font-size:0.8em;
 }
+.colour-hex {
+    cursor:pointer;
+    font-family:monospace;
+    color:var(--text-grey);
+}
+.colour-hex:hover {
+    color:var(--blue);
+}
 
 /* Usage */
 .usage-grid {
@@ -83,6 +96,7 @@
     border-radius:8px;
     padding:1.5em;
     border:1px solid var(--grey-border);
+    text-align:left; /* LEFT ALIGN FIX */
 }
 .usage-card.do { background:#eef8ee; }
 .usage-card.dont { background:#fdf0f0; }
@@ -108,19 +122,32 @@
     font-size:1.4em;
     color:var(--blue);
 }
+
+/* Copy toast */
+.toast {
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#000;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:0.8em;
+    opacity:0;
+    transition:0.2s;
+}
+.toast.show { opacity:1; }
 </style>
 </head>
 
 <body class="is-preload">
 
-<!-- Header (original structure) -->
-<section id="header">
-    <div class="inner">
-        <span class="icon solid major fa-cube"></span>
-        <h1>Brand Hub</h1>
-        <p>Logos, colours, typography &amp; usage guidelines</p>
-    </div>
-</section>
+<!-- ORIGINAL HERO (RESTORED) -->
+<div class="brand-hero" style="background:#4696e5; padding:5em 2em 4em; text-align:center;">
+    <h1 style="color:white;">Brand Hub</h1>
+    <p style="color:rgba(255,255,255,0.8);">Logos, colours, typography &amp; usage guidelines for Pip Chell</p>
+</div>
 
 <!-- Logos -->
 <section class="wrapper style2 special">
@@ -152,25 +179,39 @@
 </header>
 
 <div class="colour-grid">
+
     <div class="colour-card">
         <div class="colour-swatch" style="background:#4696e5;"></div>
-        <div class="colour-info">Brand Blue<br>#4696e5</div>
+        <div class="colour-info">
+            Brand Blue<br>
+            <span class="colour-hex" onclick="copyHex('#4696e5')">#4696e5</span>
+        </div>
     </div>
 
     <div class="colour-card">
         <div class="colour-swatch" style="background:#0B4881;"></div>
-        <div class="colour-info">Blue Dark<br>#0B4881</div>
+        <div class="colour-info">
+            Blue Dark<br>
+            <span class="colour-hex" onclick="copyHex('#0B4881')">#0B4881</span>
+        </div>
     </div>
 
     <div class="colour-card">
         <div class="colour-swatch" style="background:#828282;"></div>
-        <div class="colour-info">Text Grey<br>#828282</div>
+        <div class="colour-info">
+            Text Grey<br>
+            <span class="colour-hex" onclick="copyHex('#828282')">#828282</span>
+        </div>
     </div>
 
     <div class="colour-card">
         <div class="colour-swatch" style="background:#2d2d2d;"></div>
-        <div class="colour-info">Text Black<br>#2d2d2d</div>
+        <div class="colour-info">
+            Text Black<br>
+            <span class="colour-hex" onclick="copyHex('#2d2d2d')">#2d2d2d</span>
+        </div>
     </div>
+
 </div>
 
 </div>
@@ -242,13 +283,25 @@
 </div>
 </section>
 
-<!-- Footer (original structure) -->
+<!-- ORIGINAL FOOTER -->
 <section id="footer">
     <ul class="actions special">
         <li><a href="https://pipchell.com" class="button icon solid fa-chevron-left">Back to pipchell.com</a></li>
     </ul>
     <p class="copyright">&copy; 2026 Pip Chell</p>
 </section>
+
+<div class="toast" id="toast">Copied</div>
+
+<script>
+function copyHex(hex) {
+    navigator.clipboard.writeText(hex);
+    const t = document.getElementById('toast');
+    t.textContent = "Copied " + hex;
+    t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"),1500);
+}
+</script>
 
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
