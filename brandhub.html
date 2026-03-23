@@ -23,12 +23,12 @@
     --grey-border:#ebebeb;
 }
 
-/* FORCE TEXT FIX */
+/* FIX TEXT COLOUR */
 body, h1, h2, h3, h4, p, li {
     color: var(--text-black);
 }
 
-/* Logo grid */
+/* Logos */
 .logo-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -50,7 +50,10 @@ body, h1, h2, h3, h4, p, li {
 .logo-card.dark { background:var(--text-black); }
 .logo-card.blue { background:var(--blue); }
 
-/* Colours */
+/* Colours (WHITE BACKGROUND FIX) */
+.colours-section {
+    background:#ffffff;
+}
 .colour-grid {
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -68,7 +71,7 @@ body, h1, h2, h3, h4, p, li {
 }
 .colour-swatch { height:80px; }
 .colour-info {
-    background:var(--grey-light);
+    background:#ffffff;
     padding:0.8em;
     font-size:0.8em;
 }
@@ -81,27 +84,7 @@ body, h1, h2, h3, h4, p, li {
     color:var(--blue);
 }
 
-/* Usage */
-.usage-grid {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:1.5em;
-    max-width:860px;
-    margin:auto;
-}
-@media(max-width:736px){
-    .usage-grid{grid-template-columns:1fr;}
-}
-.usage-card {
-    border-radius:8px;
-    padding:1.5em;
-    border:1px solid var(--grey-border);
-    text-align:left; /* LEFT ALIGN FIX */
-}
-.usage-card.do { background:#eef8ee; }
-.usage-card.dont { background:#fdf0f0; }
-
-/* Downloads */
+/* Downloads TEXT FIX */
 .download-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -118,12 +101,14 @@ body, h1, h2, h3, h4, p, li {
     border-radius:8px;
     padding:1.5em;
 }
+.download-card * {
+    color: var(--text-black) !important;
+}
 .download-card i {
-    font-size:1.4em;
-    color:var(--blue);
+    color: var(--blue) !important;
 }
 
-/* Copy toast */
+/* Toast */
 .toast {
     position:fixed;
     bottom:20px;
@@ -143,10 +128,10 @@ body, h1, h2, h3, h4, p, li {
 
 <body class="is-preload">
 
-<!-- ORIGINAL HERO (RESTORED) -->
-<div class="brand-hero" style="background:#4696e5; padding:5em 2em 4em; text-align:center;">
-    <h1 style="color:white;">Brand Hub</h1>
-    <p style="color:rgba(255,255,255,0.8);">Logos, colours, typography &amp; usage guidelines for Pip Chell</p>
+<!-- ORIGINAL HEADER (FROM YOUR FIRST FILE) -->
+<div class="brand-hero">
+    <h1>Brand Hub</h1>
+    <p>Logos, colours, typography &amp; usage guidelines for Pip Chell</p>
 </div>
 
 <!-- Logos -->
@@ -172,7 +157,7 @@ body, h1, h2, h3, h4, p, li {
 </section>
 
 <!-- Colours -->
-<section class="wrapper style1 special">
+<section class="wrapper style1 special colours-section">
 <div class="inner">
 <header class="major">
     <h2>Colours</h2>
@@ -217,42 +202,8 @@ body, h1, h2, h3, h4, p, li {
 </div>
 </section>
 
-<!-- Usage -->
-<section class="wrapper style2 special">
-<div class="inner">
-<header class="major">
-    <h2>Usage</h2>
-</header>
-
-<div class="usage-grid">
-
-<div class="usage-card do">
-<strong>Do</strong>
-<ul>
-<li>Use blue logo on light backgrounds</li>
-<li>Use white logo on dark or blue backgrounds</li>
-<li>Keep strong contrast</li>
-<li>Maintain spacing</li>
-</ul>
-</div>
-
-<div class="usage-card dont">
-<strong>Don't</strong>
-<ul>
-<li>Do not recolour</li>
-<li>Do not distort</li>
-<li>Do not add effects</li>
-<li>Do not use low contrast</li>
-</ul>
-</div>
-
-</div>
-
-</div>
-</section>
-
 <!-- Downloads -->
-<section class="wrapper style1 special">
+<section class="wrapper style2 special">
 <div class="inner">
 <header class="major">
     <h2>Downloads</h2>
