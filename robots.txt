@@ -1,6 +1,10 @@
 User-agent: *
+
 Allow: /
 Allow: /me
+Allow: /directory
+Allow: /support
+
 Disallow: /tv
 Disallow: /help
 Disallow: /welcome
