@@ -3,735 +3,251 @@
 <head>
 <title>Brand Hub – Pip Chell</title>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex">
+
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="assets/css/main.css" />
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ── Shared tokens ── */
 :root {
     --blue:       #4696e5;
-    --blue-dark:  #2d7dd2;
+    --blue-dark:  #0B4881;
     --blue-light: #a8cdf3;
-    --grey-text:  #828282;
+
+    --text-grey:  #828282;
+    --text-black: #2d2d2d;
+
     --grey-light: #fbfbfb;
-    --grey-mid:   #e6e6e6;
     --grey-border:#ebebeb;
-    --black:      #2d2d2d;
-    --white:      #ffffff;
 }
 
-/* ── Hero ── */
+/* Hero */
 .brand-hero {
     background: var(--blue);
     padding: 5em 2em 4em;
     text-align: center;
 }
-.brand-hero h1 {
-    color: #fff;
-    font-size: 2.5em;
-    margin: 0 0 0.25em;
-    letter-spacing: -0.02em;
-}
-.brand-hero p {
-    color: rgba(255,255,255,0.75);
-    font-size: 1em;
-    margin: 0;
-}
+.brand-hero h1 { color:#fff; margin:0; }
+.brand-hero p { color:rgba(255,255,255,0.8); }
 
-/* ── Section label ── */
-.brand-label {
-    font-size: 0.7em;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--grey-text);
-    margin: 0 0 1.5em;
-    display: block;
-}
-
-/* ── Logo grid ── */
-.logo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5em;
-    max-width: 860px;
-    margin: 0 auto;
-}
-@media (max-width: 736px) {
-    .logo-grid { grid-template-columns: 1fr; }
-}
-
-.logo-card {
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5em 1.5em 1.5em;
-    gap: 1.2em;
-}
-.logo-card--light  { background: var(--grey-light); border: 1px solid var(--grey-border); }
-.logo-card--dark   { background: var(--black); }
-.logo-card--blue   { background: var(--blue); }
-
-.logo-card svg {
-    width: 80px;
-    height: 80px;
-}
-
-.logo-card-label {
-    font-size: 0.75em;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin: 0;
-}
-.logo-card--light  .logo-card-label { color: var(--grey-text); }
-.logo-card--dark   .logo-card-label { color: rgba(255,255,255,0.5); }
-.logo-card--blue   .logo-card-label { color: rgba(255,255,255,0.7); }
-
-/* ── Wordmark row ── */
-.wordmark-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5em;
-    max-width: 860px;
-    margin: 1.5em auto 0;
-}
-@media (max-width: 736px) {
-    .wordmark-row { grid-template-columns: 1fr; }
-}
-
-.wordmark-card {
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    padding: 2em;
-}
-.wordmark-card--light { background: var(--grey-light); border: 1px solid var(--grey-border); }
-.wordmark-card--dark  { background: var(--black); }
-
-.wordmark-card svg { width: 44px; height: 44px; flex-shrink: 0; }
-
-.wordmark-text { text-align: left; }
-.wordmark-text .wm-name {
-    font-size: 1.4em;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin: 0 0 0.15em;
-}
-.wordmark-text .wm-sub {
-    font-size: 0.72em;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin: 0;
-    opacity: 0.55;
-}
-.wordmark-card--light .wm-name { color: var(--black); }
-.wordmark-card--light .wm-sub  { color: var(--grey-text); }
-.wordmark-card--dark  .wm-name { color: #fff; }
-.wordmark-card--dark  .wm-sub  { color: rgba(255,255,255,0.5); }
-
-/* ── Colour palette ── */
-.colour-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25em;
-    max-width: 860px;
-    margin: 0 auto;
-}
-@media (max-width: 736px) {
-    .colour-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-.colour-card {
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--grey-border);
-}
-.colour-swatch {
-    height: 80px;
-    width: 100%;
-}
-.colour-info {
-    background: var(--grey-light);
-    padding: 0.8em 0.9em;
-}
-.colour-name {
-    font-size: 0.78em;
-    font-weight: 700;
-    color: var(--black);
-    margin: 0 0 0.2em;
-    letter-spacing: -0.01em;
-}
-.colour-hex {
-    font-size: 0.7em;
-    color: var(--grey-text);
-    margin: 0;
-    font-family: 'Courier New', monospace;
-    cursor: pointer;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.4em;
-}
-.colour-hex:hover { color: var(--blue); }
-.colour-hex i { font-size: 0.85em; }
-
-.copied-toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: var(--black);
-    color: #fff;
-    font-size: 0.8em;
-    padding: 0.5em 1.2em;
-    border-radius: 20px;
-    opacity: 0;
-    transition: opacity 0.2s, transform 0.2s;
-    pointer-events: none;
-    z-index: 9999;
-}
-.copied-toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* ── Typography ── */
-.type-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5em;
-    max-width: 860px;
-    margin: 0 auto;
-}
-@media (max-width: 736px) {
-    .type-grid { grid-template-columns: 1fr; }
-}
-
-.type-card {
-    background: var(--grey-light);
-    border: 1px solid var(--grey-border);
-    border-radius: 8px;
-    padding: 2em;
-}
-.type-card .type-specimen {
-    font-size: 2.2em;
-    font-weight: 700;
-    color: var(--black);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin: 0 0 0.5em;
-}
-.type-card .type-specimen--body {
-    font-size: 1em;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.7;
-    color: var(--grey-text);
-}
-.type-card .type-meta {
-    font-size: 0.72em;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--grey-text);
-    margin: 0;
-    border-top: 1px solid var(--grey-border);
-    padding-top: 1em;
-}
-
-/* ── Usage do/don't ── */
-.usage-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5em;
-    max-width: 860px;
-    margin: 0 auto;
-}
-@media (max-width: 736px) {
-    .usage-grid { grid-template-columns: 1fr; }
-}
-.usage-card {
-    border-radius: 8px;
-    padding: 1.8em;
-    border: 1px solid var(--grey-border);
-}
-.usage-card--do   { background: #f0f8ee; border-color: #b6ddb0; }
-.usage-card--dont { background: #fdf0f0; border-color: #e8b4b4; }
-
-.usage-card h4 {
-    font-size: 0.75em;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin: 0 0 1em;
-}
-.usage-card--do   h4 { color: #4a9e42; }
-.usage-card--dont h4 { color: #c0392b; }
-
-.usage-card ul {
-    margin: 0;
-    padding: 0 0 0 1.2em;
-    font-size: 0.85em;
-    color: var(--grey-text);
-    line-height: 1.8;
-}
-
-/* ── Download section ── */
-.download-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25em;
-    max-width: 860px;
-    margin: 0 auto;
-}
-@media (max-width: 736px) {
-    .download-grid { grid-template-columns: 1fr; }
-}
-.download-card {
-    background: var(--grey-light);
-    border: 1px solid var(--grey-border);
-    border-radius: 8px;
-    padding: 1.8em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8em;
-}
-.download-card i {
-    font-size: 1.5em;
-    color: var(--blue);
-}
-.download-card h4 {
-    margin: 0;
-    font-size: 0.9em;
-    color: var(--black);
-}
-.download-card p {
-    margin: 0;
-    font-size: 0.78em;
-    color: var(--grey-text);
-    flex: 1;
-}
-
-/* ── Shared overrides ── */
-.wrapper.brand-section {
-    padding: 4em 2em;
-}
-.inner.brand-inner {
-    max-width: 960px;
-    margin: 0 auto;
+/* Layout */
+.brand-inner {
+    max-width: 900px;
+    margin: auto;
     text-align: center;
 }
-.inner.brand-inner > header {
-    margin-bottom: 2.5em;
+
+/* Logos */
+.logo-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.5em;
+}
+@media(max-width:736px){
+    .logo-grid{grid-template-columns:1fr;}
+}
+.logo-card {
+    background:var(--grey-light);
+    border:1px solid var(--grey-border);
+    border-radius:8px;
+    padding:2em;
+}
+.logo-card.dark { background:var(--text-black); }
+.logo-card.blue { background:var(--blue); }
+
+/* Colours */
+.colour-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1em;
+}
+@media(max-width:736px){
+    .colour-grid{grid-template-columns:1fr 1fr;}
+}
+.colour-card {
+    border:1px solid var(--grey-border);
+    border-radius:8px;
+    overflow:hidden;
+}
+.colour-swatch { height:80px; }
+.colour-info {
+    padding:0.7em;
+    background:var(--grey-light);
+    font-size:0.85em;
+}
+
+/* Usage */
+.usage-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.5em;
+}
+@media(max-width:736px){
+    .usage-grid{grid-template-columns:1fr;}
+}
+.usage-card {
+    padding:1.5em;
+    border-radius:8px;
+    border:1px solid var(--grey-border);
+}
+.usage-card.do { background:#eef8ee; }
+.usage-card.dont { background:#fdf0f0; }
+
+/* Downloads */
+.download-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.2em;
+}
+@media(max-width:736px){
+    .download-grid{grid-template-columns:1fr;}
+}
+.download-card {
+    border:1px solid var(--grey-border);
+    border-radius:8px;
+    padding:1.5em;
+    background:var(--grey-light);
+}
+.download-card i {
+    font-size:1.4em;
+    color:var(--blue);
+}
+
+/* Footer */
+.footer {
+    text-align:center;
+    padding:2em;
 }
 </style>
 </head>
-<body class="is-preload">
 
-<!-- Hero -->
+<body>
+
 <div class="brand-hero">
     <h1>Brand Hub</h1>
-    <p>Logos, colours, typography &amp; usage guidelines for Pip Chell</p>
+    <p>Logos, colours and usage</p>
 </div>
 
-<!-- ── LOGOS ── -->
-<section class="wrapper style2 brand-section">
-    <div class="inner brand-inner">
-        <header class="major">
-            <h2>Logo</h2>
-            <p>The mark on light, dark and brand backgrounds.</p>
-        </header>
+<section class="wrapper">
+<div class="brand-inner">
 
-        <div class="logo-grid">
-            <!-- Light -->
-            <div class="logo-card logo-card--light">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#4696e5" d="
-                        M50,50
-                        C50,50 30,30 15,20
-                        C10,17 10,10 15,8
-                        C25,4 40,10 50,20
-                        C60,10 75,4 85,8
-                        C90,10 90,17 85,20
-                        C70,30 50,50 50,50
-                        Z
-                        M50,50
-                        C50,50 30,70 15,80
-                        C10,83 10,90 15,92
-                        C25,96 40,90 50,80
-                        C60,90 75,96 85,92
-                        C90,90 90,83 85,80
-                        C70,70 50,50 50,50
-                        Z
-                    "/>
-                    <!-- Recreate the actual logo shape: two D-shapes mirrored -->
-                    <path fill="#4696e5" d="
-                        M22,18 Q50,18 50,50 Q50,82 22,82
-                        Q10,82 10,70 Q10,62 18,58 Q28,54 28,50 Q28,46 18,42 Q10,38 10,30 Q10,18 22,18 Z
-                    "/>
-                    <path fill="#4696e5" d="
-                        M78,18 Q50,18 50,50 Q50,82 78,82
-                        Q90,82 90,70 Q90,62 82,58 Q72,54 72,50 Q72,46 82,42 Q90,38 90,30 Q90,18 78,18 Z
-                    "/>
-                    <circle fill="white" cx="31" cy="50" r="14"/>
-                    <circle fill="white" cx="69" cy="50" r="14"/>
-                    <!-- Top notch -->
-                    <path fill="white" d="M35,18 Q50,10 65,18 Q50,32 35,18 Z"/>
-                    <!-- Bottom notch -->
-                    <path fill="white" d="M35,82 Q50,90 65,82 Q50,68 35,82 Z"/>
-                </svg>
-                <p class="logo-card-label">On Light</p>
-            </div>
+<h2>Logos</h2>
 
-            <!-- Dark -->
-            <div class="logo-card logo-card--dark">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#4696e5" d="
-                        M78,18 Q50,18 50,50 Q50,82 78,82
-                        Q90,82 90,70 Q90,62 82,58 Q72,54 72,50 Q72,46 82,42 Q90,38 90,30 Q90,18 78,18 Z
-                        M22,18 Q50,18 50,50 Q50,82 22,82
-                        Q10,82 10,70 Q10,62 18,58 Q28,54 28,50 Q28,46 18,42 Q10,38 10,30 Q10,18 22,18 Z
-                    "/>
-                    <circle fill="#2d2d2d" cx="31" cy="50" r="14"/>
-                    <circle fill="#2d2d2d" cx="69" cy="50" r="14"/>
-                    <path fill="#2d2d2d" d="M35,18 Q50,10 65,18 Q50,32 35,18 Z"/>
-                    <path fill="#2d2d2d" d="M35,82 Q50,90 65,82 Q50,68 35,82 Z"/>
-                </svg>
-                <p class="logo-card-label">On Dark</p>
-            </div>
-
-            <!-- Blue -->
-            <div class="logo-card logo-card--blue">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white" d="
-                        M78,18 Q50,18 50,50 Q50,82 78,82
-                        Q90,82 90,70 Q90,62 82,58 Q72,54 72,50 Q72,46 82,42 Q90,38 90,30 Q90,18 78,18 Z
-                        M22,18 Q50,18 50,50 Q50,82 22,82
-                        Q10,82 10,70 Q10,62 18,58 Q28,54 28,50 Q28,46 18,42 Q10,38 10,30 Q10,18 22,18 Z
-                    "/>
-                    <circle fill="#4696e5" cx="31" cy="50" r="14"/>
-                    <circle fill="#4696e5" cx="69" cy="50" r="14"/>
-                    <path fill="#4696e5" d="M35,18 Q50,10 65,18 Q50,32 35,18 Z"/>
-                    <path fill="#4696e5" d="M35,82 Q50,90 65,82 Q50,68 35,82 Z"/>
-                </svg>
-                <p class="logo-card-label">On Brand Blue</p>
-            </div>
-        </div>
-
-        <!-- Wordmark -->
-        <div class="wordmark-row">
-            <div class="wordmark-card wordmark-card--light">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#4696e5" d="
-                        M78,18 Q50,18 50,50 Q50,82 78,82 Q90,82 90,70 Q90,62 82,58 Q72,54 72,50 Q72,46 82,42 Q90,38 90,30 Q90,18 78,18 Z
-                        M22,18 Q50,18 50,50 Q50,82 22,82 Q10,82 10,70 Q10,62 18,58 Q28,54 28,50 Q28,46 18,42 Q10,38 10,30 Q10,18 22,18 Z
-                    "/>
-                    <circle fill="white" cx="31" cy="50" r="14"/>
-                    <circle fill="white" cx="69" cy="50" r="14"/>
-                    <path fill="white" d="M35,18 Q50,10 65,18 Q50,32 35,18 Z"/>
-                    <path fill="white" d="M35,82 Q50,90 65,82 Q50,68 35,82 Z"/>
-                </svg>
-                <div class="wordmark-text">
-                    <p class="wm-name">Pip Chell</p>
-                    <p class="wm-sub">Design &amp; Tech</p>
-                </div>
-            </div>
-            <div class="wordmark-card wordmark-card--dark">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white" d="
-                        M78,18 Q50,18 50,50 Q50,82 78,82 Q90,82 90,70 Q90,62 82,58 Q72,54 72,50 Q72,46 82,42 Q90,38 90,30 Q90,18 78,18 Z
-                        M22,18 Q50,18 50,50 Q50,82 22,82 Q10,82 10,70 Q10,62 18,58 Q28,54 28,50 Q28,46 18,42 Q10,38 10,30 Q10,18 22,18 Z
-                    "/>
-                    <circle fill="#2d2d2d" cx="31" cy="50" r="14"/>
-                    <circle fill="#2d2d2d" cx="69" cy="50" r="14"/>
-                    <path fill="#2d2d2d" d="M35,18 Q50,10 65,18 Q50,32 35,18 Z"/>
-                    <path fill="#2d2d2d" d="M35,82 Q50,90 65,82 Q50,68 35,82 Z"/>
-                </svg>
-                <div class="wordmark-text">
-                    <p class="wm-name">Pip Chell</p>
-                    <p class="wm-sub">Design &amp; Tech</p>
-                </div>
-            </div>
-        </div>
-
+<div class="logo-grid">
+    <div class="logo-card">
+        <img src="/favicon.png" style="width:80px;">
     </div>
+
+    <div class="logo-card dark">
+        <img src="icons/whitelogo.png" style="width:80px;">
+    </div>
+
+    <div class="logo-card blue">
+        <img src="icons/whitelogo.png" style="width:80px;">
+    </div>
+</div>
+
+</div>
 </section>
 
-<!-- ── COLOURS ── -->
-<section class="wrapper style1 brand-section">
-    <div class="inner brand-inner">
-        <header class="major">
-            <h2>Colours</h2>
-            <p>Click any hex code to copy it.</p>
-        </header>
+<section class="wrapper">
+<div class="brand-inner">
 
-        <div class="colour-grid">
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#4696e5;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Brand Blue</p>
-                    <p class="colour-hex" onclick="copyHex('#4696e5', this)"><i class="fa-regular fa-copy"></i>#4696e5</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#2d7dd2;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Blue Dark</p>
-                    <p class="colour-hex" onclick="copyHex('#2d7dd2', this)"><i class="fa-regular fa-copy"></i>#2d7dd2</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#a8cdf3;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Blue Light</p>
-                    <p class="colour-hex" onclick="copyHex('#a8cdf3', this)"><i class="fa-regular fa-copy"></i>#a8cdf3</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#828282;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Text Grey</p>
-                    <p class="colour-hex" onclick="copyHex('#828282', this)"><i class="fa-regular fa-copy"></i>#828282</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#2d2d2d;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Near Black</p>
-                    <p class="colour-hex" onclick="copyHex('#2d2d2d', this)"><i class="fa-regular fa-copy"></i>#2d2d2d</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#fbfbfb; border-bottom: 1px solid #e6e6e6;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Off White</p>
-                    <p class="colour-hex" onclick="copyHex('#fbfbfb', this)"><i class="fa-regular fa-copy"></i>#fbfbfb</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#e6e6e6;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Border</p>
-                    <p class="colour-hex" onclick="copyHex('#e6e6e6', this)"><i class="fa-regular fa-copy"></i>#e6e6e6</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#f5f5f5;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Section BG</p>
-                    <p class="colour-hex" onclick="copyHex('#f5f5f5', this)"><i class="fa-regular fa-copy"></i>#f5f5f5</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background:#ffffff; border-bottom: 1px solid #e6e6e6;"></div>
-                <div class="colour-info">
-                    <p class="colour-name">White</p>
-                    <p class="colour-hex" onclick="copyHex('#ffffff', this)"><i class="fa-regular fa-copy"></i>#ffffff</p>
-                </div>
-            </div>
-            <div class="colour-card">
-                <div class="colour-swatch" style="background: linear-gradient(135deg, #4696e5 0%, #2d7dd2 100%);"></div>
-                <div class="colour-info">
-                    <p class="colour-name">Gradient</p>
-                    <p class="colour-hex" onclick="copyHex('linear-gradient(135deg, #4696e5, #2d7dd2)', this)" style="font-size:0.6em;"><i class="fa-regular fa-copy"></i>135deg → #2d7dd2</p>
-                </div>
-            </div>
-        </div>
+<h2>Colours</h2>
+
+<div class="colour-grid">
+    <div class="colour-card">
+        <div class="colour-swatch" style="background:#4696e5;"></div>
+        <div class="colour-info">Brand Blue<br>#4696e5</div>
     </div>
+
+    <div class="colour-card">
+        <div class="colour-swatch" style="background:#0B4881;"></div>
+        <div class="colour-info">Blue Dark<br>#0B4881</div>
+    </div>
+
+    <div class="colour-card">
+        <div class="colour-swatch" style="background:#a8cdf3;"></div>
+        <div class="colour-info">Blue Light<br>#a8cdf3</div>
+    </div>
+
+    <div class="colour-card">
+        <div class="colour-swatch" style="background:#2d2d2d;"></div>
+        <div class="colour-info">Text Black<br>#2d2d2d</div>
+    </div>
+</div>
+
+</div>
 </section>
 
-<!-- ── TYPOGRAPHY ── -->
-<section class="wrapper style2 brand-section">
-    <div class="inner brand-inner">
-        <header class="major">
-            <h2>Typography</h2>
-            <p>Type scale and font usage.</p>
-        </header>
+<section class="wrapper">
+<div class="brand-inner">
 
-        <div class="type-grid">
-            <div class="type-card">
-                <p class="type-specimen">Aa Bb Cc</p>
-                <p class="type-meta">Display / Headings &mdash; Raleway, sans-serif &mdash; Weight 700</p>
-            </div>
-            <div class="type-card">
-                <p class="type-specimen type-specimen--body">The quick brown fox jumps over the lazy dog. Body copy sits at 1em / 1.65 line-height for readability.</p>
-                <p class="type-meta">Body &mdash; Raleway, sans-serif &mdash; Weight 400</p>
-            </div>
-            <div class="type-card">
-                <p class="type-specimen" style="font-size:1.6em; letter-spacing:0.15em; font-weight:300; text-transform:uppercase;">LABEL</p>
-                <p class="type-meta">Labels / Caps &mdash; Raleway &mdash; Weight 300, 0.15em tracking</p>
-            </div>
-            <div class="type-card">
-                <p class="type-specimen" style="font-size:1em; font-family:'Courier New',monospace; font-weight:400; letter-spacing:0.05em; color:#4696e5;">#4696e5 &nbsp; rgb(70,150,229)</p>
-                <p class="type-meta">Code / Mono &mdash; Courier New &mdash; Weight 400</p>
-            </div>
-        </div>
+<h2>Usage</h2>
 
-        <!-- Type scale -->
-        <div style="max-width:860px; margin: 2em auto 0; background:var(--grey-light); border:1px solid var(--grey-border); border-radius:8px; padding:2em; text-align:left;">
-            <span class="brand-label">Type Scale</span>
-            <table style="width:100%; border-collapse:collapse; font-size:0.85em; color:var(--grey-text);">
-                <thead>
-                    <tr style="border-bottom:1px solid var(--grey-border);">
-                        <th style="padding:0.5em 0; font-weight:700; color:var(--black); text-align:left;">Role</th>
-                        <th style="padding:0.5em 0; font-weight:700; color:var(--black); text-align:left;">Size</th>
-                        <th style="padding:0.5em 0; font-weight:700; color:var(--black); text-align:left;">Weight</th>
-                        <th style="padding:0.5em 0; font-weight:700; color:var(--black); text-align:left;">Preview</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom:1px solid var(--grey-border);">
-                        <td style="padding:0.6em 0;">H1</td>
-                        <td>2.5em</td>
-                        <td>700</td>
-                        <td style="font-size:1.4em; font-weight:700; color:var(--black);">Pip Chell</td>
-                    </tr>
-                    <tr style="border-bottom:1px solid var(--grey-border);">
-                        <td style="padding:0.6em 0;">H2</td>
-                        <td>1.75em</td>
-                        <td>700</td>
-                        <td style="font-size:1.2em; font-weight:700; color:var(--black);">Section Title</td>
-                    </tr>
-                    <tr style="border-bottom:1px solid var(--grey-border);">
-                        <td style="padding:0.6em 0;">H3</td>
-                        <td>1.35em</td>
-                        <td>700</td>
-                        <td style="font-size:1.05em; font-weight:700; color:var(--black);">Card Heading</td>
-                    </tr>
-                    <tr style="border-bottom:1px solid var(--grey-border);">
-                        <td style="padding:0.6em 0;">Body</td>
-                        <td>1em</td>
-                        <td>400</td>
-                        <td>Regular body text</td>
-                    </tr>
-                    <tr>
-                        <td style="padding:0.6em 0;">Small</td>
-                        <td>0.8em</td>
-                        <td>400</td>
-                        <td style="font-size:0.85em;">Caption / meta text</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div class="usage-grid">
+
+<div class="usage-card do">
+<strong>Do</strong>
+<ul>
+<li>Use blue logo on light backgrounds</li>
+<li>Use white logo on dark backgrounds</li>
+<li>Keep strong contrast</li>
+<li>Maintain spacing</li>
+</ul>
+</div>
+
+<div class="usage-card dont">
+<strong>Don’t</strong>
+<ul>
+<li>Do not recolour</li>
+<li>Do not distort</li>
+<li>Do not add effects</li>
+<li>Do not use low contrast</li>
+</ul>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<!-- ── USAGE ── -->
-<section class="wrapper style1 brand-section">
-    <div class="inner brand-inner">
-        <header class="major">
-            <h2>Usage Guidelines</h2>
-            <p>How to use the brand correctly.</p>
-        </header>
+<section class="wrapper">
+<div class="brand-inner">
 
-        <div class="usage-grid">
-            <div class="usage-card usage-card--do">
-                <h4><i class="fa-solid fa-check"></i> &nbsp;Do</h4>
-                <ul>
-                    <li>Use the logo on white, off-white or brand blue backgrounds</li>
-                    <li>Keep clear space equal to the logo height on all sides</li>
-                    <li>Use <strong>#4696e5</strong> as the primary brand colour</li>
-                    <li>Use the wordmark for formal documents and email signatures</li>
-                    <li>Use the mark alone for social avatars and favicons</li>
-                    <li>Maintain original aspect ratio at all times</li>
-                </ul>
-            </div>
-            <div class="usage-card usage-card--dont">
-                <h4><i class="fa-solid fa-xmark"></i> &nbsp;Don't</h4>
-                <ul>
-                    <li>Recolour the logo to anything other than brand blue or white</li>
-                    <li>Stretch, skew or distort the mark</li>
-                    <li>Place the logo on busy or low-contrast backgrounds</li>
-                    <li>Add drop shadows, outlines or effects to the mark</li>
-                    <li>Use off-brand fonts alongside the logo</li>
-                    <li>Scale below 24px — use favicon at small sizes</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<h2>Downloads</h2>
+
+<div class="download-grid">
+
+<div class="download-card">
+<i class="fa-solid fa-image"></i>
+<h4>White Logo</h4>
+<a href="icons/whitelogo.png" download class="button small">Download</a>
+</div>
+
+<div class="download-card">
+<i class="fa-solid fa-image"></i>
+<h4>Blue Logo</h4>
+<a href="/favicon.png" download class="button small">Download</a>
+</div>
+
+<div class="download-card">
+<i class="fa-solid fa-image"></i>
+<h4>Black Logo</h4>
+<a href="icons/black logo.png" download class="button small">Download</a>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<!-- ── DOWNLOADS ── -->
-<section class="wrapper style2 special brand-section">
-    <div class="inner brand-inner">
-        <header class="major">
-            <h2>Assets</h2>
-            <p>Logo files and brand resources.</p>
-        </header>
-
-        <div class="download-grid">
-            <div class="download-card">
-                <i class="fa-solid fa-image"></i>
-                <h4>Logo PNG</h4>
-                <p>Transparent background, 1024×1024px. For web and digital use.</p>
-                <a href="https://pipchell.com/preview.png" target="_blank" rel="noopener" class="button small">Download</a>
-            </div>
-            <div class="download-card">
-                <i class="fa-brands fa-github"></i>
-                <h4>GitHub</h4>
-                <p>Source code and open-source projects by Pip Chell.</p>
-                <a href="https://github.com/pipchell" target="_blank" rel="noopener" class="button small">View</a>
-            </div>
-            <div class="download-card">
-                <i class="fa-solid fa-address-card"></i>
-                <h4>Contact Card</h4>
-                <p>Digital contact card with all links and social profiles.</p>
-                <a href="https://pipchell.com/me" target="_blank" rel="noopener" class="button small">Open</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<style>
-button.button {
-    -webkit-appearance: none;
-    appearance: none;
-    font-family: inherit;
-    font-size: 1em;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-    border: none;
-}
-</style>
-<section class="wrapper style2 special">
-    <div class="inner">
-        <ul class="actions special">
-            <li><a href="https://pipchell.com" class="button icon solid fa-chevron-left">Back to pipchell.com</a></li>
-            <li><a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer" class="button">Directory</a></li>
-            <li><a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer" class="button">Contact Card</a></li>
-        </ul>
-        <p style="opacity:0.6; font-size:0.85em;">He / Him &nbsp;&middot;&nbsp; &copy; 2026 Pip Chell</p>
-    </div>
-</section>
-
-<!-- Copy toast -->
-<div class="copied-toast" id="toast">Copied!</div>
-
-<script>
-function copyHex(hex, el) {
-    navigator.clipboard.writeText(hex).then(() => {
-        const toast = document.getElementById('toast');
-        toast.textContent = 'Copied ' + hex;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1800);
-    });
-}
-</script>
-
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<div class="footer">
+<a href="https://pipchell.com" class="button">Back to site</a>
+<p style="opacity:0.6;">&copy; 2026 Pip Chell</p>
+</div>
 
 </body>
 </html>
