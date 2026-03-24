@@ -8,5 +8,6 @@ Allow: /support
 Disallow: /tv
 Disallow: /help
 Disallow: /welcome
+Disallow: /marvin
 
 Sitemap: https://pipchell.com/sitemap.xml
