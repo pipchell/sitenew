@@ -9,5 +9,6 @@ Disallow: /tv
 Disallow: /help
 Disallow: /welcome
 Disallow: /marvin
+Disallow: /badfest
 
 Sitemap: https://pipchell.com/sitemap.xml
