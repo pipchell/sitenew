@@ -33,7 +33,16 @@ footer, header, hgroup, menu, nav, section {
     align-items: center;
 }
 
+/* Fix spotlight for courses */
+#courses .spotlight {
+    display: block !important;
+    text-align: center !important;
+}
 
+#courses .spotlight .content {
+    width: 100% !important;
+    margin: 0 auto !important;
+}
 
 
 ol, ul {
