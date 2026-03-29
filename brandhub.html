@@ -50,7 +50,7 @@ body, h1, h2, h3, h4, p, li {
 .logo-card.dark { background:var(--text-black); }
 .logo-card.blue { background:var(--blue); }
 
-/* Colours (WHITE BACKGROUND FIX) */
+/* Colours */
 .colours-section {
     background:#ffffff;
 }
@@ -70,11 +70,16 @@ body, h1, h2, h3, h4, p, li {
     border:1px solid var(--grey-border);
 }
 .colour-swatch { height:80px; }
+
+/* FIX: colour names black */
 .colour-info {
     background:#ffffff;
     padding:0.8em;
     font-size:0.8em;
+    color: var(--text-black);
 }
+
+/* keep hex grey */
 .colour-hex {
     cursor:pointer;
     font-family:monospace;
@@ -84,7 +89,7 @@ body, h1, h2, h3, h4, p, li {
     color:var(--blue);
 }
 
-/* Downloads TEXT FIX */
+/* Downloads */
 .download-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -128,7 +133,6 @@ body, h1, h2, h3, h4, p, li {
 
 <body class="is-preload">
 
-<!-- ORIGINAL HEADER (FROM YOUR FIRST FILE) -->
 <div class="brand-hero">
     <div class="brand-hero-content">
         <h1 class="brand-title">Brand Hub</h1>
@@ -161,16 +165,8 @@ body, h1, h2, h3, h4, p, li {
     color: #555;
     margin-bottom: 8px;
 }
-
-.brand-meta {
-    font-size: 14px;
-    color: #999;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
 </style>
 
-<!-- Logos -->
 <section class="wrapper style2 special">
 <div class="inner">
 <header class="major">
@@ -192,7 +188,6 @@ body, h1, h2, h3, h4, p, li {
 </div>
 </section>
 
-<!-- Colours -->
 <section class="wrapper style1 special colours-section">
 <div class="inner">
 <header class="major">
@@ -238,7 +233,6 @@ body, h1, h2, h3, h4, p, li {
 </div>
 </section>
 
-<!-- Downloads -->
 <section class="wrapper style2 special">
 <div class="inner">
 <header class="major">
@@ -270,7 +264,6 @@ body, h1, h2, h3, h4, p, li {
 </div>
 </section>
 
-<!-- ORIGINAL FOOTER -->
 <section id="footer">
     <ul class="actions special">
         <li><a href="https://pipchell.com" class="button icon solid fa-chevron-left">Back to pipchell.com</a></li>
