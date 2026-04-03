@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hub</title>
+  <link rel="icon" type="image/png" href="stuff/icon.png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #7156eb; /* new background color */
+    }
+
+    img.fullscreen {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Hide by default */
+    .desktop, .mobile {
+      display: none;
+    }
+
+    /* Desktop view */
+    @media (min-width: 769px) {
+      .desktop {
+        display: block;
+      }
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      .mobile {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Desktop version -->
+  <div class="desktop">
+    <img src="stuff/desktop-top.png" alt="Desktop Top" class="fullscreen">
+  </div>
+
+  <!-- Mobile version -->
+  <div class="mobile">
+    <img src="stuff/phone-top.png" alt="Phone Top" class="fullscreen">
+    <img src="stuff/phone-bottom.png" alt="Phone Bottom" class="fullscreen">
+  </div>
+</body>
+</html>

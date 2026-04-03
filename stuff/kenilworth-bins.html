@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bin Collections - Kenilworth</title>
+<link rel="icon" type="image/png" href="stuff/logo2.png">
+
+<style>
+@font-face {
+    font-family: 'LeagueSpartan';
+    src: url('stuff/LeagueSpartan-Bold.woff2') format('woff2'),
+         url('stuff/LeagueSpartan-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family:'LeagueSpartan';
+    font-weight:700;
+    margin-bottom: 40px;
+    color: #17D860;
+    font-size: 40px;
+}
+
+.bin {
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    border: 6px solid #333;
+    font-family:'LeagueSpartan';
+    color:white;
+    width: 100%;
+    text-align: center;
+}
+
+.green { background:#005f2f; }
+.gray { background:#555; }
+.black { background:#111; }
+.brown { background:#3b2400; }
+
+.today, .tomorrow { color: #4db6ff; font-weight:bold; }
+
+footer {
+    text-align:center;
+    margin-top:50px;
+    font-family:'LeagueSpartan';
+    font-size:18px;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper { padding: 15px; }
+    h1 { font-size: 44px; }
+    .bin { padding: 36px; font-size: 20px; }
+    .today, .tomorrow { font-size: 22px; }
+    footer { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Bin Collections - Kenilworth</h1>
+    <div id="output"></div>
+
+    <footer>Pip Chell - V4.6</footer>
+    <h6 style="
+        text-align:center;
+        font-family:'LeagueSpartan', sans-serif;
+        font-weight:700;
+        margin-top:20px;
+    ">
+        Info Only Accurate For Kenilworth, CV8. This Is Not An Official Service.
+    </h6>
+</div>
+
+<script>
+function formatDate(d) {
+    return d.toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+function addDays(date, days) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + days);
+    return d;
+}
+
+const overrides = {
+    food: ["2025-12-30"],     
+    recycling: ["2026-01-06"] 
+};
+
+function nextCycle(start, cycleDays, today, type) {
+    let d = new Date(start);
+    while (d < today) d = addDays(d, cycleDays);
+
+    if (overrides[type]) {
+        for (let o of overrides[type]) {
+            const overrideDate = new Date(o);
+            if (overrideDate >= today && overrideDate < addDays(d, cycleDays)) {
+                d = overrideDate;
+                break;
+            }
+        }
+    }
+    return d;
+}
+
+const today = new Date();
+const tomorrow = addDays(today, 1);
+
+const cycles = {
+    food: { name: "Food Waste", label: "Green Bin", start: new Date("2025-12-08"), cycle: 7, color:"green" },
+    garden: { name: "Garden Waste", label: "Green Bin", start: new Date("2025-12-08"), cycle: 14, color:"green" },
+    recycling: { name: "Recycling", label: "Gray Bin", start: new Date("2025-12-08"), cycle: 14, color:"gray" },
+    refuse: { name: "Refuse", label: "Black Bin", start: new Date("2025-12-22"), cycle: 21, color:"black" }
+};
+
+const output = document.getElementById("output");
+
+let binsArray = Object.entries(cycles).map(([key, bin]) => {
+    bin.nextDate = nextCycle(bin.start, bin.cycle, today, key);
+    return bin;
+});
+
+binsArray.sort((a, b) => a.nextDate - b.nextDate);
+
+binsArray.forEach(bin => {
+    let next = bin.nextDate;
+    let labelHTML = "";
+    let isToday = formatDate(next) === formatDate(today);
+    let isTomorrow = formatDate(next) === formatDate(tomorrow);
+
+    if (isToday) labelHTML = " <span class='today'>(Today)</span>";
+    if (isTomorrow) labelHTML = " <span class='tomorrow'>(Tomorrow)</span>";
+
+    let borderStyle = "6px solid #333";
+    if (isToday || isTomorrow) borderStyle = '6px solid white';
+
+    output.innerHTML += `
+        <div class="bin ${bin.color}" style="border:${borderStyle}">
+            <h2>${bin.name} (${bin.label})</h2>
+            <p><strong>Next collection:</strong> ${formatDate(next)}${labelHTML}</p>
+            <p><strong>Collection cycle:</strong> ${
+                bin.cycle === 7 ? "Every Monday" :
+                bin.cycle === 14 ? "Every Monday fortnightly" :
+                "Every Monday, every 3 weeks"
+            }</p>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html>

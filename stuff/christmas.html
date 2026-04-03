@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>RPCchristmas Countdown</title>
+  
+  <!-- Favicon declarations -->
+  <link rel="icon" href="stuff/logo2.png" type="image/png">
+  <link rel="apple-touch-icon" href="stuff/logo.png">
+  <link rel="shortcut icon" href="stuff/logo.png" type="image/x-icon">
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-TileImage" content="stuff/logo.png">
+  <meta name="msapplication-TileColor" content="#000000">
+  <style>
+    @font-face {
+      font-family: 'League Spartan';
+      src: url('stuff/assets/LeagueSpartan-Bold.woff2') format('woff2');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'League Spartan', sans-serif;
+      font-weight: bold;
+      background-color: #000;
+      color: #1ED760;
+      overflow: hidden;
+      touch-action: pan-x pan-y;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      body {
+        -webkit-text-size-adjust: 100%;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 15px;
+      transform: scale(var(--zoom-level, 1));
+      transform-origin: center;
+    }
+
+    h1 {
+      font-size: min(8vw, 3.5rem);
+      margin-bottom: min(4vw, 1.5rem);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: min(4vw, 2rem);
+      gap: min(2vw, 1.5rem);
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .countdown-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 4.5ch;
+      position: relative;
+    }
+
+    .countdown .value {
+      font-size: min(14vw, 5.5rem);
+      line-height: 1;
+      text-align: center;
+      width: 100%;
+      display: inline-block;
+      font-feature-settings: "tnum";
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown .label {
+      font-size: min(3.5vw, 1rem);
+      opacity: 0.8;
+      color: inherit;
+      text-transform: capitalize;
+      margin-top: 0.1rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    canvas.snow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Settings Button - Improved */
+    #settings-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0,0,0,0.7);
+      color: #1ED760;
+      border: 2px solid #1ED760;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      user-select: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      opacity: 1 !important;
+    }
+
+    #settings-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    #settings-toggle:hover {
+      transform: scale(1.1);
+      background-color: rgba(30, 215, 96, 0.2);
+    }
+
+    /* Settings Menu */
+    #settings-menu {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: rgba(0,0,0,0.9);
+      border: 2px solid #1ED760;
+      border-radius: 12px;
+      padding: 15px;
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+      max-width: 90vw;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    }
+
+    .button {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: bold;
+      padding: 12px 15px;
+      font-size: 1rem;
+      color: #1ED760;
+      background-color: rgba(0,0,0,0.6);
+      border: 2px solid #1ED760;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      user-select: none;
+      transition: all 0.2s ease;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 40px;
+    }
+
+    .button:hover {
+      background-color: rgba(30, 215, 96, 0.3);
+    }
+
+    .button.active {
+      background-color: rgba(30, 215, 96, 0.4);
+    }
+
+    /* Improved Weather Widget */
+    #weather-widget {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 2px solid #1ED760;
+      border-radius: 12px;
+      padding: 10px 15px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      z-index: 50;
+      font-size: 0.9rem;
+      color: #1ED760;
+      max-width: 95vw;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      backdrop-filter: blur(5px);
+    }
+
+    #weather-temp {
+      font-weight: bold;
+      font-size: 1.1rem;
+      min-width: 45px;
+      text-align: center;
+    }
+
+    #weather-location {
+      opacity: 0.9;
+      font-size: 0.85rem;
+      max-width: 160px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    #weather-description {
+      text-transform: capitalize;
+      max-width: 130px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* Improved Color Selector */
+    .color-input-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .color-input-container input[type="color"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #1ED760;
+    }
+
+    .color-input-container input[type="color"]::-webkit-color-swatch {
+      border: none;
+      border-radius: 6px;
+      padding: 0;
+    }
+
+    .color-input-container input[type="color"]::-moz-color-swatch {
+      border: none;
+      border-radius: 6px;
+      padding: 0;
+    }
+
+    .color-input-container label {
+      font-size: 0.9rem;
+      flex: 1;
+      text-align: left;
+    }
+
+    /* Connection Status - Improved for all browsers */
+    #connection-status {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      background-color: rgba(0,0,0,0.7);
+      border: 1px solid #1ED760;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #connection-status::after {
+      content: "●";
+    }
+
+    #connection-status.online {
+      color: #1ED760;
+    }
+
+    #connection-status.offline {
+      color: #ff3333;
+    }
+
+    #connection-status:hover::after {
+      content: attr(title);
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: rgba(0,0,0,0.8);
+      border: 1px solid #1ED760;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    /* Branding */
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(30, 215, 96, 0.3);
+    }
+
+    .branding span {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* File Upload Button */
+    .file-upload-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .file-upload-button {
+      width: 100%;
+      text-align: center;
+    }
+
+    #bg-upload {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    /* Zoom Controls */
+    .zoom-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .zoom-control label {
+      flex: 1;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .zoom-control input[type="range"] {
+      flex: 2;
+      -webkit-appearance: none;
+      height: 8px;
+      background: rgba(30, 215, 96, 0.3);
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .zoom-control input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #1ED760;
+      cursor: pointer;
+    }
+
+    .zoom-control input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #1ED760;
+      cursor: pointer;
+      border: none;
+    }
+
+    .zoom-value {
+      width: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: min(9vw, 2.8rem);
+        white-space: normal;
+        line-height: 1.2;
+        margin-bottom: min(5vw, 1.2rem);
+      }
+      
+      .countdown {
+        gap: min(3vw, 1.8rem);
+        width: 100%;
+        padding: 0 5px;
+      }
+      
+      .countdown .value {
+        font-size: min(15vw, 4.5rem);
+        letter-spacing: 1px;
+      }
+      
+      .countdown .label {
+        font-size: min(4vw, 0.9rem);
+        margin-top: 0.3rem;
+      }
+      
+      #settings-menu {
+        bottom: 75px;
+        right: 15px;
+        padding: 12px;
+        width: 85vw;
+      }
+      
+      #settings-toggle {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+      }
+      
+      .button {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+      }
+      
+      /* Improved Mobile Weather Widget */
+      #weather-widget {
+        bottom: 70px;
+        font-size: 0.85rem;
+        padding: 8px 12px;
+        gap: 8px;
+        max-width: 90%;
+      }
+      
+      #weather-temp {
+        font-size: 1rem;
+        min-width: 40px;
+      }
+      
+      #weather-description, #weather-location {
+        font-size: 0.8rem;
+        max-width: 110px;
+      }
+
+      /* Hide fullscreen button on mobile */
+      .fullscreen-button {
+        display: none !important;
+      }
+    }
+
+    /* Desktop-specific adjustments */
+    @media (min-width: 769px) {
+      .countdown {
+        gap: min(2vw, 1.5rem);
+      }
+      
+      .countdown .value {
+        font-size: 5rem;
+      }
+      
+      .countdown .label {
+        font-size: 1rem;
+      }
+      
+      h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    /* Very small screens */
+    @media (max-width: 400px) {
+      .countdown {
+        gap: min(3vw, 1.2rem);
+      }
+      
+      .countdown .value {
+        font-size: min(14vw, 4rem);
+      }
+      
+      #weather-widget {
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: auto;
+        max-width: 95%;
+        padding: 8px 10px;
+        bottom: 65px;
+        gap: 6px;
+      }
+      
+      #weather-temp {
+        font-size: 0.95rem;
+        min-width: 38px;
+      }
+      
+      #weather-description, #weather-location {
+        font-size: 0.75rem;
+        max-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+<h4>This is a archive</h4>
+<canvas class="snow"></canvas>
+<div class="container">
+  <h1>Christmas Countdown</h1>
+  <div class="countdown" aria-live="polite" aria-atomic="true">
+    <div class="countdown-block">
+      <span class="value" id="days">--</span>
+      <span class="label">days</span>
+    </div>
+    <div class="countdown-block">
+      <span class="value" id="hours">--</span>
+      <span class="label">hours</span>
+    </div>
+    <div class="countdown-block">
+      <span class="value" id="minutes">--</span>
+      <span class="label">minutes</span>
+    </div>
+    <div class="countdown-block">
+      <span class="value" id="seconds">--</span>
+      <span class="label">seconds</span>
+    </div>
+  </div>
+</div>
+
+<!-- Connection Status Indicator -->
+<div id="connection-status" class="online" title="Online"></div>
+
+<!-- Weather Widget - Initially hidden -->
+<div id="weather-widget" style="display: none;">
+  <div id="weather-temp">--°</div>
+  <div id="weather-description">Loading...</div>
+  <div id="weather-location"></div>
+</div>
+
+<!-- Settings Button - Updated with SVG -->
+<button id="settings-toggle" aria-label="Settings" aria-expanded="false">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
+  </svg>
+</button>
+
+<div id="settings-menu" role="region" aria-label="Settings Menu">
+  <button class="button" onclick="toggleSnow()">Toggle Snow</button>
+  <button class="button fullscreen-button" onclick="toggleFullscreen(this)">Fullscreen</button>
+  
+  <div class="file-upload-wrapper">
+    <label class="button file-upload-button">Upload Background</label>
+    <input type="file" id="bg-upload" accept="image/*" onchange="handleImageUpload(event)">
+  </div>
+  
+  <button class="button active" id="weather-toggle" onclick="toggleWeather()">Weather Widget</button>
+  <button class="button" onclick="copyLink()">Copy Link</button>
+  
+  <!-- Zoom Control Section -->
+  <div class="zoom-control">
+    <label for="zoom-slider">Zoom:</label>
+    <input type="range" id="zoom-slider" min="0.5" max="1.5" step="0.1" value="1">
+    <span class="zoom-value" id="zoom-value">100%</span>
+  </div>
+  
+  <div class="color-input-container">
+    <input type="color" id="bg-color" value="#000000" onchange="changeBgColor(this.value)">
+    <label for="bg-color">Background Color</label>
+  </div>
+  
+  <div class="color-input-container">
+    <input type="color" id="text-color" value="#1ED760" onchange="changeTextColor(this.value)">
+    <label for="text-color">Text Color</label>
+  </div>
+  
+  <div class="branding">
+    <span>Created By RPCgroup</span>
+  </div>
+</div>
+
+<script>
+  // Elements
+  const countdown = document.querySelector('.countdown');
+  const snowCanvas = document.querySelector('.snow');
+  const ctx = snowCanvas.getContext('2d');
+  const settingsMenu = document.getElementById('settings-menu');
+  const settingsToggle = document.getElementById('settings-toggle');
+  const weatherWidget = document.getElementById('weather-widget');
+  const weatherToggleBtn = document.getElementById('weather-toggle');
+  const bgColorInput = document.getElementById('bg-color');
+  const textColorInput = document.getElementById('text-color');
+  const connectionStatus = document.getElementById('connection-status');
+
+  // State
+  let w, h, flakes = [];
+  let countdownEnded = false;
+  let weatherEnabled = true;
+  let weatherTimeout = null;
+  let autoZoomSet = false;
+  let lastWeatherUpdate = 0; // Track last weather update time
+
+  // Check if in Arc Search browser
+  const isArcSearch = /ArcSearch/i.test(navigator.userAgent);
+  if (isArcSearch) {
+    // Add any Arc-specific adjustments here
+    document.documentElement.style.setProperty('overflow', 'auto');
+  }
+
+  // Initialize
+  function init() {
+    loadPreferences();
+    setupEventListeners();
+    initSnow();
+    animateSnow();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    checkConnection();
+    setInterval(checkConnection, 5000); // Check every 5 seconds
+    setupZoomControl();
+    autoAdjustZoom();
+    window.addEventListener('resize', autoAdjustZoom);
+  }
+
+  function loadPreferences() {
+    // Load preferences from localStorage
+    const savedWeatherPref = localStorage.getItem('weatherEnabled');
+    weatherEnabled = savedWeatherPref !== null ? savedWeatherPref === 'true' : true;
+    weatherToggleBtn.classList.toggle('active', weatherEnabled);
+    if (weatherEnabled) fetchWeather();
+  }
+
+  function setupEventListeners() {
+    window.addEventListener('resize', handleResize);
+    settingsToggle.addEventListener('click', toggleSettingsMenu);
+    document.addEventListener('click', handleDocumentClick);
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', updateConnectionStatus);
+  }
+
+  function autoAdjustZoom() {
+    if (autoZoomSet) return;
+    
+    const screenWidth = window.innerWidth;
+    let zoomLevel = 1;
+    
+    if (screenWidth < 400) {
+      zoomLevel = 0.8;
+    } else if (screenWidth < 500) {
+      zoomLevel = 0.9;
+    } else if (screenWidth > 1200) {
+      zoomLevel = 1.1;
+    }
+    
+    const zoomSlider = document.getElementById('zoom-slider');
+    const zoomValue = document.getElementById('zoom-value');
+    
+    if (zoomSlider && zoomValue) {
+      zoomSlider.value = zoomLevel;
+      document.documentElement.style.setProperty('--zoom-level', zoomLevel);
+      zoomValue.textContent = `${Math.round(zoomLevel * 100)}%`;
+      localStorage.setItem('countdownZoom', zoomLevel);
+      autoZoomSet = true;
+    }
+  }
+
+  function setupZoomControl() {
+    const zoomSlider = document.getElementById('zoom-slider');
+    const zoomValue = document.getElementById('zoom-value');
+    
+    // Load saved zoom level
+    const savedZoom = localStorage.getItem('countdownZoom');
+    if (savedZoom) {
+      document.documentElement.style.setProperty('--zoom-level', savedZoom);
+      zoomSlider.value = savedZoom;
+      zoomValue.textContent = `${Math.round(savedZoom * 100)}%`;
+    }
+    
+    zoomSlider.addEventListener('input', (e) => {
+      const zoomLevel = e.target.value;
+      document.documentElement.style.setProperty('--zoom-level', zoomLevel);
+      zoomValue.textContent = `${Math.round(zoomLevel * 100)}%`;
+      localStorage.setItem('countdownZoom', zoomLevel);
+      autoZoomSet = true; // User has manually adjusted, don't auto-adjust anymore
+    });
+  }
+
+  function handleResize() {
+    initSnow();
+  }
+
+  function handleDocumentClick(e) {
+    // Close settings when clicking outside
+    if (settingsMenu.style.display === 'flex' && 
+        !e.target.closest('#settings-menu') && 
+        !e.target.closest('#settings-toggle')) {
+      toggleSettingsMenu();
+    }
+  }
+
+  function toggleSettingsMenu() {
+    const isExpanded = settingsToggle.getAttribute('aria-expanded') === 'true';
+    settingsToggle.setAttribute('aria-expanded', !isExpanded);
+    settingsMenu.style.display = settingsMenu.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function initSnow() {
+    w = snowCanvas.width = window.innerWidth;
+    h = snowCanvas.height = window.innerHeight;
+    flakes = [];
+    for (let i = 0; i < 100; i++) {
+      flakes.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 4 + 1,
+        d: Math.random() + 1
+      });
+    }
+  }
+
+  function drawSnow() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.beginPath();
+    for (let f of flakes) {
+      ctx.moveTo(f.x, f.y);
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+    }
+    ctx.fill();
+    moveFlakes();
+  }
+
+  function moveFlakes() {
+    for (let f of flakes) {
+      f.y += Math.pow(f.d, 2) + 1;
+      f.x += Math.sin(0.01) * 2;
+      if (f.y > h) {
+        f.x = Math.random() * w;
+        f.y = 0;
+      }
+    }
+  }
+
+  function animateSnow() {
+    if (snowCanvas.style.display !== 'none') {
+      drawSnow();
+    }
+    requestAnimationFrame(animateSnow);
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    let year = now.getFullYear();
+    let xmas = new Date(year, 11, 25);
+    if (now > xmas) xmas.setFullYear(year + 1);
+    const diff = xmas - now;
+
+    if (diff <= 0 && !countdownEnded) {
+      countdownEnded = true;
+      showConfetti();
+      setTimeout(() => location.reload(), 5000);
+      return;
+    }
+
+    if (!countdownEnded) {
+      const secs = Math.floor(diff / 1000) % 60;
+      const mins = Math.floor(diff / (1000 * 60)) % 60;
+      const hrs = Math.floor(diff / (1000 * 60 * 60)) % 24;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hrs.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = mins.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = secs.toString().padStart(2, '0');
+    }
+  }
+
+  function checkConnection() {
+    connectionStatus.title = "Checking connection...";
+    
+    // First try the navigator.onLine property
+    if (navigator.onLine) {
+      // Double check with a small fetch request
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Timeout')), 3000)
+      );
+      
+      Promise.race([
+        fetch('https://httpbin.org/get', { 
+          method: 'HEAD',
+          cache: 'no-store',
+          mode: 'no-cors'
+        }),
+        timeoutPromise
+      ])
+      .then(() => {
+        updateConnectionStatus(true);
+        connectionStatus.title = "Online";
+      })
+      .catch(() => {
+        updateConnectionStatus(false);
+        connectionStatus.title = "Offline";
+      });
+    } else {
+      updateConnectionStatus(false);
+      connectionStatus.title = "Offline";
+    }
+  }
+
+  function updateConnectionStatus(isOnline) {
+    if (isOnline) {
+      connectionStatus.className = 'online';
+      connectionStatus.title = "Online";
+      // Only fetch weather if it's been more than an hour
+      if (weatherEnabled && (Date.now() - lastWeatherUpdate >= 3600000)) {
+        fetchWeather();
+      }
+    } else {
+      connectionStatus.className = 'offline';
+      connectionStatus.title = "Offline";
+      weatherWidget.style.display = 'none';
+    }
+  }
+
+  function fetchWeather() {
+    if (!weatherEnabled) return;
+    
+    // Check if an hour has passed since last update
+    const now = Date.now();
+    if (now - lastWeatherUpdate < 3600000) { // 3600000ms = 1 hour
+      // If less than an hour has passed, just show the existing data
+      if (document.getElementById('weather-temp').textContent !== '--°') {
+        weatherWidget.style.display = 'flex';
+      }
+      return;
+    }
+    
+    // Update the last update time
+    lastWeatherUpdate = now;
+    
+    // Show loading state temporarily
+    weatherWidget.style.display = 'flex';
+    document.getElementById('weather-description').textContent = 'Loading...';
+    
+    // Set timeout for weather loading
+    if (weatherTimeout) clearTimeout(weatherTimeout);
+    weatherTimeout = setTimeout(() => {
+      weatherWidget.style.display = 'none'; // Hide if timeout occurs
+    }, 15000);
+    
+    // First try to get approximate location from IP
+    fetch('https://ipapi.co/json/')
+      .then(response => {
+        if (!response.ok) throw new Error('IP location failed');
+        return response.json();
+      })
+      .then(locationData => {
+        const city = locationData.city || "Unknown";
+        const country = locationData.country_name || "";
+        document.getElementById('weather-location').textContent = `${city}, ${country}`;
+        
+        // Then try to get weather from wttr.in
+        return fetch(`https://wttr.in/${encodeURIComponent(city)}?format=%t+%C&1`);
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Weather API failed');
+        return response.text();
+      })
+      .then(weatherData => {
+        clearTimeout(weatherTimeout);
+        if (weatherData && weatherData.includes("°")) {
+          const parts = weatherData.split(" ");
+          const temp = parts[0];
+          const description = parts.slice(1).join(" ");
+          
+          document.getElementById('weather-temp').textContent = temp;
+          document.getElementById('weather-description').textContent = description.toLowerCase();
+          weatherWidget.style.display = 'flex'; // Show only if we have valid data
+        } else {
+          throw new Error('Invalid weather data');
+        }
+      })
+      .catch(error => {
+        clearTimeout(weatherTimeout);
+        console.log("Weather fetch failed, trying geolocation...");
+        // Fallback to browser geolocation
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            position => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+              fetch(`https://wttr.in/?format=%t+%C&1&lat=${lat}&lon=${lon}`)
+                .then(response => response.text())
+                .then(weatherData => {
+                  if (weatherData && weatherData.includes("°")) {
+                    const parts = weatherData.split(" ");
+                    document.getElementById('weather-temp').textContent = parts[0];
+                    document.getElementById('weather-description').textContent = parts.slice(1).join(" ").toLowerCase();
+                    document.getElementById('weather-location').textContent = "Your Location";
+                    weatherWidget.style.display = 'flex'; // Show only if we have valid data
+                  } else {
+                    weatherWidget.style.display = 'none'; // Hide if no valid data
+                  }
+                })
+                .catch(() => {
+                  weatherWidget.style.display = 'none'; // Hide if fetch fails
+                });
+            },
+            () => {
+              weatherWidget.style.display = 'none'; // Hide if geolocation fails
+            }
+          );
+        } else {
+          weatherWidget.style.display = 'none'; // Hide if no geolocation support
+        }
+      });
+  }
+
+  function toggleWeather() {
+    weatherEnabled = !weatherEnabled;
+    weatherToggleBtn.classList.toggle('active', weatherEnabled);
+    localStorage.setItem('weatherEnabled', weatherEnabled);
+    if (weatherEnabled) {
+      lastWeatherUpdate = 0; // Reset timer to force update
+      fetchWeather();
+    } else {
+      weatherWidget.style.display = 'none';
+      if (weatherTimeout) clearTimeout(weatherTimeout);
+    }
+  }
+
+  function toggleSnow() {
+    snowCanvas.style.display = snowCanvas.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function toggleFullscreen(btn) {
+    // Check if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      alert("Fullscreen mode is not available on mobile devices.");
+      return;
+    }
+    
+    if (!document.fullscreenElement && 
+        !document.webkitFullscreenElement && 
+        !document.mozFullScreenElement &&
+        !document.msFullscreenElement) {
+      // Enter fullscreen
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen();
+      } else if (document.documentElement.mozRequestFullScreen) {
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.msRequestFullscreen) {
+        document.documentElement.msRequestFullscreen();
+      }
+      btn.textContent = 'Exit Fullscreen';
+    } else {
+      // Exit fullscreen
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+      btn.textContent = 'Fullscreen';
+    }
+  }
+
+  function changeBgColor(color) {
+    document.body.style.backgroundColor = color;
+    document.body.style.backgroundImage = 'none';
+  }
+
+  function changeTextColor(color) {
+    document.body.style.color = color;
+    weatherWidget.style.color = color;
+    weatherWidget.style.borderColor = color;
+    settingsToggle.style.color = color;
+    settingsToggle.style.borderColor = color;
+    document.querySelectorAll('.button').forEach(btn => {
+      btn.style.color = color;
+      btn.style.borderColor = color;
+    });
+  }
+
+  function handleImageUpload(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      document.body.style.backgroundImage = `url('${reader.result}')`;
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundPosition = 'center';
+      document.body.style.backgroundRepeat = 'no-repeat';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(location.href).then(() => {
+      alert("Link copied to clipboard!");
+    }).catch(err => {
+      // Fallback for browsers that don't support clipboard API
+      const textarea = document.createElement('textarea');
+      textarea.value = location.href;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        alert("Link copied to clipboard!");
+      } catch (err) {
+        alert("Failed to copy link");
+      }
+      document.body.removeChild(textarea);
+    });
+  }
+
+  function showConfetti() {
+    console.log("Countdown complete! 🎉");
+  }
+
+  // Start everything
+  init();
+</script>
+</body>
+</html>

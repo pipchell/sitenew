@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bin Collections</title>
+<link rel="icon" type="image/png" href="stuff/logo2.png">
+
+<style>
+@font-face {
+    font-family: 'LeagueSpartan';
+    src: url('LeagueSpartan-Bold.woff2') format('woff2'),
+         url('LeagueSpartan-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.wrapper {
+    max-width: 1200px; /* wider container */
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'LeagueSpartan';
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #17D860;
+    font-size: 50px;
+}
+
+/* Grid container */
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+/* Link buttons */
+.location-link {
+    text-decoration: none;
+}
+
+.link-box {
+    background: #111;
+    padding: 35px;
+    border-radius: 12px;
+    border: 4px solid #333;
+    transition: 0.2s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.link-box span {
+    font-family: 'LeagueSpartan', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.link-box:hover {
+    background: #222;
+    cursor: pointer;
+}
+
+/* Request box */
+.request-box {
+    background: #222;
+    padding: 25px;
+    margin-top: 40px;
+    border-radius: 12px;
+    border: 4px solid #444;
+    font-family: 'LeagueSpartan';
+    text-align: center;
+}
+
+.request-box a {
+    color: #17D860;
+    font-weight: 700;
+    font-size: 28px;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-family: 'LeagueSpartan';
+    font-size: 22px;
+    margin-top: 40px;
+}
+
+.bottom-note {
+    text-align: center;
+    font-family: 'LeagueSpartan', sans-serif;
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    h1 { font-size: 44px; }
+    .link-box { padding: 28px; font-size: 20px; }
+    .request-box a { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Bin Collections</h1>
+
+    <div class="location-grid">
+        <a href="https://projects.pipchell.com/maidstone-bins" class="location-link">
+            <div class="link-box"><span>Maidstone</span></div>
+        </a>
+
+        <a href="https://projects.pipchell.com/royston-bins" class="location-link">
+            <div class="link-box"><span>Royston</span></div>
+        </a>
+
+        <a href="https://projects.pipchell.com/kenilworth-bins" class="location-link">
+            <div class="link-box"><span>Kenilworth</span></div>
+        </a>
+    </div>
+
+    <div class="request-box">
+        <p>Request a new location:</p>
+        <a href="mailto:bins@pipchell.com">
+            bins@pipchell.com
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

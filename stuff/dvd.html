@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RPClogo DVD</title>
+  <link rel="icon" href="stuff/logo2.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+      font-family: "League Spartan";
+      src: url("stuff/LeagueSpartan-Bold.woff2") format("woff2"),
+           url("stuff/LeagueSpartan-Bold.woff") format("woff");
+      font-weight: bold;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: "League Spartan", sans-serif;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #blocked {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #main {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background: #17D860;
+      color: black;
+      border: none;
+      padding: 12px 18px;
+      margin: 10px;
+      font-size: 1em;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: "League Spartan", sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #12b94f;
+    }
+
+    #logo {
+      position: absolute;
+      width: 150px;
+      height: auto;
+      visibility: hidden;
+    }
+
+    .preload {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="blocked">
+    <h1>Sorry, this site is not available on mobile devices.</h1>
+    <p>Please visit from a desktop computer.</p>
+    <p>Go to dvd.rpcgroup.xyz or download the .exe avalible from our website</p>
+  </div>
+
+  <div id="main">
+    <h1>RPClogo DVD</h1>
+    <a class="button" href="https://gofile.io/d/8GA9SW" target="_blank">Download .exe App</a>
+    <button class="button" onclick="launchWebVersion()">Use Web Version</button>
+  </div>
+
+  <div id="animation">
+    <img id="logo" src="stuff/4.png" alt="RPC Logo">
+    <img class="preload" src="stuff/1.png">
+    <img class="preload" src="stuff/2.png">
+    <img class="preload" src="stuff/3.png">
+    <img class="preload" src="stuff/4.png">
+    <img class="preload" src="stuff/5.png">
+  </div>
+
+  <script>
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      document.getElementById("blocked").style.display = "block";
+    } else {
+      document.getElementById("main").style.display = "flex";
+    }
+
+    function launchWebVersion() {
+      document.getElementById("main").style.display = "none";
+      document.getElementById("animation").style.display = "block";
+
+      const logo = document.getElementById("logo");
+      const totalLogos = 5;
+      let currentLogo = 4;
+
+      const preloaded = [];
+      for (let i = 1; i <= totalLogos; i++) {
+        const img = new Image();
+        img.src = `${i}.png`;
+        preloaded.push(img);
+      }
+
+      let speed = 3;
+      let dx = speed;
+      let dy = speed;
+      let x = 100;
+      let y = 100;
+
+      if (Math.random() < 0.5) dx *= -1;
+      if (Math.random() < 0.5) dy *= -1;
+
+      function changeLogo() {
+        currentLogo = (currentLogo % totalLogos) + 1;
+        logo.src = preloaded[currentLogo - 1].src;
+      }
+
+      function update() {
+        const w = logo.clientWidth;
+        const h = logo.clientHeight;
+        const sw = window.innerWidth;
+        const sh = window.innerHeight;
+
+        let bounced = false;
+
+        if (x + dx < 0 || x + dx + w > sw) {
+          dx *= -1;
+          bounced = true;
+        }
+
+        if (y + dy < 0 || y + dy + h > sh) {
+          dy *= -1;
+          bounced = true;
+        }
+
+        x += dx;
+        y += dy;
+
+        logo.style.left = `${x}px`;
+        logo.style.top = `${y}px`;
+
+        if (bounced) {
+          const hitCorner = (x <= 0 || x + w >= sw) && (y <= 0 || y + h >= sh);
+          if (hitCorner) console.log("Corner hit");
+          changeLogo();
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      window.onload = () => {
+        x = Math.random() * (window.innerWidth - logo.clientWidth);
+        y = Math.random() * (window.innerHeight - logo.clientHeight);
+
+        logo.style.left = `${x}px`;
+        logo.style.top = `${y}px`;
+        logo.style.visibility = "visible";
+
+        update();
+      };
+
+      if (document.readyState === "complete") {
+        window.onload();
+      }
+    }
+  </script>
+</body>
+</html>
