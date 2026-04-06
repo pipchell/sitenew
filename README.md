@@ -20,4 +20,4 @@
 
 ### License:
 
-MIT Licance
+MIT Licence
