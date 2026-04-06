@@ -4,6 +4,16 @@ Allow: /
 Allow: /me
 Allow: /directory
 Allow: /support
+Allow: /brandhub
+
+Allow: /stuff
+Allow: /stuff/bins
+Allow: /stuff/royston-bins
+Allow: /stuff/maidstone-bins
+Allow: /stuff/kenilworth-bins
+Disallow: /stuff/christmas
+Disallow: /stuff/dvd
+Disallow: /stuff/the-hub
 
 Disallow: /tv
 Disallow: /help
