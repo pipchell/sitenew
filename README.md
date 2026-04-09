@@ -15,6 +15,4 @@
 - Preserve readability and simplicity
 - Verify layout on both mobile and desktop
 
-### License:
 
-MIT Licence
