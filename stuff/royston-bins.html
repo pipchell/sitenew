@@ -4,6 +4,197 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bin Collections - Royston</title>
+<link rel="icon" type="image/ico" href="favicon.ico">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #fbfbfb;
+    color: #999999;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #4696e5;
+    font-size: 40px;
+}
+
+.bin {
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    border: 4px solid #e6e6e6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #828282;
+    width: 100%;
+    text-align: center;
+}
+
+.purple { background: #ddc8f0; border-color: #8b44cc; }
+.brown  { background: #e8c99a; border-color: #a0703a; }
+.black  { background: #b0b0b0; border-color: #666666; }
+.brown2 { background: #e8c99a; border-color: #a0703a; }
+.blue   { background: #b8d4f5; border-color: #4696e5; }
+
+.today, .tomorrow {
+    color: #4696e5;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper { padding: 15px; }
+    h1 { font-size: 44px; }
+    .bin {
+        padding: 36px;
+        font-size: 20px;
+    }
+    .today, .tomorrow { font-size: 22px; }
+    footer { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Bin Collections - Royston</h1>
+
+    <div id="output"></div>
+
+    <footer>Pip Chell - V4.6</footer>
+
+    <h6 style="
+        text-align:center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:700;
+        margin-top:20px;
+    ">
+        Info Only Accurate For Royston, Hertfordshire. This Is Not An Official Service.
+    </h6>
+</div>
+
+<script>
+function formatDate(d) {
+    return d.toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+function addDays(date, days) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + days);
+    return d;
+}
+
+function nextCycle(start, cycleDays, today) {
+    let d = new Date(start);
+    while (d < today) d = addDays(d, cycleDays);
+    return d;
+}
+
+const today = new Date();
+const tomorrow = addDays(today, 1);
+
+const cycles = {
+    nonRecyclable: {
+        name: "Non-Recyclable Waste (Purple Lid)",
+        start: new Date("2025-11-17"),
+        cycle: 21,
+        color:"purple"
+    },
+    food: {
+        name: "Food Waste (Brown Caddy)",
+        start: new Date("2025-11-17"),
+        cycle: 7,
+        color:"brown"
+    },
+    mixed: {
+        name: "Mixed Recycling (Black Lid)",
+        start: new Date("2025-11-24"),
+        cycle: 21,
+        color:"black"
+    },
+    garden: {
+        name: "Garden Waste (Brown Lid)",
+        start: new Date("2025-11-24"),
+        cycle: 14,
+        color:"brown2"
+    },
+    paper: {
+        name: "Cardboard & Paper (Blue Lid)",
+        start: new Date("2025-12-01"),
+        cycle: 21,
+        color:"blue"
+    }
+};
+
+const output = document.getElementById("output");
+
+let binsArray = Object.values(cycles).map(bin => {
+    bin.nextDate = nextCycle(bin.start, bin.cycle, today);
+    return bin;
+});
+
+binsArray.sort((a, b) => a.nextDate - b.nextDate);
+
+binsArray.forEach(bin => {
+    let next = bin.nextDate;
+
+    let labelHTML = "";
+    let isToday = formatDate(next) === formatDate(today);
+    let isTomorrow = formatDate(next) === formatDate(tomorrow);
+
+    if (isToday) labelHTML = " <span class='today'>(Today)</span>";
+    if (isTomorrow) labelHTML = " <span class='tomorrow'>(Tomorrow)</span>";
+
+    let borderStyle = "4px solid #e6e6e6";
+    if (isToday || isTomorrow) borderStyle = "4px solid #4696e5";
+
+    output.innerHTML += `
+        <div class="bin ${bin.color}" style="border:${borderStyle}">
+            <h2>${bin.name}</h2>
+            <p><strong>Next collection:</strong> ${formatDate(next)}${labelHTML}</p>
+            <p><strong>Collection cycle:</strong> Every ${
+                bin.cycle === 7 ? "Monday" :
+                bin.cycle === 14 ? "Monday fortnightly" :
+                "3rd Monday"
+            }</p>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bin Collections - Royston</title>
 <link rel="icon" type="image/png" href="logo2.png">
 
 <style>
