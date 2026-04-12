@@ -4,16 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bin Collections - Maidstone</title>
-<link rel="icon" type="image/png" href="logo2.png">
+<link rel="icon" type="image/ico" href="favicon.ico">
 
 <style>
-@font-face {
-    font-family: 'LeagueSpartan';
-    src: url('LeagueSpartan-Bold.woff2') format('woff2'),
-         url('LeagueSpartan-Bold.woff') format('woff');
-    font-weight: 700;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -21,9 +14,9 @@
 body {
     margin: 0;
     padding: 0;
-    background: #000;
-    color: white;
-    font-family: Arial, sans-serif;
+    background: #fbfbfb;
+    color: #999999;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
@@ -34,10 +27,10 @@ body {
 
 h1 {
     text-align: center;
-    font-family:'LeagueSpartan';
-    font-weight:700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
     margin-bottom: 40px;
-    color: #17D860;
+    color: #4696e5;
     font-size: 40px;
 }
 
@@ -45,28 +38,28 @@ h1 {
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 12px;
-    border: 6px solid #333;
-    font-family:'LeagueSpartan';
-    color:white;
+    border: 4px solid #e6e6e6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #828282;
     width: 100%;
     text-align: center;
 }
 
-.black { background:#111; }
-.orange { background:#7a3c00; }
-.green { background:#005f2f; }
-.brown { background:#3b2400; }
+.black  { background: #b0b0b0; border-color: #666666; }
+.orange { background: #ffd9a8; border-color: #e07a20; }
+.green  { background: #c8ecd6; border-color: #4caf7d; }
+.brown  { background: #e8c99a; border-color: #a0703a; }
 
 .today, .tomorrow {
-    color: #4db6ff;
-    font-weight:bold;
+    color: #4696e5;
+    font-weight: bold;
 }
 
 footer {
-    text-align:center;
-    margin-top:50px;
-    font-family:'LeagueSpartan';
-    font-size:18px;
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 768px) {
@@ -104,7 +97,7 @@ footer {
     <p>Pip Chell - V4.6</p>
     <a href="https://pipchell.com" target="_blank" style="display: block;">pipchell.com</a>
     <h6 style="
-        font-family: 'LeagueSpartan', sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 700;
         margin-top: 20px;
     ">
@@ -185,8 +178,8 @@ binsArray.forEach(bin => {
     if (isToday) labelHTML = " <span class='today'>(Today)</span>";
     if (isTomorrow) labelHTML = " <span class='tomorrow'>(Tomorrow)</span>";
 
-    let borderStyle = "6px solid #333";
-    if (isToday || isTomorrow) borderStyle = '6px solid white';
+    let borderStyle = "4px solid #e6e6e6";
+    if (isToday || isTomorrow) borderStyle = '4px solid #4696e5';
 
     output.innerHTML += `
         <div class="bin ${bin.color}" style="border:${borderStyle}">
