@@ -125,6 +125,17 @@
   white-space: nowrap;
 }
 
+#pip-nav {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#pip-nav.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* BRAND */
 #pip-nav .nav-brand {
   font-size: 0.78rem;
@@ -133,9 +144,9 @@
   text-transform: none;
   color: #828282;
   text-decoration: none;
-  padding: 0.3rem 0.7rem 0.3rem 0.4rem;
-  margin-right: 0.1rem;
-  border-right: 2px solid #e6e6e6;
+  padding: 0.3rem 0.5rem;
+  margin-right: 0.25rem;
+  border: none;
 }
 
 /* DESKTOP LINKS WRAPPER */
