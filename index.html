@@ -331,6 +331,23 @@ window.addEventListener("scroll", () => {
     closeMenu();
   }
 });
+
+<script>
+const nav = document.getElementById("pip-nav");
+const header = document.getElementById("header");
+
+function updateNav() {
+  if (window.scrollY > header.offsetHeight * 0.6) {
+    nav.classList.add("visible");
+  } else {
+    nav.classList.remove("visible");
+    closeMenu();
+  }
+}
+
+window.addEventListener("scroll", updateNav);
+window.addEventListener("load", updateNav);
+</script>
 </script>
 
 
