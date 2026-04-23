@@ -300,6 +300,8 @@ let open = false;
 const drawer = document.getElementById("pip-nav-drawer");
 const toggle = document.getElementById("navToggle");
 const icon = document.getElementById("navIcon");
+const nav = document.getElementById("pip-nav");
+const header = document.getElementById("header");
 
 toggle.onclick = (e) => {
   e.stopPropagation();
@@ -319,22 +321,6 @@ document.addEventListener("click", (e) => {
     closeMenu();
   }
 });
-
-const nav = document.getElementById("pip-nav");
-const header = document.getElementById("header");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > header.offsetHeight * 0.6) {
-    nav.classList.add("visible");
-  } else {
-    nav.classList.remove("visible");
-    closeMenu();
-  }
-});
-
-<script>
-const nav = document.getElementById("pip-nav");
-const header = document.getElementById("header");
 
 function updateNav() {
   if (window.scrollY > header.offsetHeight * 0.6) {
