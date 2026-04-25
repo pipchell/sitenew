@@ -1,286 +1,697 @@
 <!DOCTYPE HTML>
 <html lang="en-GB">
 <head>
-<title>Brand Hub – Pip Chell</title>
+<title>Pip Chell - Brand Hub</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<meta name="robots" content="noindex">
-
+<meta name="theme-color" content="#4696e5">
 <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="48x48">
 <link rel="stylesheet" href="assets/css/main.css" />
 <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
+
+/* ── VARIABLES ─────────────────────────────── */
 :root {
     --blue:       #4696e5;
     --blue-dark:  #0B4881;
-
+    --blue-tint:  #e8f2fc;
     --text-grey:  #828282;
     --text-black: #2d2d2d;
-
     --grey-light: #fbfbfb;
-    --grey-border:#ebebeb;
+    --grey-border:#e6e6e6;
+    --white:      #ffffff;
+    --radius:     8px;
 }
 
-/* FIX TEXT COLOUR */
-body, h1, h2, h3, h4, p, li {
+/* ── BASE FIXES ────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body, h1, h2, h3, h4, p, li, label, span {
     color: var(--text-black);
 }
 
-/* Logos */
+/* ── HERO / HEADER ─────────────────────────── */
+#brand-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 30vh;
+    padding: 5em 2em 4em;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+#brand-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 55% 60% at 85% 15%, rgba(70,150,229,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 55% at 15% 85%, rgba(11,72,129,0.06) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+#brand-header .eyebrow {
+    display: inline-block;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--blue-tint);
+    border-radius: 20px;
+    padding: 0.4em 1.1em;
+    margin-bottom: 1.2em;
+    position: relative;
+}
+
+#brand-header h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0 0 0.4em;
+    position: relative;
+}
+
+#brand-header p {
+    font-size: 1.05em;
+    color: var(--text-grey);
+    max-width: 480px;
+    line-height: 1.7;
+    margin: 0;
+    position: relative;
+}
+
+/* ── SECTION HEADINGS ──────────────────────── */
+header.major h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+header.major p {
+    color: var(--text-grey);
+}
+
+/* ── LOGO GRID ─────────────────────────────── */
 .logo-grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.5em;
-    max-width:860px;
-    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    max-width: 820px;
+    margin: 0 auto 2em;
 }
-@media(max-width:736px){
-    .logo-grid{grid-template-columns:1fr;}
-}
-.logo-card {
-    border-radius:8px;
-    padding:2em;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.logo-card.light { background:var(--grey-light); border:1px solid var(--grey-border); }
-.logo-card.dark { background:var(--text-black); }
-.logo-card.blue { background:var(--blue); }
 
-/* Colours */
-.colours-section {
-    background:#ffffff;
+@media (max-width: 736px) {
+    .logo-grid { grid-template-columns: 1fr; }
 }
+
+.logo-tile {
+    border-radius: var(--radius);
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    transition: transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-tile:hover { transform: translateY(-3px); }
+
+.logo-tile.on-light {
+    background: var(--grey-light);
+    border: 1px solid var(--grey-border);
+}
+.logo-tile.on-dark  { background: #1e1e1e; }
+.logo-tile.on-blue  { background: var(--blue); }
+
+.logo-tile img { width: 72px; height: 72px; object-fit: contain; }
+
+.logo-tile .tile-label {
+    font-size: 0.65em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.on-light .tile-label { color: var(--text-grey); }
+.on-dark  .tile-label { color: rgba(255,255,255,0.4); }
+.on-blue  .tile-label { color: rgba(255,255,255,0.65); }
+
+/* Usage notes */
+.logo-notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6em;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.logo-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 0.78em;
+    color: var(--text-grey);
+    background: var(--grey-light);
+    border: 1px solid var(--grey-border);
+    border-radius: 20px;
+    padding: 0.35em 0.9em;
+}
+.logo-note i { font-size: 0.85em; }
+.logo-note.do i   { color: #4caf50; }
+.logo-note.dont i { color: #e05c5c; }
+
+/* ── COLOUR GRID ───────────────────────────── */
 .colour-grid {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1.25em;
-    max-width:860px;
-    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    max-width: 820px;
+    margin: 0 auto;
 }
-@media(max-width:736px){
-    .colour-grid{grid-template-columns:1fr 1fr;}
+
+@media (max-width: 736px) {
+    .colour-grid { grid-template-columns: 1fr 1fr; }
 }
+
 .colour-card {
-    border-radius:8px;
-    overflow:hidden;
-    border:1px solid var(--grey-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--grey-border);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    background: var(--white);
 }
-.colour-swatch { height:80px; }
 
-/* FIX: colour names black */
-.colour-info {
-    background:#ffffff;
-    padding:0.8em;
-    font-size:0.8em;
+.colour-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.colour-swatch {
+    height: 100px;
+    position: relative;
+}
+
+.colour-swatch::after {
+    content: attr(data-hex);
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7em;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.5);
+}
+
+.colour-card[data-light] .colour-swatch::after {
+    color: rgba(0,0,0,0.25);
+}
+
+.colour-meta {
+    background: var(--white);
+    padding: 0.8em 0.9em;
+}
+
+.colour-name {
+    font-size: 0.82em;
+    font-weight: 600;
     color: var(--text-black);
+    margin-bottom: 0.15em;
 }
 
-/* keep hex grey */
 .colour-hex {
-    cursor:pointer;
-    font-family:monospace;
-    color:var(--text-grey);
-}
-.colour-hex:hover {
-    color:var(--blue);
+    font-size: 0.75em;
+    font-family: 'Courier New', monospace;
+    color: var(--text-grey);
+    transition: color 0.15s;
 }
 
-/* Downloads */
+.colour-card:hover .colour-hex { color: var(--blue); }
+
+/* ── TYPOGRAPHY ────────────────────────────── */
+.type-table {
+    max-width: 820px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.type-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1.5em;
+    align-items: center;
+    padding: 1.1em 0;
+    border-bottom: 1px solid var(--grey-border);
+}
+
+.type-row:last-child { border-bottom: none; }
+
+.type-meta {
+    font-size: 0.72em;
+    font-family: 'Courier New', monospace;
+    color: var(--text-grey);
+    line-height: 1.5;
+}
+
+.type-specimen { line-height: 1.2; }
+
+@media (max-width: 600px) {
+    .type-row { grid-template-columns: 1fr; gap: 0.4em; }
+}
+
+/* ── DOWNLOAD GRID ─────────────────────────── */
 .download-grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.25em;
-    max-width:860px;
-    margin:auto;
-}
-@media(max-width:736px){
-    .download-grid{grid-template-columns:1fr;}
-}
-.download-card {
-    background:var(--grey-light);
-    border:1px solid var(--grey-border);
-    border-radius:8px;
-    padding:1.5em;
-}
-.download-card * {
-    color: var(--text-black) !important;
-}
-.download-card i {
-    color: var(--blue) !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    max-width: 820px;
+    margin: 0 auto;
 }
 
-/* Toast */
-.toast {
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#000;
-    color:#fff;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:0.8em;
-    opacity:0;
-    transition:0.2s;
+@media (max-width: 736px) {
+    .download-grid { grid-template-columns: 1fr; }
 }
-.toast.show { opacity:1; }
+
+.download-card {
+    background: var(--grey-light);
+    border: 1px solid var(--grey-border);
+    border-radius: var(--radius);
+    padding: 1.6em 1.4em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+.download-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 6px 20px rgba(70,150,229,0.12);
+    transform: translateY(-2px);
+}
+
+.download-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--blue-tint);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-icon i { color: var(--blue); font-size: 1em; }
+
+.download-title {
+    font-size: 0.95em;
+    font-weight: 700;
+    color: var(--text-black);
+    margin: 0;
+}
+
+.download-sub {
+    font-size: 0.75em;
+    font-family: 'Courier New', monospace;
+    color: var(--text-grey);
+    margin: 0;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.4em;
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: var(--blue);
+    background: transparent;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.14s;
+    width: fit-content;
+}
+
+.download-btn:hover {
+    background: var(--blue-tint);
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.download-btn i { font-size: 0.8em; }
+
+/* ── TOAST ─────────────────────────────────── */
+.toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--text-black);
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.78em;
+    font-family: 'Courier New', monospace;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s, transform 0.18s;
+    white-space: nowrap;
+    z-index: 9999;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── FOOTER OVERRIDES ──────────────────────── */
+:root {
+    --footer-bg: #fbfbfb;
+    --footer-text: #828282;
+    --footer-link: #828282;
+    --footer-link-hover: #4696e5;
+}
+
+.footer-agency__bottom {
+    background-color: var(--footer-bg);
+    padding: 3.5rem 0 2rem;
+}
+
+.footer-agency__bottom-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.footer-agency__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-agency__nav a { color: var(--footer-link) !important; border-bottom: none; }
+.footer-agency__nav a:hover { color: var(--footer-link-hover) !important; }
+
+.footer-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--grey-border);
+    margin: 1.5rem auto;
+    border-radius: 2px;
+}
+
+.footer-meta {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.footer-links {
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    margin: 0;
+}
+
+.footer-links a {
+    color: var(--footer-link);
+    text-decoration: none;
+    margin: 0 0.4rem;
+}
+
+.footer-links a:hover { color: var(--footer-link-hover); }
+
+.footer-sep { color: #d0d0d0; margin: 0 0.25rem; }
+.footer-links i { margin-right: 0.35rem; }
+
+.footer-agency__copyright {
+    font-size: 0.875rem;
+    color: var(--footer-text);
+    text-align: center;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+button.button {
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    border: none;
+}
+
+@media (max-width: 736px) {
+    .footer-agency__nav ul { flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+    .footer-agency__nav a.button {
+        display: flex; align-items: center; justify-content: center;
+        padding: 0.5em 1em; font-size: 0.875rem; min-width: 120px;
+        box-sizing: border-box; text-align: center;
+    }
+}
+
+/* ── ANIMATIONS ────────────────────────────── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+#brand-header .eyebrow { animation: fadeUp 0.45s ease both; }
+#brand-header h1        { animation: fadeUp 0.45s 0.1s ease both; }
+#brand-header p         { animation: fadeUp 0.45s 0.2s ease both; }
+
 </style>
 </head>
 
 <body class="is-preload">
 
-<div class="brand-hero">
-    <div class="brand-hero-content">
-        <h1 class="brand-title">Brand Hub</h1>
-        <p class="brand-subtitle">
-            Official logos, colour palette, typography, and usage guidelines
+<!-- ─── HERO ─────────────────────────────────── -->
+<div id="brand-header">
+    <span class="eyebrow">pipchell.com</span>
+    <h1>Brand Hub</h1>
+    <p>Official logos, colour palette, typography, and downloadable assets for Pip Chell.</p>
+</div>
+
+<!-- ─── LOGOS ─────────────────────────────────── -->
+<section class="wrapper style2 special">
+    <div class="inner">
+        <header class="major">
+            <h2>Logos</h2>
+            <p>Three variants for use across different backgrounds.</p>
+        </header>
+
+        <div class="logo-grid">
+            <div class="logo-tile on-light">
+                <img src="/favicon.png" alt="Pip Chell blue logo">
+                <span class="tile-label">On light</span>
+            </div>
+            <div class="logo-tile on-dark">
+                <img src="icons/whitelogo.png" alt="Pip Chell white logo on dark">
+                <span class="tile-label">On dark</span>
+            </div>
+            <div class="logo-tile on-blue">
+                <img src="icons/whitelogo.png" alt="Pip Chell white logo on brand blue">
+                <span class="tile-label">On brand</span>
+            </div>
+        </div>
+
+        <div class="logo-notes">
+            <span class="logo-note do"><i class="fa-solid fa-circle-check"></i> Use on clean backgrounds</span>
+            <span class="logo-note do"><i class="fa-solid fa-circle-check"></i> Minimum size 24px</span>
+            <span class="logo-note dont"><i class="fa-solid fa-circle-xmark"></i> Don't stretch or distort</span>
+            <span class="logo-note dont"><i class="fa-solid fa-circle-xmark"></i> Don't recolour arbitrarily</span>
+        </div>
+    </div>
+</section>
+
+<!-- ─── COLOURS ───────────────────────────────── -->
+<section class="wrapper style1 special">
+    <div class="inner">
+        <header class="major">
+            <h2>Colours</h2>
+            <p>Click any swatch to copy the hex value.</p>
+        </header>
+
+        <div class="colour-grid">
+
+            <div class="colour-card" onclick="copyHex('#4696e5')">
+                <div class="colour-swatch" style="background:#4696e5;" data-hex="#4696e5"></div>
+                <div class="colour-meta">
+                    <div class="colour-name">Brand blue</div>
+                    <div class="colour-hex">#4696e5</div>
+                </div>
+            </div>
+
+            <div class="colour-card" onclick="copyHex('#0B4881')">
+                <div class="colour-swatch" style="background:#0B4881;" data-hex="#0B4881"></div>
+                <div class="colour-meta">
+                    <div class="colour-name">Blue dark</div>
+                    <div class="colour-hex">#0B4881</div>
+                </div>
+            </div>
+
+            <div class="colour-card" data-light onclick="copyHex('#828282')">
+                <div class="colour-swatch" style="background:#828282;" data-hex="#828282"></div>
+                <div class="colour-meta">
+                    <div class="colour-name">Text grey</div>
+                    <div class="colour-hex">#828282</div>
+                </div>
+            </div>
+
+            <div class="colour-card" onclick="copyHex('#2d2d2d')">
+                <div class="colour-swatch" style="background:#2d2d2d;" data-hex="#2d2d2d"></div>
+                <div class="colour-meta">
+                    <div class="colour-name">Text black</div>
+                    <div class="colour-hex">#2d2d2d</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ─── TYPOGRAPHY ────────────────────────────── -->
+<section class="wrapper style2 special">
+    <div class="inner">
+        <header class="major">
+            <h2>Typography</h2>
+            <p>The site uses the native Hyperspace stylesheet typeface stack.</p>
+        </header>
+
+        <div class="type-table">
+            <div class="type-row">
+                <div class="type-meta">Display<br>3.5em · 700</div>
+                <div class="type-specimen" style="font-size:2.4em; font-weight:700; letter-spacing:-0.02em; color:var(--text-black);">Pip Chell</div>
+            </div>
+            <div class="type-row">
+                <div class="type-meta">Heading H2<br>1.8em · 700</div>
+                <div class="type-specimen" style="font-size:1.8em; font-weight:700; letter-spacing:-0.01em; color:var(--text-black);">Section heading</div>
+            </div>
+            <div class="type-row">
+                <div class="type-meta">Subheading H3<br>1.35em · 600</div>
+                <div class="type-specimen" style="font-size:1.35em; font-weight:600; color:var(--text-black);">Subheading level three</div>
+            </div>
+            <div class="type-row">
+                <div class="type-meta">Body<br>1em · 400</div>
+                <div class="type-specimen" style="font-size:1em; line-height:1.7; color:var(--text-black);">Body copy for descriptions and general content across all brand touchpoints and digital materials.</div>
+            </div>
+            <div class="type-row">
+                <div class="type-meta">Muted / caption<br>0.9em · 400</div>
+                <div class="type-specimen" style="font-size:0.9em; color:var(--text-grey);">Supporting captions, labels, helper text, and metadata</div>
+            </div>
+            <div class="type-row">
+                <div class="type-meta">Mono<br>0.75em</div>
+                <div class="type-specimen" style="font-size:0.85em; font-family:'Courier New',monospace; color:var(--text-grey);">#4696e5 · rgb(70, 150, 229)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── DOWNLOADS ─────────────────────────────── -->
+<section class="wrapper style1 special">
+    <div class="inner">
+        <header class="major">
+            <h2>Downloads</h2>
+            <p>All logo files are PNG with transparent backgrounds.</p>
+        </header>
+
+        <div class="download-grid">
+
+            <div class="download-card">
+                <div class="download-icon"><i class="fa-solid fa-image"></i></div>
+                <p class="download-title">White logo</p>
+                <p class="download-sub">PNG · Transparent</p>
+                <a href="icons/whitelogo.png" download class="download-btn">
+                    <i class="fa-solid fa-arrow-down"></i> Download
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon"><i class="fa-solid fa-image"></i></div>
+                <p class="download-title">Blue logo</p>
+                <p class="download-sub">PNG · Transparent</p>
+                <a href="/favicon.png" download class="download-btn">
+                    <i class="fa-solid fa-arrow-down"></i> Download
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon"><i class="fa-solid fa-image"></i></div>
+                <p class="download-title">Black logo</p>
+                <p class="download-sub">PNG · Transparent</p>
+                <a href="icons/black logo.png" download class="download-btn">
+                    <i class="fa-solid fa-arrow-down"></i> Download
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────── -->
+<section class="footer-agency__bottom">
+    <div class="container footer-agency__bottom-container">
+        <nav class="footer-agency__nav" aria-label="Footer Navigation">
+            <ul>
+                <li><a href="https://pipchell.com" class="button icon solid fa-chevron-left">Back to pipchell.com</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-meta">
+        <p class="footer-links">
+            <a href="https://pipchell.com/directory" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-folder-open"></i> Directory
+            </a>
+            <span class="footer-sep">•</span>
+            <a href="https://pipchell.com/me" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i> Contact
+            </a>
         </p>
+
+        <a href="https://www.dmca.com/Protection/Status.aspx?ID=36962642-068d-489a-a95a-5c2a13ead19e"
+           title="DMCA.com Protection Status"
+           class="dmca-badge"
+           style="text-decoration:none; border-bottom:none;">
+            <img src="https://images.dmca.com/Badges/dmca-badge-w200-5x1-06.png?ID=36962642-068d-489a-a95a-5c2a13ead19e"
+                 alt="DMCA.com Protection Status" style="height:20px;" />
+        </a>
+
+        <p class="footer-agency__copyright">&copy; 2026 Pip Chell</p>
     </div>
-</div>
-
-<style>
-.brand-hero {
-    padding: 80px 20px;
-    text-align: center;
-    background: #f8f9fb;
-}
-
-.brand-hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.brand-title {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.brand-subtitle {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 8px;
-}
-</style>
-
-<section class="wrapper style2 special">
-<div class="inner">
-<header class="major">
-    <h2>Logos</h2>
-</header>
-
-<div class="logo-grid">
-    <div class="logo-card light">
-        <img src="/favicon.png" style="width:80px;">
-    </div>
-    <div class="logo-card dark">
-        <img src="icons/whitelogo.png" style="width:80px;">
-    </div>
-    <div class="logo-card blue">
-        <img src="icons/whitelogo.png" style="width:80px;">
-    </div>
-</div>
-
-</div>
 </section>
 
-<section class="wrapper style1 special colours-section">
-<div class="inner">
-<header class="major">
-    <h2>Colours</h2>
-</header>
+<script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
 
-<div class="colour-grid">
-
-    <div class="colour-card">
-        <div class="colour-swatch" style="background:#4696e5;"></div>
-        <div class="colour-info">
-            Brand Blue<br>
-            <span class="colour-hex" onclick="copyHex('#4696e5')">#4696e5</span>
-        </div>
-    </div>
-
-    <div class="colour-card">
-        <div class="colour-swatch" style="background:#0B4881;"></div>
-        <div class="colour-info">
-            Blue Dark<br>
-            <span class="colour-hex" onclick="copyHex('#0B4881')">#0B4881</span>
-        </div>
-    </div>
-
-    <div class="colour-card">
-        <div class="colour-swatch" style="background:#828282;"></div>
-        <div class="colour-info">
-            Text Grey<br>
-            <span class="colour-hex" onclick="copyHex('#828282')">#828282</span>
-        </div>
-    </div>
-
-    <div class="colour-card">
-        <div class="colour-swatch" style="background:#2d2d2d;"></div>
-        <div class="colour-info">
-            Text Black<br>
-            <span class="colour-hex" onclick="copyHex('#2d2d2d')">#2d2d2d</span>
-        </div>
-    </div>
-
-</div>
-
-</div>
-</section>
-
-<section class="wrapper style2 special">
-<div class="inner">
-<header class="major">
-    <h2>Downloads</h2>
-</header>
-
-<div class="download-grid">
-
-<div class="download-card">
-<i class="fa-solid fa-image"></i>
-<h4>White Logo</h4>
-<a href="icons/whitelogo.png" download class="button small">Download</a>
-</div>
-
-<div class="download-card">
-<i class="fa-solid fa-image"></i>
-<h4>Blue Logo</h4>
-<a href="/favicon.png" download class="button small">Download</a>
-</div>
-
-<div class="download-card">
-<i class="fa-solid fa-image"></i>
-<h4>Black Logo</h4>
-<a href="icons/black logo.png" download class="button small">Download</a>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section id="footer">
-    <ul class="actions special">
-        <li><a href="https://pipchell.com" class="button icon solid fa-chevron-left">Back to pipchell.com</a></li>
-    </ul>
-<a href="//www.dmca.com/Protection/Status.aspx?ID=36962642-068d-489a-a95a-5c2a13ead19e" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w200-5x1-06.png?ID=36962642-068d-489a-a95a-5c2a13ead19e"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
-    <p class="copyright">&copy; 2026 Pip Chell</p>
-</section>
-
-<div class="toast" id="toast">Copied</div>
+<!-- ─── TOAST ─────────────────────────────────── -->
+<div class="toast" id="toast"></div>
 
 <script>
 function copyHex(hex) {
-    navigator.clipboard.writeText(hex);
+    navigator.clipboard.writeText(hex).catch(()=>{});
     const t = document.getElementById('toast');
-    t.textContent = "Copied " + hex;
-    t.classList.add("show");
-    setTimeout(()=>t.classList.remove("show"),1500);
+    t.textContent = 'Copied ' + hex;
+    t.classList.add('show');
+    clearTimeout(window._tt);
+    window._tt = setTimeout(() => t.classList.remove('show'), 1600);
 }
 </script>
 
