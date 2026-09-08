@@ -171,20 +171,6 @@ padding:40px 16px;
 }
 }
 
-/*
-  Note: earlier attempts to control the chat popup's width/height via CSS
-  (--call-us-form-width/-height) were confirmed non-functional - DevTools
-  showed the widget's own script overrides them regardless of screen size.
-  Popup sizing can't be controlled from page-side code with this widget
-  version.
-
-  The widget's own "enable-onmobile" attribute crashes it entirely (broke
-  desktop too), so it's left at "true". Instead, mobile is hidden by wrapping
-  the <call-us> tag in #chat-widget-wrapper below and hiding THAT via CSS -
-  the widget's script only manages its own element, not our wrapper, so this
-  should be safe from the override-fighting we saw with right/bottom and
-  the form-width/height properties.
-*/
 @media (max-width:640px){
 #chat-widget-wrapper{
 display:none !important;
@@ -205,11 +191,19 @@ display:none !important;
 
 <div class="section">
 
-<a class="card" href="tel:+443330384665">
+<a class="card">
 <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
 <div class="info">
 <strong>Call Us</strong>
-<span>+44 333 038 4665 · UK callers only · Included in most phone plans</span>
+<span>+44 333 038 4665 · Request a call by emailing us or by creating a support ticket</span>
+</div>
+</a>
+
+<a class="card" sms:"+447366903894">
+<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+<div class="info">
+<strong>Text Us </strong>
+<span>+44 7366 903894</span>
 </div>
 </a>
 
@@ -221,90 +215,13 @@ display:none !important;
 </div>
 </a>
 
-<div class="card">
-<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-<div class="info">
-<strong>Live Chat</strong>
-<span>Open the chat bubble in the bottom-right corner · Desktop / tablet only</span>
-</div>
-</div>
-
-<a class="card" href="https://short.pipchell.com/whatsapp" target="_blank">
-<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-<div class="info">
-<strong>WhatsApp</strong>
-<span>@pipchellcom</span>
-</div>
-</a>
 
 </div>
 
 <footer>
-
-<div class="limitations">
-<p>Known Limitations</p>
-<ul>
-<li>Live chat does not work on mobile, as the screen size is too small to fit the window.</li>
-<li>Calling is restricted to the UK area due to charges for us and you. Calling is available on WhatsApp internationally.</li>
-</ul>
-</div>
 
 <p class="copyright">© Pip Chell 2026</p>
 
 </footer>
 
 </div>
-
-<!-- 3CX Live Chat Widget (manual/static config - NOT real-time synced with PBX)
-     If you change settings in the 3CX admin panel, regenerate this snippet
-     from 3CX and paste it back in here, adjusting right/bottom below again.
-     Wrapped in #chat-widget-wrapper so it can be hidden on mobile/tablet via
-     CSS (see the @media rule near the top of the <style> block) without
-     touching the widget's own attributes, which crash it if set wrong. -->
-<div id="chat-widget-wrapper">
-<call-us
-phonesystem-url="https://1252.3cx.cloud"
-style="position:fixed;font-size:16px;line-height:17px;z-index: 99999;--call-us-main-accent-color:#14A5FF;--call-us-main-background-color:#404040;--call-us-plate-background-color:#373737;--call-us-plate-font-color:#D9D9D9;--call-us-main-font-color:#FFFFFF;--call-us-agent-bubble-color:#FFFFFF10;--call-us-form-width:min(300px, calc(100vw - 40px));--call-us-form-height:min(480px, calc(100vh - 140px));right: 26px; bottom: 26px;"
-id="wp-live-chat-by-3CX"
-minimized="true"
-animation-style="noanimation"
-party="LiveChat905480"
-minimized-style="bubbleright"
-allow-call="false"
-allow-video="false"
-allow-soundnotifications="true"
-enable-mute="true"
-enable-onmobile="true"
-offline-enabled="true"
-enable="true"
-ignore-queueownership="false"
-authentication="both"
-operator-name="pipchell.com Live Chat"
-show-operator-actual-name="true"
-aknowledge-received="true"
-operator-icon="data:image/png;base64,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"
-gdpr-enabled="true"
-gdpr-message="I agree that my personal data to be processed and for the use of cookies in order to engage in a chat processed by pipchell.com."
-message-userinfo-format="both"
-message-dateformat="both"
-start-chat-button-text="pipchell.com Live Chat"
-lang="browser"
-button-icon-type="bubble"
-invite-message="Hi, how can I help you today?"
-authentication-message="Please enter your contact details."
-unavailable-message="No agents are avalible, please leave a message."
-first-response-message="An agent will message you shortly."
-ending-message="This session has ended."
-greeting-visibility="both"
-greeting-offline-visibility="both"
-greeting-message="Hi, we're here to help!"
-greeting-offline-message="We are away, leave us a message."
-chat-delay="2000"
-enable-direct-call="false"
-enable-ga="false"
-></call-us>
-</div>
-<script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
-
-</body>
-</html>
